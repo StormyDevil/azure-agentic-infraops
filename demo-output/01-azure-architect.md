@@ -1,3 +1,5 @@
+Output from Plan Agent:
+
 # Azure Well-Architected Framework Assessment
 
 ## Multi-Tier E-Commerce Platform

@@ -1,3 +1,11 @@
+Prompt: Now create a Bicep implementation plan for the visualized architecture. Use the diagram as reference for resource dependencies and relationships.
+
+Error: Sorry, the response hit the length limit. Please rephrase your prompt
+
+Prompt: i'm running into this problem when using the attached as a prompt: Sorry, the response hit the length limit. Please rephrase your prompt. help me fix it
+
+Output:
+
 The problem is that asking for a complete Bicep implementation plan for a complex 10+ resource architecture in one prompt generates too much content. Here are solutions:
 
 Solution 1: Split into Phases
