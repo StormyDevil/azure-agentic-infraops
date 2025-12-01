@@ -3,12 +3,13 @@ name: Azure Bicep Planning Specialist
 description: Expert Azure Bicep Infrastructure as Code planner that creates comprehensive, machine-readable implementation plans. Consults Microsoft documentation, evaluates Azure Verified Modules, and designs complete infrastructure solutions with architecture diagrams.
 tools:
   [
+    "runCommands",
     "edit",
     "search",
-    "runCommands",
+    "Bicep (EXPERIMENTAL)/*",
     "Microsoft Docs/*",
     "Azure MCP/*",
-    "Bicep (EXPERIMENTAL)/*",
+    "ms-azuretools.vscode-azure-github-copilot/azure_get_azure_verified_module",
     "ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes",
     "ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context",
@@ -16,6 +17,7 @@ tools:
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_template_tags",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_templates_for_tag",
     "ms-azuretools.vscode-azureresourcegroups/azureActivityLog",
+    "ms-vscode.vscode-websearchforcopilot/websearch",
   ]
 handoffs:
   - label: Generate Bicep Code
@@ -300,16 +302,16 @@ az resource delete --ids {resource-id}
 
 ## Patterns to Avoid
 
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| Incomplete dependencies | Resources fail to deploy in correct order | Map ALL resource dependencies in diagram |
-| Missing cost estimates | Budget surprises during deployment | Include monthly cost breakdown for every resource |
-| Outdated AVM versions | Missing features, security patches | Always fetch latest AVM version from registry |
-| Vague resource specs | Implementation agent makes wrong assumptions | Specify exact SKUs, configurations, parameters |
-| No rollback strategy | Stuck deployments with no recovery path | Document rollback commands for each phase |
-| Skipping validation steps | Errors discovered too late | Include pre/post-deployment validation for each phase |
-| Hardcoded values in plan | Plan not reusable across environments | Use parameter placeholders with examples |
-| Missing region rationale | No justification for region choice | Document why specific region was selected |
+| Anti-Pattern              | Problem                                      | Solution                                              |
+| ------------------------- | -------------------------------------------- | ----------------------------------------------------- |
+| Incomplete dependencies   | Resources fail to deploy in correct order    | Map ALL resource dependencies in diagram              |
+| Missing cost estimates    | Budget surprises during deployment           | Include monthly cost breakdown for every resource     |
+| Outdated AVM versions     | Missing features, security patches           | Always fetch latest AVM version from registry         |
+| Vague resource specs      | Implementation agent makes wrong assumptions | Specify exact SKUs, configurations, parameters        |
+| No rollback strategy      | Stuck deployments with no recovery path      | Document rollback commands for each phase             |
+| Skipping validation steps | Errors discovered too late                   | Include pre/post-deployment validation for each phase |
+| Hardcoded values in plan  | Plan not reusable across environments        | Use parameter placeholders with examples              |
+| Missing region rationale  | No justification for region choice           | Document why specific region was selected             |
 
 ---
 
@@ -364,7 +366,7 @@ Before handing off to bicep-implement, **ALWAYS** ask for approval:
 
 **DO NOT:**
 
-- ❌ Create actual Bicep code files (*.bicep)
+- ❌ Create actual Bicep code files (\*.bicep)
 - ❌ Modify files outside `.bicep-planning-files/`
 - ❌ Proceed to bicep-implement without explicit user approval
 
