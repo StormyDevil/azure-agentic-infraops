@@ -1,9 +1,9 @@
-# Development Container for GitHub Copilot IT Pro Field Guide
+# Development Container for GitHub Copilot IT Pro Demo
 
 This devcontainer provides a **complete, pre-configured development environment** for working with all demos
 and scenarios in this repository. It includes all required tools, extensions, and configurations out of the box.
 
-**Base Image:** `mcr.microsoft.com/devcontainers/universal:latest` (Ubuntu 24.04 Noble)
+**Base Image:** `mcr.microsoft.com/devcontainers/base:ubuntu-24.04`
 
 ## 🎯 What's Included
 
@@ -18,7 +18,7 @@ and scenarios in this repository. It includes all required tools, extensions, an
 
 - **PowerShell 7+** (via devcontainer feature) with Az modules (Accounts, Resources, Storage, Network, KeyVault, Websites)
 - **Python 3.12** with pip
-- **Node.js v22** with npm
+- **Node.js LTS** with npm
 - **Bash** with common utilities
 
 ### Development Tools
@@ -28,15 +28,15 @@ and scenarios in this repository. It includes all required tools, extensions, an
 - **GitHub CLI** (gh)
 - **jq**, **tree**, **graphviz**, **dos2unix**
 
-### VS Code Extensions (28 Pre-installed)
+### VS Code Extensions (27 Pre-installed)
 
-- ✅ **GitHub Copilot** + Copilot Chat
-- ✅ **Azure Bicep** language support
+- ✅ **GitHub Copilot** + Copilot Chat + Mermaid Diagrams
+- ✅ **Azure Tools** (Bicep, Resource Groups, Container Apps, Static Web Apps, Terraform, CLI)
 - ✅ **HashiCorp Terraform** language support
 - ✅ **PowerShell** language support
-- ✅ **Azure Tools** (Resource Groups, Container Apps, Static Web Apps)
-- ✅ **Markdown** (Mermaid diagrams, preview, linting, Prettier formatting)
-- ✅ **Kubernetes & Docker** tools
+- ✅ **Markdown** (Mermaid diagrams, GitHub preview, linting, Prettier formatting)
+- ✅ **Kubernetes & Docker** tools (AKS, Docker)
+- ✅ **GitHub** (Actions, Pull Requests, Azure Copilot)
 - ✅ **AI Foundry** + AI Toolkit extensions
 
 ## 🚀 Quick Start
@@ -55,7 +55,7 @@ and scenarios in this repository. It includes all required tools, extensions, an
 1. Open VS Code in this repository folder
 2. Press `F1` or `Ctrl+Shift+P`
 3. Type and select: `Dev Containers: Reopen in Container`
-4. Wait 5-8 minutes for initial build (subsequent opens are ~30 seconds)
+4. Wait 3-5 minutes for initial build (subsequent opens are ~30 seconds)
 
 **Option 2: Notification Prompt**
 
@@ -74,18 +74,19 @@ az account set --subscription "<your-subscription-id>"
 # 3. Verify tools are installed (auto-displayed after setup)
 terraform version && az bicep version && pwsh --version
 
-# 4. Explore scenarios
-cd scenarios/ && tree -L 2
+# 4. Explore demos and infrastructure
+cd demos/ && ls -la
+cd ../infra/bicep/ && tree -L 2
 ```
 
 ## 📁 Environment Configuration
 
 ### Pre-configured Environment Variables
 
-| Variable                  | Value                              | Purpose                                        |
-| ------------------------- | ---------------------------------- | ---------------------------------------------- |
-| `TF_PLUGIN_CACHE_DIR`     | `/home/codespace/.terraform-cache` | Speeds up Terraform provider downloads         |
-| `AZURE_DEFAULTS_LOCATION` | `swedencentral`                    | Default Azure region (matches repo guidelines) |
+| Variable                  | Value                           | Purpose                                        |
+| ------------------------- | ------------------------------- | ---------------------------------------------- |
+| `TF_PLUGIN_CACHE_DIR`     | `/home/vscode/.terraform-cache` | Speeds up Terraform provider downloads         |
+| `AZURE_DEFAULTS_LOCATION` | `swedencentral`                 | Default Azure region (matches repo guidelines) |
 
 ### Azure Credentials Mount
 
@@ -101,11 +102,10 @@ so you only need to `az login` once on your host machine.
 
 ```bash
 # Test Bicep compilation
-bicep build infra/bicep/contoso-patient-portal/main.bicep
+bicep build infra/bicep/ecommerce/main.bicep
 
-# Test Terraform validation
-cd scenarios/S02-terraform-baseline/solution/
-terraform init && terraform validate
+# Test Terraform validation (if Terraform files exist)
+terraform --version
 
 # Test security scanners
 tfsec --version && checkov --version
@@ -150,10 +150,10 @@ sudo npm update -g markdownlint-cli           # markdownlint
 
 | Metric                 | Value   |
 | ---------------------- | ------- |
-| **Container Image**    | ~2.5 GB |
-| **Memory (idle)**      | ~1.5 GB |
-| **Memory (active)**    | ~3-4 GB |
-| **Disk (with caches)** | ~5-8 GB |
+| **Container Image**    | ~1.5 GB |
+| **Memory (idle)**      | ~1 GB   |
+| **Memory (active)**    | ~2-3 GB |
+| **Disk (with caches)** | ~4-6 GB |
 
 ## 🔒 Security Notes
 
@@ -164,10 +164,10 @@ sudo npm update -g markdownlint-cli           # markdownlint
 
 ## 📚 Related Documentation
 
-- [Prerequisites Guide](../docs/getting-started/prerequisites.md)
-- [Model Selection Guide](../docs/getting-started/model-selection.md)
-- [S01: Bicep Baseline](../scenarios/S01-bicep-baseline/README.md)
+- [Workflow Guide](../docs/WORKFLOW.md)
+- [Demo Prompts](../demos/demo-prompts.md)
 - [Copilot Instructions](../.github/copilot-instructions.md)
+- [Repository README](../README.md)
 
 ---
 

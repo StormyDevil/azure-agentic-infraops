@@ -1,9 +1,9 @@
 # Azure Infrastructure Agent Workflow
 
-> **Version**: 1.0
-> **Last Updated**: 2025-12-01
+> **Version**: 1.1
+> **Last Updated**: 2025-12-02
 
-This document describes the 4-step agent workflow for Azure infrastructure development in this repository.
+This document describes the 5-step agent workflow for Azure infrastructure development in this repository.
 
 ---
 
@@ -19,31 +19,32 @@ graph LR
         A["azure-principal-architect<br/>(NO CODE)"]
     end
     subgraph Step 3
-        B["bicep-plan<br/>(plan only)"]
+        D["diagram-generator<br/>(visualization)"]
     end
     subgraph Step 4
+        B["bicep-plan<br/>(plan only)"]
+    end
+    subgraph Step 5
         I["bicep-implement<br/>(code generation)"]
     end
     subgraph Optional
-        D["diagram-generator"]
         ADR["adr-generator"]
     end
 
     P -->|"requirements"| A
-    A -->|"architecture"| B
+    A -->|"architecture"| D
+    D -->|"diagram"| B
     B -->|"plan"| I
 
-    A -.->|"optional"| D
-    I -.->|"optional"| D
     A -.->|"optional"| ADR
     I -.->|"optional"| ADR
 
     style P fill:#e1f5fe
     style A fill:#fff3e0
+    style D fill:#f3e5f5
     style B fill:#e8f5e9
     style I fill:#fce4ec
-    style D fill:#e8eaf6
-    style ADR fill:#f3e5f5
+    style ADR fill:#e8eaf6
 ```
 
 ## Workflow Steps
@@ -52,15 +53,15 @@ graph LR
 | ---- | --------------------------- | ----------------------- | ---------------------------- | ----------------- |
 | 1    | `@plan` (built-in)          | Gather requirements     | Requirements plan            | ✅ Yes            |
 | 2    | `azure-principal-architect` | WAF assessment          | Architecture recommendations | ✅ Yes            |
-| 3    | `bicep-plan`                | Implementation planning | `INFRA.md` plan file         | ✅ Yes            |
-| 4    | `bicep-implement`           | Code generation         | Bicep templates              | ✅ Yes            |
+| 3    | `diagram-generator`         | Architecture diagram    | Python diagram + PNG         | ✅ Yes            |
+| 4    | `bicep-plan`                | Implementation planning | `INFRA.md` plan file         | ✅ Yes            |
+| 5    | `bicep-implement`           | Code generation         | Bicep templates              | ✅ Yes            |
 
 ### Optional Steps
 
-| Agent               | When to Use       | Creates                      |
-| ------------------- | ----------------- | ---------------------------- |
-| `diagram-generator` | After Step 2 or 4 | Python diagram + PNG         |
-| `adr-generator`     | After any step    | Architecture Decision Record |
+| Agent           | When to Use    | Creates                      |
+| --------------- | -------------- | ---------------------------- |
+| `adr-generator` | After any step | Architecture Decision Record |
 
 ---
 
@@ -105,6 +106,15 @@ Architect: [Updates assessment with Front Door]
 
 You: approve
 
+[Handoff to diagram-generator]
+
+Diagram: [Generates architecture visualization]
+         ✅ Created docs/diagrams/patient-portal/architecture.py
+         ✅ Generated architecture.png
+         Continue to implementation planning?
+
+You: yes
+
 [Handoff to bicep-plan]
 
 Planner: [Creates implementation plan in .bicep-planning-files/]
@@ -140,6 +150,13 @@ Implementer: [Executes deployment to Azure]
 - **Limitations**: ❌ Cannot create or edit any files
 - **Focus**: Architectural guidance only
 
+### diagram-generator
+
+- **Input**: Architecture context from azure-principal-architect
+- **Output**: Python diagram file in `docs/diagrams/{goal}/` + PNG image
+- **Limitations**: Requires `diagrams` Python library
+- **Focus**: Visual architecture documentation
+
 ### bicep-plan
 
 - **Input**: Architecture assessment
@@ -153,12 +170,6 @@ Implementer: [Executes deployment to Azure]
 - **Output**: Bicep templates in `infra/bicep/{goal}/`
 - **Limitations**: Must follow the approved plan
 - **Focus**: Code generation and validation
-
-### diagram-generator (Optional)
-
-- **Input**: Architecture context from any step
-- **Output**: Python diagram file + PNG
-- **Focus**: Visual documentation
 
 ### adr-generator (Optional)
 
@@ -216,5 +227,6 @@ For simple infrastructure or quick iterations, use `infrastructure-specialist` w
 
 ## Related Documentation
 
+- [Demo Prompts](../demos/demo-prompts.md)
 - [Copilot Instructions](../.github/copilot-instructions.md)
 - [README](../README.md)

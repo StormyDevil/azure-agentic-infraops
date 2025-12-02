@@ -9,9 +9,9 @@
 
 ---
 
-> **Build Azure infrastructure with AI-powered agents.** A 4-step workflow that takes you from
-> requirements to deployed Bicep templates—with architecture guidance, validation, and best
-> practices built in.
+> **Build Azure infrastructure with AI-powered agents.** A 5-step workflow that takes you from
+> requirements to deployed Bicep templates—with architecture guidance, diagrams, validation,
+> and best practices built in.
 
 ## The Workflow
 
@@ -25,18 +25,23 @@ graph LR
         A["azure-principal-architect<br/>(NO CODE)"]
     end
     subgraph Step 3
-        B["bicep-plan<br/>(plan only)"]
+        D["diagram-generator<br/>(visualization)"]
     end
     subgraph Step 4
+        B["bicep-plan<br/>(plan only)"]
+    end
+    subgraph Step 5
         I["bicep-implement<br/>(code generation)"]
     end
 
     P -->|"requirements"| A
-    A -->|"architecture"| B
+    A -->|"architecture"| D
+    D -->|"diagram"| B
     B -->|"plan"| I
 
     style P fill:#e1f5fe
     style A fill:#fff3e0
+    style D fill:#f3e5f5
     style B fill:#e8f5e9
     style I fill:#fce4ec
 ```
@@ -45,10 +50,11 @@ graph LR
 | ---- | --------------------------- | ---------------------------------------------------------------------- |
 | 1    | `@plan`                     | Gather requirements and create implementation plan with cost estimates |
 | 2    | `azure-principal-architect` | Azure Well-Architected Framework assessment (NO code)                  |
-| 3    | `bicep-plan`                | Create detailed implementation plan with AVM modules                   |
-| 4    | `bicep-implement`           | Generate and validate Bicep templates                                  |
+| 3    | `diagram-generator`         | Generate Python architecture diagrams                                  |
+| 4    | `bicep-plan`                | Create detailed implementation plan with AVM modules                   |
+| 5    | `bicep-implement`           | Generate and validate Bicep templates                                  |
 
-**Optional agents:** `diagram-generator` (architecture diagrams) and `adr-generator` (decision records)
+**Optional agent:** `adr-generator` (Architecture Decision Records)
 
 ---
 
@@ -84,6 +90,14 @@ Architect: [Provides WAF assessment - Security, Reliability, Performance scores]
            Do you approve this architecture?
 
 You: approve
+
+[Handoff to diagram-generator]
+
+Diagram: [Generates Python architecture diagram]
+         ✅ Created docs/diagrams/patient-portal/architecture.py
+         ✅ Generated architecture.png
+
+You: continue
 
 [Handoff to bicep-plan]
 
@@ -125,14 +139,17 @@ github-copilot-demo/
 │   ├── bicep-plan.agent.md
 │   ├── bicep-implement.agent.md
 │   ├── diagram-generator.agent.md
-│   └── adr-generator.agent.md
+│   ├── adr-generator.agent.md
+│   └── infrastructure-specialist.agent.md
 ├── .bicep-planning-files/       # Generated implementation plans
 ├── infra/bicep/                 # Generated Bicep templates
 ├── docs/
 │   ├── WORKFLOW.md              # Workflow documentation
 │   ├── adr/                     # Architecture Decision Records
 │   └── diagrams/                # Generated architecture diagrams
-└── demos/                       # Demo scenarios
+├── demos/                       # Demo scenarios
+│   └── demo-prompts.md          # Ready-to-use demo prompts
+└── demo-output/                 # Sample agent outputs
 ```
 
 ---
