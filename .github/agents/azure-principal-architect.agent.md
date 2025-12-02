@@ -141,7 +141,6 @@ For each recommendation:
 | `azure_region_recommend` | Find cheapest Azure regions for a SKU          | Which region is cheapest for SQL S2?   |
 | `azure_discover_skus`    | List all available SKUs for a service          | What App Service Plan SKUs exist?      |
 | `azure_sku_discovery`    | Fuzzy SKU name matching                        | "vm" → "Virtual Machines"              |
-| `get_customer_discount`  | Get customer discount (default 10%)            | Apply enterprise discount to estimates |
 
 **Fallback**: If MCP tools are unavailable, use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
@@ -151,16 +150,18 @@ For each recommendation:
 2. **Compare Regions**: Use `azure_region_recommend` to identify cost-effective regions
 3. **Identify Cost Drivers**: List main factors (compute, storage, bandwidth, data transfer)
 4. **Break Down by Service**: Show SKU tier recommendations per component
-5. **Apply Discounts**: Note that 10% customer discount is auto-applied
-6. **Provide Alternatives**: Include cost-saving options (reserved instances, spot VMs, dev/test tiers)
+5. **Provide Alternatives**: Include cost-saving options (reserved instances, spot VMs, dev/test tiers)
+
+**Note**: All prices returned are Azure retail list prices (pay-as-you-go). Enterprise agreements and reservations provide additional savings.
 
 **SKU Tier Patterns to Recommend**:
-   - App Service: Basic (B1) for dev/test, Standard (S1) for production, Premium (P1v3) for zone redundancy
-   - Azure SQL: Basic for dev, Standard S0-S2 for small-medium workloads, Premium P1+ for high performance
-   - Storage Account: LRS for non-critical data, GRS for geo-redundancy requirements
-   - VMs: B-series for burstable workloads, D-series for general purpose, E-series for memory-intensive
-   - Azure Bastion: Basic for standard access, Standard for advanced features
-   - Application Gateway: Standard_v2 for basic load balancing, WAF_v2 for web application firewall
+
+- App Service: Basic (B1) for dev/test, Standard (S1) for production, Premium (P1v3) for zone redundancy
+- Azure SQL: Basic for dev, Standard S0-S2 for small-medium workloads, Premium P1+ for high performance
+- Storage Account: LRS for non-critical data, GRS for geo-redundancy requirements
+- VMs: B-series for burstable workloads, D-series for general purpose, E-series for memory-intensive
+- Azure Bastion: Basic for standard access, Standard for advanced features
+- Application Gateway: Standard_v2 for basic load balancing, WAF_v2 for web application firewall
 
 **Format Example:**
 
@@ -304,12 +305,12 @@ When the user requests a cost estimate document (e.g., "create cost estimate", "
 
 ## Summary
 
-| Metric              | Value            |
-| ------------------- | ---------------- |
-| Monthly Estimate    | ${X,XXX} - ${X,XXX} |
-| Annual Estimate     | ${XX,XXX} - ${XX,XXX} |
-| Primary Region      | swedencentral    |
-| Discount Applied    | 10%              |
+| Metric           | Value                 |
+| ---------------- | --------------------- |
+| Monthly Estimate | ${X,XXX} - ${X,XXX}   |
+| Annual Estimate  | ${XX,XXX} - ${XX,XXX} |
+| Primary Region   | swedencentral         |
+| Pricing Type     | List Price (PAYG)     |
 
 ---
 
@@ -317,37 +318,37 @@ When the user requests a cost estimate document (e.g., "create cost estimate", "
 
 ### Compute Services
 
-| Resource         | SKU          | Qty | $/Hour | $/Month | Notes              |
-| ---------------- | ------------ | --- | ------ | ------- | ------------------ |
-| App Service      | P1v3         | 2   | $0.XXX | $XXX    | Zone redundant     |
-| Azure Functions  | EP1          | 1   | $0.XXX | $XXX    | Premium plan       |
-| Virtual Machines | D4s_v5       | 3   | $0.XXX | $XXX    | General purpose    |
+| Resource         | SKU    | Qty | $/Hour | $/Month | Notes           |
+| ---------------- | ------ | --- | ------ | ------- | --------------- |
+| App Service      | P1v3   | 2   | $0.XXX | $XXX    | Zone redundant  |
+| Azure Functions  | EP1    | 1   | $0.XXX | $XXX    | Premium plan    |
+| Virtual Machines | D4s_v5 | 3   | $0.XXX | $XXX    | General purpose |
 
 ### Data Services
 
-| Resource    | SKU      | Size   | $/Month | Notes            |
-| ----------- | -------- | ------ | ------- | ---------------- |
-| Azure SQL   | S2       | 250 GB | $XXX    | Standard tier    |
-| Redis Cache | C2       | 6 GB   | $XXX    | Basic cache      |
-| Storage     | LRS      | 500 GB | $XX     | Hot tier         |
+| Resource    | SKU | Size   | $/Month | Notes         |
+| ----------- | --- | ------ | ------- | ------------- |
+| Azure SQL   | S2  | 250 GB | $XXX    | Standard tier |
+| Redis Cache | C2  | 6 GB   | $XXX    | Basic cache   |
+| Storage     | LRS | 500 GB | $XX     | Hot tier      |
 
 ### Networking
 
-| Resource            | Configuration | $/Month | Notes               |
-| ------------------- | ------------- | ------- | ------------------- |
-| Front Door          | Standard      | $XXX    | WAF included        |
-| Private Endpoints   | 5 endpoints   | $XX     | $0.01/hour each     |
-| VNet Gateway        | VpnGw1        | $XXX    | For hybrid connect  |
+| Resource          | Configuration | $/Month | Notes              |
+| ----------------- | ------------- | ------- | ------------------ |
+| Front Door        | Standard      | $XXX    | WAF included       |
+| Private Endpoints | 5 endpoints   | $XX     | $0.01/hour each    |
+| VNet Gateway      | VpnGw1        | $XXX    | For hybrid connect |
 
 ---
 
 ## Regional Comparison
 
-| Region           | Monthly Cost | Savings vs Primary |
-| ---------------- | ------------ | ------------------ |
-| swedencentral    | $X,XXX       | Baseline           |
-| germanywestcentral | $X,XXX     | +X%                |
-| northeurope      | $X,XXX       | -X%                |
+| Region             | Monthly Cost | Savings vs Primary |
+| ------------------ | ------------ | ------------------ |
+| swedencentral      | $X,XXX       | Baseline           |
+| germanywestcentral | $X,XXX       | +X%                |
+| northeurope        | $X,XXX       | -X%                |
 
 ---
 
@@ -365,7 +366,7 @@ When the user requests a cost estimate document (e.g., "create cost estimate", "
 
 - Usage: 730 hours/month (24x7)
 - Data transfer: Minimal egress (<100 GB/month)
-- Customer discount: 10% applied to all prices
+- Pricing: Azure retail list prices (pay-as-you-go)
 - Prices queried: {YYYY-MM-DD} via Azure Pricing MCP
 
 ---

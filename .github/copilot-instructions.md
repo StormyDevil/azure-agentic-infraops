@@ -577,7 +577,7 @@ az --version && bicep --version && pwsh --version
 
 1. Open Command Palette (`Ctrl+Shift+P`)
 2. Run: **MCP: List Servers**
-3. Verify `azure-pricing` shows 7 tools
+3. Verify `azure-pricing` shows 6 tools
 
 ### Option 2: Manual Setup
 

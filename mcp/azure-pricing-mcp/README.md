@@ -52,7 +52,7 @@ This MCP server integrates with the custom agents in this repository to provide 
 
 1. **Agents access pricing tools** via the `azure-pricing/*` tool namespace
 2. **Real-time queries** to Azure Retail Prices API (no authentication required)
-3. **Automatic discount application** (10% default customer discount)
+3. **List prices** returned are Azure retail pay-as-you-go rates
 4. **Region recommendations** find cheapest Azure regions for any SKU
 
 ### Configured Tools
@@ -65,7 +65,6 @@ The following tools are available to agents:
 - `azure_region_recommend` - Find cheapest regions
 - `azure_discover_skus` - List available SKUs
 - `azure_sku_discovery` - Fuzzy name matching for services
-- `get_customer_discount` - Retrieve discount information
 
 ---
 
@@ -81,7 +80,6 @@ The following tools are available to agents:
 | 🌍 **Region Recommendations** | Find the cheapest Azure regions for any SKU with savings analysis   |
 | 💱 **Multi-Currency**         | Support for USD, EUR, GBP, and more                                 |
 | 📊 **Real-time Data**         | Live data from Azure Retail Prices API                              |
-| 🏷️ **Customer Discounts**     | Apply discount percentages to all pricing queries                   |
 | 🐳 **Docker Support**         | Run in containers for easy deployment and isolation                 |
 
 ---
@@ -96,7 +94,6 @@ The following tools are available to agents:
 | `azure_region_recommend` | Find cheapest regions for a SKU with savings percentages |
 | `azure_discover_skus`    | List available SKUs for a specific service               |
 | `azure_sku_discovery`    | Intelligent SKU discovery with fuzzy name matching       |
-| `get_customer_discount`  | Get customer discount information                        |
 
 ---
 

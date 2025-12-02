@@ -41,7 +41,7 @@ graph LR
 
     A -.->|"optional"| ADR
     I -.->|"optional"| ADR
-    
+
     MCP -.->|"pricing data"| A
     MCP -.->|"cost estimates"| B
 
@@ -199,15 +199,14 @@ The Azure Pricing MCP Server provides real-time cost data to agents during infra
 
 ### Available Tools
 
-| Tool                     | Purpose                                | Used By              |
-| ------------------------ | -------------------------------------- | -------------------- |
+| Tool                     | Purpose                                | Used By               |
+| ------------------------ | -------------------------------------- | --------------------- |
 | `azure_price_search`     | Query Azure retail prices with filters | architect, bicep-plan |
-| `azure_price_compare`    | Compare prices across regions/SKUs     | architect            |
+| `azure_price_compare`    | Compare prices across regions/SKUs     | architect             |
 | `azure_cost_estimate`    | Calculate monthly/yearly costs         | architect, bicep-plan |
-| `azure_region_recommend` | Find cheapest Azure regions for a SKU  | architect            |
+| `azure_region_recommend` | Find cheapest Azure regions for a SKU  | architect             |
 | `azure_discover_skus`    | List available SKUs for a service      | architect, bicep-plan |
-| `azure_sku_discovery`    | Fuzzy SKU name matching                | architect            |
-| `get_customer_discount`  | Get customer discount (default 10%)    | architect            |
+| `azure_sku_discovery`    | Fuzzy SKU name matching                | architect             |
 
 ### Setup
 
