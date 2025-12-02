@@ -260,16 +260,16 @@ resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2023-01-01'
 
 ## Patterns to Avoid
 
-| Anti-Pattern                              | Problem                      | Solution                                       |
-| ----------------------------------------- | ---------------------------- | ---------------------------------------------- |
-| Hardcoded resource names                  | Deployment collisions        | Use `uniqueString()` suffix                    |
-| Missing `@description`                    | Poor maintainability         | Document all parameters                        |
-| Explicit `dependsOn`                      | Unnecessary complexity       | Use symbolic references                        |
-| Secrets in outputs                        | Security vulnerability       | Use Key Vault references                       |
-| S1 SKU for zone redundancy                | Policy violation             | Use P1v3 or higher                             |
-| Old API versions                          | Missing features             | Use latest stable versions                     |
-| Resource ID strings for scope             | BCP036 type error            | Use `existing` resource references             |
-| Passing resource IDs to modules for scope | Scope requires resource type | Pass resource names and use `existing` keyword |
+| Anti-Pattern                              | Problem                      | Solution                                                |
+| ----------------------------------------- | ---------------------------- | ------------------------------------------------------- |
+| Hardcoded resource names                  | Deployment collisions        | Use `uniqueString()` suffix                             |
+| Missing `@description`                    | Poor maintainability         | Document all parameters                                 |
+| Explicit `dependsOn`                      | Unnecessary complexity       | Use symbolic references                                 |
+| Secrets in outputs                        | Security vulnerability       | Use Key Vault references                                |
+| S1 SKU for zone redundancy                | Policy violation             | Use P1v3 or higher                                      |
+| Old API versions                          | Missing features             | Use latest stable versions                              |
+| Resource ID strings for scope             | BCP036 type error            | Use `existing` resource references                      |
+| Passing resource IDs to modules for scope | Scope requires resource type | Pass resource names and use `existing` keyword          |
 | WAF `RequestHeaders` matchVariable        | ARM EnumerationOutOfRange    | Use `RequestHeader` (singular) - see valid values below |
 
 ### WAF Policy matchVariable Valid Values

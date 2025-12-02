@@ -523,20 +523,20 @@ Before completing implementation, verify:
 
 ## Patterns to Avoid
 
-| Anti-Pattern                            | Problem                                       | Solution                                               |
-| --------------------------------------- | --------------------------------------------- | ------------------------------------------------------ |
-| Hardcoded resource names                | Deployment collisions, not reusable           | Use `uniqueString(resourceGroup().id)` suffix          |
-| Missing `uniqueSuffix` in modules       | Child modules create conflicting names        | Pass suffix to ALL modules                             |
-| Skipping `bicep build` validation       | Syntax errors discovered at deploy time       | Run `bicep build` before every deployment              |
-| Using raw resources over AVM            | Missing best practices, more code to maintain | Use Azure Verified Modules when available              |
-| Missing `@description` decorators       | Poor maintainability, unclear parameters      | Document every parameter                               |
-| Explicit `dependsOn`                    | Unnecessary complexity                        | Use symbolic references for implicit dependencies      |
-| Secrets in outputs                      | Security vulnerability                        | Never output secrets; use Key Vault references         |
-| S1 SKU for zone redundancy              | Azure policy blocks deployment                | Use P1v3 or higher for zone redundancy                 |
-| Old API versions                        | Missing features, deprecated behavior         | Use latest stable API versions                         |
-| Skipping `bicep lint`                   | Best practice violations undetected           | Run lint and address all warnings                      |
-| Resource ID strings for `scope`         | BCP036 type error in diagnostic settings      | Use `existing` resource references, pass names not IDs |
-| Passing IDs instead of names to modules | Modules can't use IDs for `scope` property    | Pass resource names, use `existing` keyword in module  |
+| Anti-Pattern                            | Problem                                       | Solution                                                                                                                                                     |
+| --------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Hardcoded resource names                | Deployment collisions, not reusable           | Use `uniqueString(resourceGroup().id)` suffix                                                                                                                |
+| Missing `uniqueSuffix` in modules       | Child modules create conflicting names        | Pass suffix to ALL modules                                                                                                                                   |
+| Skipping `bicep build` validation       | Syntax errors discovered at deploy time       | Run `bicep build` before every deployment                                                                                                                    |
+| Using raw resources over AVM            | Missing best practices, more code to maintain | Use Azure Verified Modules when available                                                                                                                    |
+| Missing `@description` decorators       | Poor maintainability, unclear parameters      | Document every parameter                                                                                                                                     |
+| Explicit `dependsOn`                    | Unnecessary complexity                        | Use symbolic references for implicit dependencies                                                                                                            |
+| Secrets in outputs                      | Security vulnerability                        | Never output secrets; use Key Vault references                                                                                                               |
+| S1 SKU for zone redundancy              | Azure policy blocks deployment                | Use P1v3 or higher for zone redundancy                                                                                                                       |
+| Old API versions                        | Missing features, deprecated behavior         | Use latest stable API versions                                                                                                                               |
+| Skipping `bicep lint`                   | Best practice violations undetected           | Run lint and address all warnings                                                                                                                            |
+| Resource ID strings for `scope`         | BCP036 type error in diagnostic settings      | Use `existing` resource references, pass names not IDs                                                                                                       |
+| Passing IDs instead of names to modules | Modules can't use IDs for `scope` property    | Pass resource names, use `existing` keyword in module                                                                                                        |
 | WAF `matchVariable: 'RequestHeaders'`   | ARM EnumerationOutOfRange validation error    | Use `RequestHeader` (singular) - valid values: RemoteAddr, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, Cookies, SocketAddr |
 
 ---
