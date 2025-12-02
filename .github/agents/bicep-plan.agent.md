@@ -207,7 +207,7 @@ avm: {module repo URL or commit} # if applicable
 | {resource2} | {sku}    | {qty}    | ${x}      | ${y}            |
 | **Total**   |          |          |           | **$XXX - $YYY** |
 
-> 💰 **Note**: Prices include 10% customer discount (auto-applied via MCP tools)
+> 💰 **Note**: Prices shown are Azure retail list prices (pay-as-you-go)
 
 **Cost Optimization Opportunities:**
 
