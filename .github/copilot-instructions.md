@@ -74,7 +74,7 @@ This repository demonstrates how GitHub Copilot serves as an **efficiency multip
 
 ## Four-Step Agent Workflow Architecture
 
-This repository uses a **4-step agent workflow** for Azure infrastructure development, with optional diagram generation:
+This repository uses a **4-step agent workflow** for Azure infrastructure development, with optional pricing and diagram integrations:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
@@ -82,22 +82,24 @@ graph LR
     P["@plan"] --> A[azure-principal-architect]
     A --> B[bicep-plan]
     B --> I[bicep-implement]
-    A -.->|optional| D[diagram-generator]
-    I -.->|optional| D
-    A -.->|optional| ADR[adr-generator]
+    MCP["💰 Azure Pricing MCP"] -.->|real-time costs| A
+    MCP -.->|cost validation| B
+    D[diagram-generator] -.->|visualization| A
+    ADR[adr-generator] -.->|decisions| A
 ```
 
-| Step | Agent                       | Purpose                                             | Approval Required |
-| ---- | --------------------------- | --------------------------------------------------- | ----------------- |
-| 1    | `@plan` (Built-in)          | Create implementation plans with cost estimates     | ✅ Yes            |
-| 2    | `azure-principal-architect` | Azure Well-Architected Framework guidance (NO CODE) | ✅ Yes            |
-| 3    | `bicep-plan`                | Infrastructure planning with AVM modules            | ✅ Yes            |
-| 4    | `bicep-implement`           | Bicep code generation                               | ✅ Yes            |
+| Step | Agent                       | Purpose                                             | Optional Integrations            |
+| ---- | --------------------------- | --------------------------------------------------- | -------------------------------- |
+| 1    | `@plan` (Built-in)          | Create implementation plans with cost estimates     | -                                |
+| 2    | `azure-principal-architect` | Azure Well-Architected Framework guidance (NO CODE) | 💰 Pricing MCP, 📊 Diagrams, ADR |
+| 3    | `bicep-plan`                | Infrastructure planning with AVM modules            | 💰 Pricing MCP                   |
+| 4    | `bicep-implement`           | Bicep code generation                               | ADR                              |
 
-**Optional Agents:**
+**Optional Integrations (during Step 2: Architecture):**
 
-- **diagram-generator** - Python architecture diagrams using `diagrams` library (after Step 2 or 4)
-- **adr-generator** - Document architectural decisions (after any step)
+- **💰 Azure Pricing MCP** - Real-time Azure pricing via MCP server (automatic)
+- **📊 diagram-generator** - Python architecture diagrams (ask: "generate diagram")
+- **📝 adr-generator** - Document architectural decisions (ask: "create ADR")
 
 **How to Use Custom Agents:**
 
@@ -154,7 +156,7 @@ Prompt: Generate Bicep templates from the plan
 - **All agents default to `swedencentral` region** (alternative: `germanywestcentral`), unless explicitly specified
 - **Bicep agents ALWAYS generate unique resource name suffixes** using `uniqueString(resourceGroup().id)` to prevent naming collisions
 - **Key Vault names**: Must be ≤24 chars (pattern: `kv-{shortname}-{env}-{suffix}`)
-- **App Service Plans**: Use P1v3 (Premium) or higher for zone redundancy (Standard SKU doesn't support it)
+- **App Service Plans**: Use P1v4 (Premium) or higher for zone redundancy (Standard SKU doesn't support it)
 - **SQL Server**: Use Azure AD-only auth and grant logged in user appropriate admin permissions
 
 ## Repository Structure
@@ -226,7 +228,7 @@ When generating Bicep code:
    - NSG deny rules at priority 4096
 6. **Azure Policy compliance for demos**:
    - SQL Server: UseAzure AD-only auth
-   - App Service Plan: Use P1v3 (not S1) for zone redundancy support
+   - App Service Plan: Use P1v4 (not S1/P1v2) for zone redundancy support
 7. **Add descriptive comments** for all parameters and resources
 8. **Include outputs** for resource IDs AND resource names (both are needed for downstream modules)
 9. **Follow modular design** (separate files for network, storage, compute)

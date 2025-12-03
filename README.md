@@ -3,17 +3,18 @@
 [![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Powered-8957e5?style=for-the-badge&logo=github)](https://github.com/features/copilot)
 [![Azure](https://img.shields.io/badge/Azure-Infrastructure-0078D4?style=for-the-badge&logo=microsoftazure)](https://azure.microsoft.com)
 [![Bicep](https://img.shields.io/badge/Bicep-IaC-00B4AB?style=for-the-badge&logo=microsoftazure)](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
+[![MCP](https://img.shields.io/badge/MCP-Azure%20Pricing-FFD700?style=for-the-badge)](mcp/azure-pricing-mcp/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Dev Container](https://img.shields.io/badge/Dev%20Container-Ready-blue?style=flat-square&logo=docker)](https://code.visualstudio.com/docs/devcontainers/containers)
 
 ---
 
-> **Build Azure infrastructure with AI-powered agents.** A 5-step workflow that takes you from
-> requirements to deployed Bicep templates—with architecture guidance, diagrams, validation,
-> and best practices built in.
+> **Build Azure infrastructure with AI-powered agents.** A 4-step workflow that takes you from
+> requirements to deployed Bicep templates—with real-time Azure pricing, architecture diagrams,
+> validation, and best practices built in.
 
-📖 **[Quick Start Guide](docs/QUICKSTART.md)** | 📋 **[Full Workflow Docs](docs/WORKFLOW.md)** | 🎯 **[Demo Prompts](demos/)**
+📖 **[Quick Start Guide](docs/QUICKSTART.md)** | 📋 **[Full Workflow Docs](docs/WORKFLOW.md)** | 🎯 **[Demo Prompts](demos/)** | 💰 **[Azure Pricing MCP](mcp/azure-pricing-mcp/)**
 
 <!-- TODO: Add animated demo GIF showing the workflow in action
      To create: Use https://github.com/charmbracelet/vhs or screen recording
@@ -25,43 +26,66 @@
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    subgraph Step 1
-        P["@plan<br/>(built-in)"]
+    subgraph "Step 1: Requirements"
+        P["@plan"]
     end
-    subgraph Step 2
-        A["azure-principal-architect<br/>(NO CODE)"]
+    subgraph "Step 2: Architecture"
+        A["azure-principal-<br/>architect"]
+        MCP["💰 Azure Pricing<br/>MCP"]
+        D["📊 diagram-<br/>generator"]
     end
-    subgraph Step 3
-        D["diagram-generator<br/>(visualization)"]
+    subgraph "Step 3: Planning"
+        B["bicep-plan"]
     end
-    subgraph Step 4
-        B["bicep-plan<br/>(plan only)"]
-    end
-    subgraph Step 5
-        I["bicep-implement<br/>(code generation)"]
+    subgraph "Step 4: Implementation"
+        I["bicep-implement"]
     end
 
-    P -->|"requirements"| A
-    A -->|"architecture"| D
-    D -->|"diagram"| B
-    B -->|"plan"| I
+    P -->|requirements| A
+    A --> B
+    B -->|plan| I
+
+    MCP -.->|"real-time<br/>pricing"| A
+    D -.->|"architecture<br/>visualization"| A
 
     style P fill:#e1f5fe
     style A fill:#fff3e0
+    style MCP fill:#fff9c4
     style D fill:#f3e5f5
     style B fill:#e8f5e9
     style I fill:#fce4ec
 ```
 
-| Step | Agent                       | What It Does                                                           |
-| ---- | --------------------------- | ---------------------------------------------------------------------- |
-| 1    | `@plan`                     | Gather requirements and create implementation plan with cost estimates |
-| 2    | `azure-principal-architect` | Azure Well-Architected Framework assessment (NO code)                  |
-| 3    | `diagram-generator`         | Generate Python architecture diagrams                                  |
-| 4    | `bicep-plan`                | Create detailed implementation plan with AVM modules                   |
-| 5    | `bicep-implement`           | Generate and validate Bicep templates                                  |
+| Step | Agent                       | What It Does                                          | Optional Integrations       |
+| ---- | --------------------------- | ----------------------------------------------------- | --------------------------- |
+| 1    | `@plan`                     | Gather requirements and create implementation plan    | -                           |
+| 2    | `azure-principal-architect` | Azure Well-Architected Framework assessment (NO code) | 💰 Pricing MCP, 📊 Diagrams |
+| 3    | `bicep-plan`                | Create detailed implementation plan with AVM modules  | 💰 Pricing MCP              |
+| 4    | `bicep-implement`           | Generate and validate Bicep templates                 | -                           |
 
-**Optional agent:** `adr-generator` (Architecture Decision Records)
+**Optional agent:** `adr-generator` (Architecture Decision Records) - use after any step
+
+---
+
+## 💰 Azure Pricing MCP Server
+
+This repository includes a **Model Context Protocol (MCP) server** that provides **real-time Azure pricing data** to GitHub Copilot agents. No more guessing costs or manually checking the Azure Pricing Calculator!
+
+### What It Does
+
+| Tool                     | Purpose                           | Example Use                                |
+| ------------------------ | --------------------------------- | ------------------------------------------ |
+| `azure_price_search`     | Query Azure retail prices         | "What's the price of P1v4 App Service?"    |
+| `azure_region_recommend` | Find cheapest regions for a SKU   | "Where is Azure SQL S3 cheapest?"          |
+| `azure_cost_estimate`    | Calculate monthly/yearly costs    | "Estimate costs for 2x P1v4 + SQL S3"      |
+| `azure_price_compare`    | Compare prices across regions     | "Compare App Service costs: Sweden vs. US" |
+| `azure_discover_skus`    | List available SKUs for a service | "What Redis Cache SKUs are available?"     |
+
+### Auto-Configured
+
+The MCP server is **pre-configured** in the Dev Container. Just open in VS Code and it works!
+
+📖 **[Full MCP Documentation](mcp/azure-pricing-mcp/README.md)**
 
 ---
 
@@ -94,21 +118,28 @@ You: yes
 [Handoff to azure-principal-architect]
 
 Architect: [Provides WAF assessment - Security, Reliability, Performance scores]
-           Do you approve this architecture?
+           [Uses Azure Pricing MCP for real-time cost estimates]
 
-You: approve
+           💰 Cost Estimate (via MCP):
+           • App Service P1v4: $206/mo
+           • Azure SQL S3: $150/mo
+           • Total: ~$356/mo
 
-[Handoff to diagram-generator]
+           Do you approve? Or ask for a diagram?
 
-Diagram: [Generates Python architecture diagram]
-         ✅ Created docs/diagrams/patient-portal/architecture.py
-         ✅ Generated architecture.png
+You: generate diagram, then approve
 
-You: continue
+Architect: [Triggers diagram-generator]
+           ✅ Created docs/diagrams/patient-portal/architecture.py
+           ✅ Generated architecture.png
+
+           Architecture approved. Continue to planning?
+
+You: yes
 
 [Handoff to bicep-plan]
 
-Planner: [Creates implementation plan]
+Planner: [Creates implementation plan with AVM modules]
          Do you approve this plan?
 
 You: yes
@@ -146,17 +177,20 @@ github-copilot-demo/
 │   ├── bicep-plan.agent.md
 │   ├── bicep-implement.agent.md
 │   ├── diagram-generator.agent.md
-│   ├── adr-generator.agent.md
-│   └── infrastructure-specialist.agent.md
+│   └── adr-generator.agent.md
+├── .vscode/mcp.json             # MCP server configuration
+├── mcp/azure-pricing-mcp/       # 💰 Azure Pricing MCP Server
+│   ├── src/azure_pricing_mcp/   # Server source code
+│   ├── README.md                # MCP documentation
+│   └── requirements.txt         # Python dependencies
 ├── .bicep-planning-files/       # Generated implementation plans
 ├── infra/bicep/                 # Generated Bicep templates
 ├── docs/
 │   ├── WORKFLOW.md              # Workflow documentation
 │   ├── adr/                     # Architecture Decision Records
 │   └── diagrams/                # Generated architecture diagrams
-├── demos/                       # Demo scenarios
-│   └── demo-prompts.md          # Ready-to-use demo prompts
-└── demo-output/                 # Sample agent outputs
+└── demos/                       # Demo scenarios
+    └── demo-prompts.md          # Ready-to-use demo prompts
 ```
 
 ---
@@ -167,7 +201,7 @@ github-copilot-demo/
 - **Azure subscription** (for deployments)
 - **Dev Container** support (Docker Desktop or GitHub Codespaces)
 
-The Dev Container includes: Azure CLI, Bicep CLI, PowerShell 7, and all required VS Code extensions.
+The Dev Container includes: Azure CLI, Bicep CLI, PowerShell 7, Python 3.12, and the Azure Pricing MCP server.
 
 ---
 
