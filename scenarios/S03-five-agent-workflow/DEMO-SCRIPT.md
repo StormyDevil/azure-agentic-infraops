@@ -120,7 +120,7 @@ Please help me:
 - Prefer managed services over VMs
 ```
 
-3. **Plan Controls:**
+1. **Plan Controls:**
 
    > "Now look at these controls at the bottom - we can **Save Plan** to create a reusable `*.prompt.md` file, or **Hand off to implementation agent** to proceed with the architecture."
 
@@ -388,7 +388,7 @@ bicep lint main.bicep
 ✅ **Research before code**: Plan Agent uses read-only tools to understand requirements  
 ✅ **Reusable plans**: `*.prompt.md` files can be shared with team or reused  
 ✅ **Clarifying questions**: Identifies gaps before architecture decisions  
-✅ **Progress tracking**: Todo list tracks completion during implementation  
+✅ **Progress tracking**: Todo list tracks completion during implementation
 
 **But it's not just speed...**
 
@@ -439,7 +439,7 @@ A: The workflow pattern applies universally. You'd need to create cloud-specific
 
 - Demo Files: `scenarios/S03-five-agent-workflow/`
 - Agent Configuration: `.github/agents/`
-- Full Workflow Guide: `resources/copilot-customizations/FIVE-MODE-WORKFLOW.md`
+- Full Workflow Guide: `docs/workflow/WORKFLOW.md`
 - Bicep Templates: `infra/bicep/contoso-patient-portal/`
 
 ---

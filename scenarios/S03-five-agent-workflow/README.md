@@ -5,7 +5,7 @@
 This demo showcases GitHub Copilot's **4-step agent workflow** for designing and implementing Azure infrastructure, starting with VS Code's built-in **Plan Agent** and handing off to specialized custom agents. Each step includes an **approval gate** where you review and approve before proceeding. It demonstrates how architects and IT professionals can leverage plan-driven development to move from business requirements to near-production-ready Bicep templates through a structured, iterative process.
 
 > **Working Implementation**: The complete workflow output is available as near-production-ready infrastructure in [`../../infra/bicep/contoso-patient-portal/`](../../infra/bicep/contoso-patient-portal/) (1,070 lines of Bicep, 10 modules).
-
+>
 > **📖 Official Documentation**: See [VS Code Plan Agent Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-planning) for complete details on the built-in planning features.
 
 **Target Audience**: Solution Architects, Cloud Architects, Infrastructure Engineers, IT Professionals
@@ -144,7 +144,7 @@ Traditional infrastructure design involves:
 
 - Visual Studio Code with GitHub Copilot (Plan Agent is built-in)
 - Azure subscription (for deployment validation)
-- Custom agents configured (see [FIVE-MODE-WORKFLOW.md](../../resources/copilot-customizations/FIVE-MODE-WORKFLOW.md))
+- Custom agents configured (see [Workflow Guide](../../docs/workflow/WORKFLOW.md))
 
 ### Run the Demo
 
@@ -164,13 +164,13 @@ Traditional infrastructure design involves:
 
 4. **Follow the five-agent workflow**:
 
-   | Stage | Agent | Duration | Key Output |
-   |-------|-------|----------|------------|
-   | 0 | `@plan` (built-in) | 5-10 min | Implementation plan + `*.prompt.md` file |
-   | 1 | `azure-principal-architect` | 10-15 min | WAF assessment + cost estimates |
-   | 2 | `bicep-plan` | 5-10 min | Resource breakdown + Mermaid diagram |
-   | 3 | `bicep-implement` | 10-15 min | Modular Bicep templates |
-   | 4 | Validation & Deployment | 5-10 min | `bicep build` + `bicep lint` |
+   | Stage | Agent                       | Duration  | Key Output                               |
+   | ----- | --------------------------- | --------- | ---------------------------------------- |
+   | 0     | `@plan` (built-in)          | 5-10 min  | Implementation plan + `*.prompt.md` file |
+   | 1     | `azure-principal-architect` | 10-15 min | WAF assessment + cost estimates          |
+   | 2     | `bicep-plan`                | 5-10 min  | Resource breakdown + Mermaid diagram     |
+   | 3     | `bicep-implement`           | 10-15 min | Modular Bicep templates                  |
+   | 4     | Validation & Deployment     | 5-10 min  | `bicep build` + `bicep lint`             |
 
 5. **Pro Tip**: Use the UI handoff controls at the end of each agent's response to seamlessly transition to the next agent with full context preserved.
 
@@ -390,8 +390,7 @@ By the end of this demo, participants will:
 ### Documentation
 
 - [VS Code Plan Agent Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-planning) - **Official VS Code docs for built-in Plan Agent**
-- [Five-Agent Workflow Guide](../../resources/copilot-customizations/FIVE-MODE-WORKFLOW.md) - Complete documentation with Plan agent integration
-- [15-Minute Demo Script](../../resources/copilot-customizations/AGENT-HANDOFF-DEMO.md) - Quick demonstration
+- [Workflow Guide](../../docs/workflow/WORKFLOW.md) - Complete documentation with agent handoffs
 - [Custom Agent Configuration](../../.github/agents/) - Agent definitions with swedencentral defaults
 - [Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/)
 - [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/)

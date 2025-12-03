@@ -377,7 +377,7 @@ in the diagrams library?
 - [Python Diagrams Library](https://diagrams.mingrammer.com/)
 - [Azure Icons Reference](https://diagrams.mingrammer.com/docs/nodes/azure)
 - [S04: Documentation Generation](../S04-documentation-generation/)
-- [Five-Mode Workflow](../../resources/copilot-customizations/FIVE-MODE-WORKFLOW.md)
+- [Workflow Guide](../../docs/workflow/WORKFLOW.md)
 
 ---
 

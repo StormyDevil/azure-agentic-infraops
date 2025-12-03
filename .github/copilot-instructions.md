@@ -184,8 +184,8 @@ azure-agentic-infraops/
 ├── infra/bicep/                         # Generated Bicep templates
 ├── scenarios/
 │   ├── README.md                        # Scenarios index
-│   ├── quick-demos/                     # Simple prompt demos
-│   └── S01-S09.../                      # Comprehensive scenarios
+│   ├── S01-S09.../                      # Comprehensive scenarios
+│   └── S10-quick-demos/                 # Simple prompt demos
 └── docs/
     ├── README.md                        # Documentation hub
     ├── getting-started/                 # Quick start & prerequisites
@@ -198,8 +198,7 @@ azure-agentic-infraops/
     ├── cost-estimates/                  # Azure pricing examples
     ├── adr/                             # Architecture Decision Records
     ├── diagrams/                        # Generated architecture diagrams
-    ├── presenter-toolkit/               # Demo delivery guides
-    └── copilot-customizations/          # Chat modes, instructions
+    └── presenter-toolkit/               # Demo delivery guides
 ```
 
 ### Naming Conventions
@@ -233,9 +232,11 @@ When generating Bicep code:
 1. **Always use latest API versions** (2023-05-01 or newer)
 2. **Default location**: `swedencentral` (alternative: `germanywestcentral` if quota issues)
 3. **CRITICAL - Unique resource names**: Generate suffix in main.bicep and pass to ALL modules:
+
    ```bicep
    var uniqueSuffix = uniqueString(resourceGroup().id)
    ```
+
 4. **Name length constraints**:
    - Key Vault: ≤24 chars (e.g., `kv-contosop-dev-abc123` = 22 chars)
    - Storage Account: ≤24 chars, lowercase + numbers only, NO hyphens
@@ -285,11 +286,13 @@ When generating PowerShell code:
 1. **Use approved verbs** (Get-, Set-, New-, Remove-)
 2. **Include comment-based help** with `.SYNOPSIS`, `.DESCRIPTION`, `.EXAMPLE`
 3. **Add parameter validation**:
+
    ```powershell
    [Parameter(Mandatory = $true)]
    [ValidateNotNullOrEmpty()]
    [string]$ResourceGroupName
    ```
+
 4. **Implement error handling** with `try/catch`
 5. **Set strict mode**: `Set-StrictMode -Version Latest`
 6. **Use splatting** for complex commands

@@ -666,12 +666,12 @@ Quick lookup for common error messages:
 
 ### Self-Service Resources
 
-| Resource                                                                        | Use For                        |
-| ------------------------------------------------------------------------------- | ------------------------------ |
-| [Getting Started Guide](./getting-started/README.md)                            | End-to-end setup walkthrough   |
-| [Five-Mode Workflow](../resources/copilot-customizations/FIVE-MODE-WORKFLOW.md) | Agent workflow documentation   |
-| [Scenario READMEs](../scenarios/)                                               | Scenario-specific guidance     |
-| [GitHub Copilot Docs](https://docs.github.com/en/copilot)                       | Official Copilot documentation |
+| Resource                                                  | Use For                        |
+| --------------------------------------------------------- | ------------------------------ |
+| [Getting Started Guide](../getting-started/README.md)     | End-to-end setup walkthrough   |
+| [Workflow Guide](../workflow/WORKFLOW.md)                 | Agent workflow documentation   |
+| [Scenario READMEs](../../scenarios/)                      | Scenario-specific guidance     |
+| [GitHub Copilot Docs](https://docs.github.com/en/copilot) | Official Copilot documentation |
 
 ### Community Support
 

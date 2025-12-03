@@ -45,9 +45,10 @@ Welcome to the Agentic InfraOps documentation center. This hub provides quick na
 
 ## 🛠️ Copilot Customization
 
-| Section                                           | Description                       |
-| ------------------------------------------------- | --------------------------------- |
-| [Copilot Customizations](copilot-customizations/) | Chat modes, instructions, prompts |
+| Section                                  | Description                         |
+| ---------------------------------------- | ----------------------------------- |
+| [Agent Definitions](../.github/agents/)  | Custom agent configuration files    |
+| [Instructions](../.github/instructions/) | Coding standards and best practices |
 
 ---
 
