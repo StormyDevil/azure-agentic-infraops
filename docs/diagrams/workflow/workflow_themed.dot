@@ -1,0 +1,165 @@
+
+digraph AgenticInfraOps {
+    // Graph settings
+    graph [
+        bgcolor="#1a1a2e"
+        fontcolor="white"
+        fontname="Segoe UI"
+        fontsize="16"
+        pad="0.5"
+        splines="ortho"
+        nodesep="0.6"
+        ranksep="0.8"
+        rankdir="TB"
+        dpi="150"
+    ]
+    
+    node [
+        fontname="Segoe UI"
+        fontsize="11"
+        fontcolor="white"
+        style="filled,rounded"
+        shape="box"
+        penwidth="0"
+        margin="0.25,0.15"
+    ]
+    
+    edge [
+        color="#64748b"
+        fontcolor="#94a3b8"
+        fontname="Segoe UI"
+        fontsize="9"
+        penwidth="2"
+        arrowsize="0.8"
+    ]
+    
+    // Title (invisible node for spacing)
+    title [label="" shape="none" height="0.1"]
+    
+    // Step 1: Requirements
+    subgraph cluster_step1 {
+        label="Step 1: Requirements"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        plan [
+            label="@plan\n(built-in)"
+            fillcolor="#0078D4"
+        ]
+    }
+    
+    // Step 2: Architecture
+    subgraph cluster_step2 {
+        label="Step 2: Architecture"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        architect [
+            label="azure-principal-architect\n(NO CODE)"
+            fillcolor="#FF6B35"
+        ]
+        
+        // Optional tools cluster
+        subgraph cluster_optional2 {
+            label="Optional"
+            fontcolor="#94a3b8"
+            fontsize="10"
+            bgcolor="#0f3460"
+            style="rounded,dashed"
+            pencolor="#334155"
+            
+            mcp [
+                label="💰 Azure Pricing MCP\n(real-time costs)"
+                fillcolor="#fbbf24"
+                fontcolor="#1a1a2e"
+            ]
+            
+            diagrams [
+                label="📊 diagram-generator\n(visualization)"
+                fillcolor="#8b5cf6"
+            ]
+            
+            adr1 [
+                label="📝 adr-generator\n(decisions)"
+                fillcolor="#14b8a6"
+            ]
+        }
+    }
+    
+    // Step 3: Planning
+    subgraph cluster_step3 {
+        label="Step 3: Planning"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        bicep_plan [
+            label="bicep-plan\n(plan only)"
+            fillcolor="#10b981"
+        ]
+    }
+    
+    // Step 4: Implementation
+    subgraph cluster_step4 {
+        label="Step 4: Implementation"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        bicep_implement [
+            label="bicep-implement\n(code generation)"
+            fillcolor="#ec4899"
+        ]
+        
+        // Optional ADR
+        subgraph cluster_optional4 {
+            label="Optional"
+            fontcolor="#94a3b8"
+            fontsize="10"
+            bgcolor="#0f3460"
+            style="rounded,dashed"
+            pencolor="#334155"
+            
+            adr2 [
+                label="📝 adr-generator"
+                fillcolor="#14b8a6"
+            ]
+        }
+    }
+    
+    // Main workflow edges
+    plan -> architect [xlabel="requirements" color="#0078D4" fontcolor="#0078D4"]
+    architect -> bicep_plan [xlabel="architecture" color="#FF6B35" fontcolor="#FF6B35"]
+    bicep_plan -> bicep_implement [xlabel="plan" color="#10b981" fontcolor="#10b981"]
+    
+    // Optional edges (dashed)
+    mcp -> architect [style="dashed" xlabel="pricing" color="#fbbf24" fontcolor="#fbbf24"]
+    diagrams -> architect [style="dashed" color="#8b5cf6"]
+    adr1 -> architect [style="dashed" color="#14b8a6"]
+    mcp -> bicep_plan [style="dashed" xlabel="costs" color="#fbbf24" fontcolor="#fbbf24"]
+    adr2 -> bicep_implement [style="dashed" color="#14b8a6"]
+    
+    // Invisible edges for layout
+    {rank=same; plan}
+    {rank=same; architect; mcp; diagrams; adr1}
+    {rank=same; bicep_plan}
+    {rank=same; bicep_implement; adr2}
+}

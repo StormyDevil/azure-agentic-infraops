@@ -1,0 +1,54 @@
+
+digraph SimpleWorkflow {
+    graph [
+        bgcolor="#1a1a2e"
+        fontcolor="white"
+        fontname="Segoe UI"
+        pad="0.4"
+        splines="curved"
+        nodesep="0.5"
+        ranksep="0.6"
+        rankdir="LR"
+        dpi="150"
+    ]
+    
+    node [
+        fontname="Segoe UI"
+        fontsize="11"
+        fontcolor="white"
+        style="filled,rounded"
+        shape="box"
+        penwidth="0"
+        margin="0.2,0.15"
+    ]
+    
+    edge [
+        color="#64748b"
+        fontcolor="#94a3b8"
+        fontname="Segoe UI"
+        fontsize="9"
+        penwidth="2"
+        arrowsize="0.7"
+    ]
+    
+    // Main workflow nodes
+    plan [label="@plan" fillcolor="#0078D4"]
+    architect [label="azure-principal-\narchitect" fillcolor="#FF6B35"]
+    bicep_plan [label="bicep-plan" fillcolor="#10b981"]
+    bicep_implement [label="bicep-implement" fillcolor="#ec4899"]
+    
+    // Optional nodes
+    mcp [label="💰 Pricing MCP" fillcolor="#fbbf24" fontcolor="#1a1a2e"]
+    diagrams_node [label="📊 Diagrams" fillcolor="#8b5cf6"]
+    
+    // Main flow
+    plan -> architect -> bicep_plan -> bicep_implement
+    
+    // Optional connections
+    mcp -> architect [style="dashed" constraint="false"]
+    mcp -> bicep_plan [style="dashed" constraint="false"]
+    diagrams_node -> architect [style="dashed" constraint="false"]
+    
+    // Layout hints
+    {rank=same; mcp; diagrams_node}
+}

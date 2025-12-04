@@ -1,0 +1,99 @@
+
+digraph DetailedWorkflow {
+    graph [
+        bgcolor="#1a1a2e"
+        fontcolor="white"
+        fontname="Segoe UI, Arial, sans-serif"
+        pad="1.0"
+        splines="ortho"
+        nodesep="0.5"
+        ranksep="1.2"
+        rankdir="LR"
+        dpi="150"
+        newrank="true"
+    ]
+    
+    node [
+        fontname="Segoe UI, Arial, sans-serif"
+        fontsize="11"
+        fontcolor="white"
+        style="filled,rounded"
+        shape="box"
+        penwidth="0"
+        margin="0.25,0.15"
+    ]
+    
+    edge [
+        color="#64748b"
+        fontcolor="#94a3b8"
+        fontname="Segoe UI, Arial, sans-serif"
+        fontsize="9"
+        penwidth="2.5"
+        arrowsize="0.8"
+    ]
+
+    // Step 1
+    step1 [
+        label="① Plan\n@plan"
+        fillcolor="#0078D4"
+        width="1.8"
+        height="0.6"
+    ]
+
+    // Step 2 main
+    step2 [
+        label="② Architect\nazure-principal-architect"
+        fillcolor="#FF6B35"
+        width="2.5"
+        height="0.6"
+    ]
+    
+    // Step 2 optionals in a row
+    opt2a [label="Visualize\ndiagram-generator" fillcolor="#8b5cf6" fontsize="10"]
+    opt2b [label="Estimate\nPricing MCP" fillcolor="#fbbf24" fontcolor="#1a1a2e" fontsize="10"]
+    opt2c [label="Document\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
+
+    // Step 3
+    step3 [
+        label="③ Plan Infrastructure\nbicep-plan"
+        fillcolor="#10b981"
+        width="2.2"
+        height="0.6"
+    ]
+
+    // Step 4
+    step4 [
+        label="④ Generate Code\nbicep-implement"
+        fillcolor="#ec4899"
+        width="2.2"
+        height="0.6"
+    ]
+    
+    opt4a [label="Document\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
+
+    // Step 5
+    step5 [
+        label="⑤ Deploy"
+        fillcolor="#0078D4"
+        width="1.6"
+        height="0.6"
+    ]
+
+    // Main flow - thick colored arrows
+    step1 -> step2 [color="#0078D4" penwidth="3"]
+    step2 -> step3 [color="#FF6B35" penwidth="3"]
+    step3 -> step4 [color="#10b981" penwidth="3"]
+    step4 -> step5 [color="#ec4899" penwidth="3"]
+
+    // Optional tools connections - above main flow
+    opt2a -> step2 [style="dashed" color="#8b5cf6" arrowhead="none" arrowtail="normal" dir="back"]
+    opt2b -> step2 [style="dashed" color="#fbbf24" arrowhead="none" arrowtail="normal" dir="back"]
+    opt2c -> step2 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
+    
+    // ADR for step 4
+    opt4a -> step4 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
+
+    // Layout for horizontal - optionals stacked vertically
+    { rank=same; opt2a; opt2b; opt2c }
+    opt2a -> opt2b -> opt2c [style="invis" weight="10"]
+}
