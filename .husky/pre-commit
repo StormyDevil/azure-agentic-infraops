@@ -10,7 +10,7 @@ if [ -n "$STAGED_MD_FILES" ]; then
   echo "📝 Validating $(echo "$STAGED_MD_FILES" | wc -l | tr -d ' ') markdown file(s)..."
   
   # Run markdownlint-cli2 on staged files only
-  echo "$STAGED_MD_FILES" | xargs markdownlint-cli2 --config .markdownlint.json
+  echo "$STAGED_MD_FILES" | xargs markdownlint-cli2
   
   if [ $? -ne 0 ]; then
     echo ""
