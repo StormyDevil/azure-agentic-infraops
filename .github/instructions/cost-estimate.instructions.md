@@ -76,14 +76,14 @@ pie showData
 
 **Standard Color Assignments:**
 
-| Category            | Color   | Hex Code  |
-| ------------------- | ------- | --------- |
-| Compute             | Blue    | `#0078D4` |
-| Data Services       | Green   | `#107C10` |
-| Networking          | Purple  | `#5C2D91` |
-| Messaging           | Orange  | `#D83B01` |
-| Security/Management | Yellow  | `#FFB900` |
-| Other               | Teal    | `#008272` |
+| Category            | Color  | Hex Code  |
+| ------------------- | ------ | --------- |
+| Compute             | Blue   | `#0078D4` |
+| Data Services       | Green  | `#107C10` |
+| Networking          | Purple | `#5C2D91` |
+| Messaging           | Orange | `#D83B01` |
+| Security/Management | Yellow | `#FFB900` |
+| Other               | Teal   | `#008272` |
 
 ### Key Design Decisions Affecting Cost
 
