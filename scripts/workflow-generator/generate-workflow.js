@@ -265,6 +265,119 @@ async function addSVGAnimation(svgPath) {
 }
 
 /**
+ * Generate progressive Mermaid diagrams for animation frames
+ */
+function getProgressiveMermaidDiagrams() {
+  // Each step builds on the previous one to show workflow progression
+  return [
+    // Frame 1: Empty - just the structure hint
+    `%%{init: {'theme':'neutral'}}%%
+graph LR
+    subgraph "Step 1: Requirements"
+        P["@plan"]
+    end
+
+    style P fill:#e1f5fe`,
+
+    // Frame 2: Step 1 complete, arrow appears
+    `%%{init: {'theme':'neutral'}}%%
+graph LR
+    subgraph "Step 1: Requirements"
+        P["@plan"]
+    end
+    subgraph "Step 2: Architecture"
+        A["azure-principal-<br/>architect"]
+    end
+
+    P -->|requirements| A
+
+    style P fill:#e1f5fe
+    style A fill:#fff3e0`,
+
+    // Frame 3: Architecture with optional integrations
+    `%%{init: {'theme':'neutral'}}%%
+graph LR
+    subgraph "Step 1: Requirements"
+        P["@plan"]
+    end
+    subgraph "Step 2: Architecture"
+        A["azure-principal-<br/>architect"]
+        MCP["💰 Azure Pricing<br/>MCP"]
+        D["📊 diagram-<br/>generator"]
+    end
+
+    P -->|requirements| A
+
+    MCP -.->|"real-time<br/>pricing"| A
+    D -.->|"architecture<br/>visualization"| A
+
+    style P fill:#e1f5fe
+    style A fill:#fff3e0
+    style MCP fill:#fff9c4
+    style D fill:#f3e5f5`,
+
+    // Frame 4: Add planning step
+    `%%{init: {'theme':'neutral'}}%%
+graph LR
+    subgraph "Step 1: Requirements"
+        P["@plan"]
+    end
+    subgraph "Step 2: Architecture"
+        A["azure-principal-<br/>architect"]
+        MCP["💰 Azure Pricing<br/>MCP"]
+        D["📊 diagram-<br/>generator"]
+    end
+    subgraph "Step 3: Planning"
+        B["bicep-plan"]
+    end
+
+    P -->|requirements| A
+    A --> B
+
+    MCP -.->|"real-time<br/>pricing"| A
+    D -.->|"architecture<br/>visualization"| A
+
+    style P fill:#e1f5fe
+    style A fill:#fff3e0
+    style MCP fill:#fff9c4
+    style D fill:#f3e5f5
+    style B fill:#e8f5e9`,
+
+    // Frame 5: Complete workflow
+    `%%{init: {'theme':'neutral'}}%%
+graph LR
+    subgraph "Step 1: Requirements"
+        P["@plan"]
+    end
+    subgraph "Step 2: Architecture"
+        A["azure-principal-<br/>architect"]
+        MCP["💰 Azure Pricing<br/>MCP"]
+        D["📊 diagram-<br/>generator"]
+    end
+    subgraph "Step 3: Planning"
+        B["bicep-plan"]
+    end
+    subgraph "Step 4: Implementation"
+        I["bicep-implement"]
+    end
+
+    P -->|requirements| A
+    A --> B
+    B -->|plan| I
+
+    MCP -.->|"real-time<br/>pricing"| A
+    D -.->|"architecture<br/>visualization"| A
+
+    style P fill:#e1f5fe
+    style A fill:#fff3e0
+    style MCP fill:#fff9c4
+    style D fill:#f3e5f5
+    style B fill:#e8f5e9
+    style I fill:#fce4ec`,
+  ];
+}
+
+/**
  * Generate animated frames for GIF/MP4
  */
 async function generateAnimatedFrames() {
@@ -275,63 +388,42 @@ async function generateAnimatedFrames() {
     mkdirSync(framesDir, { recursive: true });
   }
 
-  // Read the Mermaid content
-  const mermaidContent = readFileSync(CONFIG.inputFile, "utf-8");
-
-  // Define the animation sequence (nodes appear one by one)
-  const animationSteps = [
-    // Step 1: Just the first subgraph with P
-    { nodes: ["P"], edges: [] },
-    // Step 2: Add architecture subgraph
-    { nodes: ["P", "A"], edges: ["P-->A"] },
-    // Step 3: Add optional integrations
-    { nodes: ["P", "A", "MCP", "D"], edges: ["P-->A", "MCP-.->A", "D-.->A"] },
-    // Step 4: Add planning
-    {
-      nodes: ["P", "A", "MCP", "D", "B"],
-      edges: ["P-->A", "MCP-.->A", "D-.->A", "A-->B"],
-    },
-    // Step 5: Complete diagram
-    {
-      nodes: ["P", "A", "MCP", "D", "B", "I"],
-      edges: ["P-->A", "MCP-.->A", "D-.->A", "A-->B", "B-->I"],
-    },
-    // Step 6: Hold complete diagram
-    {
-      nodes: ["P", "A", "MCP", "D", "B", "I"],
-      edges: ["P-->A", "MCP-.->A", "D-.->A", "A-->B", "B-->I"],
-    },
-  ];
-
+  const diagrams = getProgressiveMermaidDiagrams();
   const frames = [];
+  let frameIndex = 0;
 
-  for (let i = 0; i < animationSteps.length; i++) {
-    const frameFile = join(
-      framesDir,
-      `frame-${String(i).padStart(3, "0")}.png`
-    );
+  // Generate one PNG per step (not duplicates - we'll handle timing in ffmpeg)
+  for (let i = 0; i < diagrams.length; i++) {
+    const tempMmdFile = join(framesDir, `temp-step-${i}.mmd`);
+    const frameFile = join(framesDir, `step-${i}.png`);
 
-    // Generate the full diagram for each frame (mermaid doesn't support partial rendering well)
-    // We'll use CSS opacity to show/hide elements in a more advanced version
-    const cmd = `npx mmdc -i "${CONFIG.inputFile}" -o "${frameFile}" -w ${CONFIG.width} -H ${CONFIG.height} -b white -t ${CONFIG.theme} -p "${CONFIG.puppeteerConfig}"`;
+    writeFileSync(tempMmdFile, diagrams[i]);
+
+    const cmd = `npx mmdc -i "${tempMmdFile}" -o "${frameFile}" -w ${CONFIG.width} -H ${CONFIG.height} -b white -t ${CONFIG.theme} -p "${CONFIG.puppeteerConfig}"`;
 
     execSync(cmd, { stdio: "pipe" });
     frames.push(frameFile);
-    log(`Generated frame ${i + 1}/${animationSteps.length}`, "step");
+
+    // Clean up temp mmd file
+    unlinkSync(tempMmdFile);
+    log(`Generated step ${i + 1}/${diagrams.length}`, "step");
   }
 
-  // Duplicate last frame for a pause at the end
-  for (let i = 0; i < 10; i++) {
-    const lastFrame = frames[frames.length - 1];
-    const pauseFrame = join(
-      framesDir,
-      `frame-${String(animationSteps.length + i).padStart(3, "0")}.png`
-    );
-    execSync(`cp "${lastFrame}" "${pauseFrame}"`);
-    frames.push(pauseFrame);
+  // Now create numbered frames with proper timing using file copies
+  // Each step shows for ~1.5 seconds (3 frames at 2fps)
+  const stepDurations = [3, 3, 3, 3, 6]; // frames per step (last step longer)
+  let outputFrameIndex = 0;
+
+  for (let step = 0; step < frames.length; step++) {
+    const duration = stepDurations[step] || 3;
+    for (let j = 0; j < duration; j++) {
+      const outputFrame = join(framesDir, `frame-${String(outputFrameIndex).padStart(3, "0")}.png`);
+      execSync(`cp "${frames[step]}" "${outputFrame}"`);
+      outputFrameIndex++;
+    }
   }
 
-  log(`Generated ${frames.length} animation frames`, "success");
+  log(`Generated ${outputFrameIndex} animation frames`, "success");
   return framesDir;
 }
 
