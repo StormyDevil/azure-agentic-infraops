@@ -32,7 +32,7 @@ supporting revenue generation and customer retention goals.
 ### Cost Distribution
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'pie1': '#0078D4', 'pie2': '#107C10', 'pie3': '#5C2D91', 'pie4': '#D83B01', 'pie5': '#FFB900'}}}%%
 pie showData
     title Monthly Cost Distribution ($)
     "Compute" : 535

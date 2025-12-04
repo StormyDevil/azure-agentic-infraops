@@ -62,15 +62,28 @@ Include a visual diagram and brief description:
 
 ### Cost Distribution
 
+Use colored pie charts for visual clarity. Apply the Azure/Microsoft color palette:
+
 ​`mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'pie1': '#0078D4', 'pie2': '#107C10', 'pie3': '#5C2D91', 'pie4': '#D83B01', 'pie5': '#FFB900', 'pie6': '#008272'}}}%%
 pie showData
-    title Monthly Cost Distribution
+    title Monthly Cost Distribution ($)
     "Compute" : 535
     "Data Services" : 461
     "Messaging" : 200
     "Networking" : 145
 ​`
+
+**Standard Color Assignments:**
+
+| Category            | Color   | Hex Code  |
+| ------------------- | ------- | --------- |
+| Compute             | Blue    | `#0078D4` |
+| Data Services       | Green   | `#107C10` |
+| Networking          | Purple  | `#5C2D91` |
+| Messaging           | Orange  | `#D83B01` |
+| Security/Management | Yellow  | `#FFB900` |
+| Other               | Teal    | `#008272` |
 
 ### Key Design Decisions Affecting Cost
 
