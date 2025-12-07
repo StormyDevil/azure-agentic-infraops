@@ -15,7 +15,7 @@ Follow these guidelines to ensure documentation quality across the repository.
 - Use LF line endings (enforced by `.gitattributes`)
 - Include meaningful alt text for all images
 - Validate with `markdownlint` before committing
-- Refer to `docs/MARKDOWN-STYLE-GUIDE.md` for quick rules and examples
+- Refer to `docs/guides/markdown-style-guide.md` for quick rules and examples
 
 ## Content Structure
 
@@ -128,14 +128,14 @@ Prerequisites:
 ### Good Example - Descriptive links
 
 ```markdown
-See the [getting started guide](../../docs/getting-started/README.md) for setup instructions.
+See the [getting started guide](../../docs/guides/quickstart.md) for setup instructions.
 Refer to [Azure Bicep documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/) for syntax details.
 ```
 
 ### Bad Example - Non-descriptive links
 
 ```markdown
-Click [here](../../docs/getting-started/README.md) for more info.
+Click [here](../../docs/guides/quickstart.md) for more info.
 ```
 
 ## Front Matter (Optional)

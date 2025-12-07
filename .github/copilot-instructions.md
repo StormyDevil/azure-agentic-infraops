@@ -24,7 +24,7 @@ This file provides context and guidance for GitHub Copilot when assisting with t
 
 - Agent definitions: `.github/agents/*.agent.md`
 - Workflow guide: `docs/workflow/WORKFLOW.md`
-- Quick start: `docs/getting-started/QUICKSTART.md`
+- Quick start: `docs/guides/quickstart.md`
 - Troubleshooting: `docs/guides/troubleshooting.md`
 - Bicep implement agent: `.github/agents/bicep-implement.agent.md` (has unique suffix guidance)
 - Diagram generator: `.github/agents/diagram-generator.agent.md` (Python architecture diagrams)
@@ -199,12 +199,13 @@ azure-agentic-infraops/
 │   └── S10-quick-demos/                 # Simple prompt demos
 └── docs/
     ├── README.md                        # Documentation hub
-    ├── getting-started/                 # Quick start & prerequisites
-    │   └── QUICKSTART.md                # Quick start guide
+    ├── guides/                          # All guides consolidated
+    │   ├── quickstart.md                # Quick start guide
+    │   ├── copilot-getting-started.md   # Copilot setup guide
+    │   ├── copilot-best-practices.md    # Copilot best practices
+    │   └── troubleshooting.md           # Troubleshooting guide
     ├── workflow/
     │   └── WORKFLOW.md                  # Workflow documentation
-    ├── guides/
-    │   └── troubleshooting.md           # Troubleshooting guide
     ├── value-proposition/               # ROI, time savings evidence
     ├── cost-estimates/                  # Azure pricing examples
     ├── adr/                             # Architecture Decision Records
@@ -311,7 +312,7 @@ When generating PowerShell code:
 
 ### Documentation (Markdown)
 
-**BEFORE generating any markdown, read `.github/instructions/markdown.instructions.md` and `MARKDOWN-STYLE-GUIDE.md`**
+**BEFORE generating any markdown, read `.github/instructions/markdown.instructions.md` and `docs/guides/markdown-style-guide.md`**
 
 When generating documentation:
 

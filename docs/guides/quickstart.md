@@ -249,7 +249,7 @@ After completing the quick start:
 
 ## Getting Help
 
-- **Workflow issues:** Check [docs/workflow/WORKFLOW.md](workflow/WORKFLOW.md)
+- **Workflow issues:** Check [Workflow Guide](../workflow/WORKFLOW.md)
 - **Agent behavior:** Review agent files in `.github/agents/`
 - **Scenario prompts:** See files in `scenarios/` folder
 - **Bug reports:** Open a GitHub issue

@@ -21,7 +21,7 @@
 > and deploy-ready Bicep/Terraform templates—all aligned with Azure Well-Architected best practices
 > and Azure Verified Modules. Real-time pricing, compliance checks, and automation included.
 
-📖 **[Quick Start Guide](docs/getting-started/QUICKSTART.md)** |
+📖 **[Quick Start Guide](docs/guides/quickstart.md)** |
 📋 **[Full Workflow Docs](docs/workflow/WORKFLOW.md)** |
 🎯 **[Scenarios](scenarios/)** |
 💰 **[Azure Pricing MCP](mcp/azure-pricing-mcp/)**
@@ -102,7 +102,7 @@ graph LR
 
 Each agent asks for approval before proceeding. Say `yes` to continue, or provide feedback to refine.
 
-📖 **[Full Quick Start Guide →](docs/getting-started/QUICKSTART.md)**
+📖 **[Full Quick Start Guide →](docs/guides/quickstart.md)**
 (includes troubleshooting, demo scenarios, deployment instructions)
 
 ---

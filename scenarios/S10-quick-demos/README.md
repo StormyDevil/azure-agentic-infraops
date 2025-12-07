@@ -60,7 +60,7 @@ Data analytics solution with Azure Synapse, Data Lake, and Power BI integration.
 
 - [Scenarios Index](../README.md) - Full scenario catalog with S01-S09
 - [Workflow Guide](../../docs/workflow/WORKFLOW.md) - Complete workflow documentation
-- [Quick Start](../../docs/getting-started/QUICKSTART.md) - Getting started guide
+- [Quick Start](../../docs/guides/quickstart.md) - Getting started guide
 - [Troubleshooting](../../docs/guides/troubleshooting.md) - Common issues and solutions
 
 ---

@@ -15,5 +15,5 @@ This comprehensive guide covers:
 
 ## Related Documentation
 
-- [Getting Started](../getting-started/README.md) - Setup and prerequisites
+- [Getting Started](../guides/getting-started-journey.md) - Setup and prerequisites
 - [Troubleshooting](../guides/troubleshooting.md) - Common issues and solutions

@@ -181,5 +181,5 @@ az account set --subscription "Your Subscription Name"
 Once your environment is ready:
 
 1. **Choose a model** → [Model Selection Guide](model-selection.md)
-2. **Understand the impact** → [IT Pro Impact Story](../it-pro-impact-story.md)
+2. **Learn Copilot** → [Copilot Getting Started](copilot-getting-started.md)
 3. **Start a scenario** → [S01 Bicep Baseline](../../scenarios/S01-bicep-baseline/)

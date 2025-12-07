@@ -8,27 +8,36 @@ resources.
 
 ## How to Use This Hub (IT Pros)
 
-1. **New here?** Start with [Quick Start](getting-started/QUICKSTART.md) → run a demo scenario
-2. **Prepping a demo?** See [Presenter Toolkit](presenter-toolkit/) and [Workflow Guide](workflow/WORKFLOW.md)
-3. **Looking for evidence?** Check [Time Savings](value-proposition/time-savings-evidence.md) and cost estimates
-4. **Need architecture decisions?** Browse [ADRs](adr/) (especially ADR-003 AVM-first, ADR-004 region defaults)
+1. **New here?** Start with [Quick Start](guides/quickstart.md) → run a demo scenario
+2. **New to Copilot?** See [Copilot Getting Started](guides/copilot-getting-started.md)
+3. **Prepping a demo?** See [Presenter Toolkit](presenter-toolkit/) and [Workflow Guide](workflow/WORKFLOW.md)
+4. **Looking for evidence?** Check [Time Savings](value-proposition/time-savings-evidence.md) and cost estimates
+5. **Need architecture decisions?** Browse [ADRs](adr/) (especially ADR-003 AVM-first, ADR-004 region defaults)
 
 ---
 
 ## 🚀 Getting Started
 
-| Section                                               | Description                      |
-| ----------------------------------------------------- | -------------------------------- |
-| [Quick Start](getting-started/QUICKSTART.md)          | Get up and running in 10 minutes |
-| [Prerequisites](getting-started/prerequisites.md)     | Required tools and setup         |
-| [Model Selection](getting-started/model-selection.md) | Choosing the right AI model      |
+| Section                                                 | Description                            |
+| ------------------------------------------------------- | -------------------------------------- |
+| [Quick Start](guides/quickstart.md)                     | Get up and running in 10 minutes       |
+| [Prerequisites](guides/prerequisites.md)                | Required tools and setup               |
+| [Complete Journey](guides/getting-started-journey.md)   | Full onboarding from zero to productive |
+| [Model Selection](guides/model-selection.md)            | Choosing the right AI model            |
+
+## 🤖 GitHub Copilot
+
+| Section                                                 | Description                            |
+| ------------------------------------------------------- | -------------------------------------- |
+| [Copilot Getting Started](guides/copilot-getting-started.md) | Install, configure, first steps   |
+| [Copilot Best Practices](guides/copilot-best-practices.md)   | Prompting tips, validation, patterns |
 
 ## 📋 Workflow & Guides
 
 | Section                                      | Description                            |
 | -------------------------------------------- | -------------------------------------- |
 | [Workflow Guide](workflow/WORKFLOW.md)       | Complete 4-step agent workflow         |
-| [Guides](guides/)                            | Operational and troubleshooting guides |
+| [All Guides](guides/)                        | Consolidated guides hub                |
 | [Troubleshooting](guides/troubleshooting.md) | Common issues and solutions            |
 
 ## 📊 Reference Materials
@@ -68,7 +77,7 @@ resources.
 
 ### Contributing
 
-- [Markdown Style Guide](MARKDOWN-STYLE-GUIDE.md) — ATX headers, 120-char lines, fenced code blocks
+- [Markdown Style Guide](guides/markdown-style-guide.md) — ATX headers, 120-char lines, fenced code blocks
 
 ---
 

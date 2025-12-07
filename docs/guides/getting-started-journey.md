@@ -275,7 +275,7 @@ Delegate entire GitHub Issues to Copilot for autonomous implementation.
 3. Copilot analyzes codebase and implements
 4. Review the PR Copilot creates
 
-📖 **Full guide:** [S09 Coding Agent](../scenarios/S09-coding-agent/)
+📖 **Full guide:** [S09 Coding Agent](../../scenarios/S09-coding-agent/)
 
 ---
 
@@ -333,7 +333,7 @@ pwsh -File validation/validate.ps1
 | Azure deployment fails    | Run `az login` then `az account set --subscription "Name"`                           |
 | Agent not appearing       | `Ctrl+Shift+P` → "Reload Window"                                                     |
 
-📖 **Full troubleshooting guide:** [docs/guides/troubleshooting.md](../guides/troubleshooting.md)
+📖 **Full troubleshooting guide:** [troubleshooting.md](troubleshooting.md)
 
 Covers: Dev Container issues, Copilot problems, Azure deployment errors, custom agents, network/proxy issues, and a complete error message reference.
 

@@ -668,7 +668,7 @@ Quick lookup for common error messages:
 
 | Resource                                                  | Use For                        |
 | --------------------------------------------------------- | ------------------------------ |
-| [Getting Started Guide](../getting-started/README.md)     | End-to-end setup walkthrough   |
+| [Getting Started Guide](getting-started-journey.md)       | End-to-end setup walkthrough   |
 | [Workflow Guide](../workflow/WORKFLOW.md)                 | Agent workflow documentation   |
 | [Scenario READMEs](../../scenarios/)                      | Scenario-specific guidance     |
 | [GitHub Copilot Docs](https://docs.github.com/en/copilot) | Official Copilot documentation |
