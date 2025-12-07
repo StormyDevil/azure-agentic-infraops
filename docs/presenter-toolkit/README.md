@@ -10,6 +10,7 @@ whether you're presenting to customers, colleagues, training sessions, or leader
 | Resource                                                          | Description                                  |
 | ----------------------------------------------------------------- | -------------------------------------------- |
 | [Demo Delivery Guide](demo-delivery-guide.md)                     | Step-by-step guide for running demos         |
+| [Character Reference](character-reference.md)                     | Persona quick-reference for storytelling     |
 | [Objection Handling](objection-handling.md)                       | Common concerns and evidence-based responses |
 | [ROI Calculator](roi-calculator.md)                               | Build a business case with time savings data |
 | [GitHub Copilot for IT Pros](github-copilot-for-itpros.md)        | Marp presentation slides                     |
@@ -24,6 +25,8 @@ across all 9 repository scenarios.
 **Highlights**: S03 Five-Agent Workflow achieves 96% savings (18 hours → 45 min).
 
 📖 **Full data & methodology**: [Time Savings Evidence](../value-proposition/time-savings-evidence.md)
+
+🎭 **Character profiles**: [Character Reference](character-reference.md) — storytelling personas for all 11 scenarios
 
 ## 🎤 Demo Preparation Checklist
 
@@ -54,9 +57,9 @@ across all 9 repository scenarios.
 
 ### For Experienced Presenters
 
-1. **Review** the latest scenarios (S01-S09) for new demo material
+1. **Review** the latest scenarios (S01-S11) for new demo material
 2. **Customize** the ROI Calculator for your audience's context
-3. **Explore** advanced scenarios like S03 (Five-Agent Workflow) and S09 (Coding Agent)
+3. **Explore** advanced scenarios like S03 (Five-Agent Workflow) and S10 (Coding Agent)
 
 ## 🎯 Audience-Specific Tips
 

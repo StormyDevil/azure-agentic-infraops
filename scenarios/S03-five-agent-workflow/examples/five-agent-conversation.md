@@ -3,7 +3,7 @@
 This document shows a complete conversation demonstrating all five agents working together
 to design and implement Azure infrastructure for Contoso Healthcare's patient portal.
 
-**Character**: Sarah Chen, Solutions Architect at Meridian Systems (SI Partner)  
+**Character**: Jennifer Chen, Solutions Architect at Meridian Systems (SI Partner)  
 **Client**: Contoso Healthcare Inc.  
 **Project**: HIPAA-compliant patient portal  
 **Duration**: ~45 minutes across all stages
@@ -14,7 +14,7 @@ to design and implement Azure infrastructure for Contoso Healthcare's patient po
 
 ### Starting the Conversation
 
-**Sarah**: I have a new client engagement - Contoso Healthcare needs a patient portal for
+**Jennifer**: I have a new client engagement - Contoso Healthcare needs a patient portal for
 appointment scheduling. They have 10,000 patients, $800/month budget, and HIPAA compliance
 is mandatory. I want to plan this infrastructure project before jumping into architecture
 or code. Can you help me break this down?
@@ -46,7 +46,7 @@ let me ask a few clarifying questions to ensure we create a comprehensive plan:
 
 5. **Data Residency**: Any geographic restrictions on where data must reside?
 
-**Sarah**: Great questions! Let me answer:
+**Jennifer**: Great questions! Let me answer:
 
 1. Timeline: 12 weeks, somewhat flexible but stakeholders are eager
 2. Team: Intermediate - comfortable with Azure portal, limited IaC experience
@@ -149,7 +149,7 @@ decisions, or proceed directly to the Azure Principal Architect for detailed ass
 
 ---
 
-**Sarah**: This is a great plan. Let's skip the ADR for now and go straight to architecture
+**Jennifer**: This is a great plan. Let's skip the ADR for now and go straight to architecture
 assessment. I want to validate the service choices before we commit.
 
 **[Sarah clicks "Review Against WAF Pillars" handoff button]**
@@ -162,7 +162,7 @@ assessment. I want to validate the service choices before we commit.
 
 **[azure-principal-architect agent auto-selects via handoff]**
 
-**Sarah**: Based on the plan we just created, I need a detailed Azure Well-Architected
+**Jennifer**: Based on the plan we just created, I need a detailed Azure Well-Architected
 Framework assessment for this patient portal. Key requirements:
 
 - $800/month budget
@@ -203,7 +203,7 @@ architecture-specific questions:
 4. **Disaster Recovery**: What's the acceptable data loss?
    - RPO (Recovery Point Objective): minutes, hours, or daily?
 
-**Sarah**: Excellent questions! Here are the answers:
+**Jennifer**: Excellent questions! Here are the answers:
 
 1. Azure AD B2C for patients - we want Microsoft-managed identity
 2. PHI will be stored - appointment data includes medical context
@@ -413,7 +413,7 @@ App Service (99.95%) × SQL Database (99.99%) × Key Vault (99.99%)
 
 ---
 
-**Sarah**: This is exactly what I needed. The WAF scores give me confidence to present
+**Jennifer**: This is exactly what I needed. The WAF scores give me confidence to present
 to Contoso, and the HIPAA mapping addresses their compliance concerns. Let's move to
 implementation planning.
 
@@ -427,7 +427,7 @@ implementation planning.
 
 **[bicep-plan agent auto-selects via handoff]**
 
-**Sarah**: Based on the architecture assessment, I need a detailed Bicep implementation
+**Jennifer**: Based on the architecture assessment, I need a detailed Bicep implementation
 plan. Please create a machine-readable plan with:
 
 - Complete resource specifications
@@ -879,7 +879,7 @@ graph TD
 
 ---
 
-**Sarah**: The dependency diagram is exactly what I needed to explain deployment order to
+**Jennifer**: The dependency diagram is exactly what I needed to explain deployment order to
 the team. The phased approach aligns with our 12-week timeline. Let's generate the code.
 
 **[Sarah clicks "Generate Bicep Code" handoff button]**
@@ -892,7 +892,7 @@ the team. The phased approach aligns with our 12-week timeline. Let's generate t
 
 **[bicep-implement agent auto-selects via handoff]**
 
-**Sarah**: Based on the implementation plan, please generate near-production-ready Bicep templates.
+**Jennifer**: Based on the implementation plan, please generate near-production-ready Bicep templates.
 Use modular design with separate files for each resource category. Include:
 
 - Parameter files for dev and prod environments
@@ -1289,7 +1289,7 @@ PS> az deployment sub what-if --location eastus2 --template-file main.bicep --pa
 
 ---
 
-**Sarah**: Excellent! The modular structure is exactly what I wanted - each module handles
+**Jennifer**: Excellent! The modular structure is exactly what I wanted - each module handles
 one concern. The deployment script with pre-flight checks will help my team deploy confidently.
 
 Let me verify the templates compile:
@@ -1331,7 +1331,7 @@ bicep build main.bicep
 
 ---
 
-**Sarah**: This workflow is a game-changer for my client engagements. Instead of 2-3 days
+**Jennifer**: This workflow is a game-changer for my client engagements. Instead of 2-3 days
 of architecture and coding, I can deliver near-production-ready infrastructure in a single
 working session. The handoff buttons make it seamless - no copy-paste, no context loss.
 

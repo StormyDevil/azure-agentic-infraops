@@ -1,5 +1,17 @@
 # Demo 03: Four-Step Agent Workflow for Azure Infrastructure
 
+## Meet Jennifer Chen
+
+> _"My clients pay for architecture, not typing. Every hour I spend on boilerplate
+> is an hour I'm not designing solutions."_
+
+**Jennifer Chen** is a Solutions Architect at Meridian Systems, a Microsoft SI Partner specializing
+in healthcare. She has a new client engagement: Contoso Healthcare needs a HIPAA-compliant patient
+portal with a tight budget ($800/month) and ambitious timeline. Jennifer knows the 4-step agent
+workflow will be her secret weapon—turning 18 hours of manual work into a 45-minute structured process.
+
+---
+
 ## 🎯 Overview
 
 This demo showcases GitHub Copilot's **4-step agent workflow** for designing and implementing Azure infrastructure,

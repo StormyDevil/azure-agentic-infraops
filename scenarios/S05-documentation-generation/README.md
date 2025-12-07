@@ -9,8 +9,8 @@
 > **Today's Challenge**: Document 50-server Azure migration in 1 week (normally 3 weeks)  
 > **The Twist**: Wants to understand WHY automation works, not just copy-paste scripts
 
-*"I've written documentation for dozens of migrations. But each one takes 20+ hours of manual work—
-interviewing engineers, drawing diagrams, formatting runbooks. There has to be a smarter way."*
+_"I've written documentation for dozens of migrations. But each one takes 20+ hours of manual work—
+interviewing engineers, drawing diagrams, formatting runbooks. There has to be a smarter way."_
 
 **What Priya will discover**: How to transform Azure resource data into professional documentation
 using conversation patterns, reducing 20+ hours to 90 minutes while understanding the WHY.
@@ -31,6 +31,7 @@ documentation using prompts, not just executing pre-built scripts.
 **Client:** TechCorp Solutions (mid-market MSP)  
 **Project:** Document 50-server Azure migration for customer handoff  
 **Deliverables:**
+
 - Architecture documentation with diagrams
 - Day 2 operations guide
 - Troubleshooting playbooks
@@ -50,13 +51,13 @@ By working through this scenario, you'll understand:
 
 ## Time Investment
 
-| Phase | Duration | Focus |
-|-------|----------|-------|
-| Understanding Patterns | 15 min | Why automation works |
-| Building Queries | 15 min | Resource Graph fundamentals |
-| Generating Documentation | 45 min | Prompt-based generation |
-| Review & Polish | 15 min | Human quality control |
-| **Total** | **90 min** | **vs. 20+ hours manual** |
+| Phase                    | Duration   | Focus                       |
+| ------------------------ | ---------- | --------------------------- |
+| Understanding Patterns   | 15 min     | Why automation works        |
+| Building Queries         | 15 min     | Resource Graph fundamentals |
+| Generating Documentation | 45 min     | Prompt-based generation     |
+| Review & Polish          | 15 min     | Human quality control       |
+| **Total**                | **90 min** | **vs. 20+ hours manual**    |
 
 ## Quick Start
 
@@ -125,12 +126,12 @@ Ask Copilot:
 
 **Why Mermaid Over Visio:**
 
-| Factor | Visio | Mermaid |
-|--------|-------|---------|
+| Factor          | Visio              | Mermaid                |
+| --------------- | ------------------ | ---------------------- |
 | Version control | Binary, can't diff | Text, full Git history |
-| Automation | Manual only | Generate from data |
-| Update time | Re-draw | Edit text |
-| Cost | License required | Free |
+| Automation      | Manual only        | Generate from data     |
+| Update time     | Re-draw            | Edit text              |
+| Cost            | License required   | Free                   |
 
 **Key Discovery Questions:**
 
@@ -151,6 +152,7 @@ Work through each documentation type:
 4. **API Documentation** - How to integrate
 
 For each type, understand:
+
 - What data sources are needed
 - What the prompt structure looks like
 - What human review is required
@@ -241,27 +243,27 @@ Generate [documentation type] for the following Azure environment.
 
 ### Understanding Tools
 
-| Question | Why Ask It |
-|----------|------------|
-| Why Resource Graph over CLI? | Understand data collection patterns |
+| Question                                  | Why Ask It                          |
+| ----------------------------------------- | ----------------------------------- |
+| Why Resource Graph over CLI?              | Understand data collection patterns |
 | Why prompts instead of direct generation? | Understand quality control workflow |
-| Why Mermaid over Visio? | Understand diagram automation |
+| Why Mermaid over Visio?                   | Understand diagram automation       |
 
 ### Understanding Data
 
-| Question | Why Ask It |
-|----------|------------|
-| What properties matter for documentation? | Focus data collection |
-| How to find resource relationships? | Enable diagram generation |
-| What indicates security configuration? | Include compliance information |
+| Question                                  | Why Ask It                     |
+| ----------------------------------------- | ------------------------------ |
+| What properties matter for documentation? | Focus data collection          |
+| How to find resource relationships?       | Enable diagram generation      |
+| What indicates security configuration?    | Include compliance information |
 
 ### Understanding Output
 
-| Question | Why Ask It |
-|----------|------------|
-| Who is the audience? | Tailor detail level |
-| How will docs be maintained? | Design for updates |
-| What needs human review? | Know automation limits |
+| Question                     | Why Ask It             |
+| ---------------------------- | ---------------------- |
+| Who is the audience?         | Tailor detail level    |
+| How will docs be maintained? | Design for updates     |
+| What needs human review?     | Know automation limits |
 
 ## Success Metrics
 
@@ -275,18 +277,19 @@ Generate [documentation type] for the following Azure environment.
 
 ### Efficiency Success
 
-| Metric | Manual | With Copilot | Target |
-|--------|--------|--------------|--------|
-| Architecture doc | 6 hours | 45 min | 87% reduction |
-| Operations guide | 8 hours | 55 min | 88% reduction |
-| Troubleshooting guide | 5 hours | 45 min | 85% reduction |
-| API documentation | 4 hours | 40 min | 83% reduction |
+| Metric                | Manual  | With Copilot | Target        |
+| --------------------- | ------- | ------------ | ------------- |
+| Architecture doc      | 6 hours | 45 min       | 87% reduction |
+| Operations guide      | 8 hours | 55 min       | 88% reduction |
+| Troubleshooting guide | 5 hours | 45 min       | 85% reduction |
+| API documentation     | 4 hours | 40 min       | 83% reduction |
 
 ## Common Questions
 
 **Q: Why don't the scripts generate final documentation directly?**
 
 A: The scripts generate prompts because:
+
 1. You can customize before generation
 2. You see exactly what Copilot receives
 3. You learn prompt engineering

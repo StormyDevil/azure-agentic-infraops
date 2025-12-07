@@ -49,8 +49,8 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 | --- | --------------------------------------------------------- | --------------- | -------------------------------------- | --------- | ------------ |
 | S01 | [Bicep Baseline](#s01-bicep-baseline)                     | Elena Rodriguez | Build secure Azure network foundation  | 30 min    | Beginner     |
 | S02 | [Terraform Baseline](#s02-terraform-baseline)             | Jordan Martinez | Multi-cloud IaC with Terraform         | 30 min    | Beginner     |
-| S03 | [Five-Agent Workflow](#s03-five-agent-workflow)           | —               | End-to-end infrastructure design       | 45-60 min | Advanced     |
-| S04 | [E-Commerce Platform](#s04-e-commerce-platform)           | —               | PCI-DSS compliant retail platform      | 60-90 min | Advanced     |
+| S03 | [Five-Agent Workflow](#s03-five-agent-workflow)           | Jennifer Chen   | End-to-end infrastructure design       | 45-60 min | Advanced     |
+| S04 | [E-Commerce Platform](#s04-e-commerce-platform)           | Carlos Mendez   | PCI-DSS compliant retail platform      | 60-90 min | Advanced     |
 | S05 | [Documentation Generation](#s05-documentation-generation) | Priya Sharma    | Auto-generate docs from code           | 90 min    | Intermediate |
 | S06 | [Service Validation](#s06-service-validation)             | Marcus Chen     | Automated UAT and load testing         | 30 min    | Intermediate |
 | S07 | [Troubleshooting](#s07-troubleshooting)                   | Maya Patel      | Diagnose infrastructure issues         | 25 min    | Intermediate |
@@ -106,6 +106,8 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 
 **[📁 View Scenario](S03-five-agent-workflow/)**
 
+> **Character**: Jennifer Chen — Solutions Architect at Meridian Systems (SI Partner)
+
 > **Production Example**: [`infra/bicep/contoso-patient-portal/`](../infra/bicep/contoso-patient-portal/) —
 > 1,070 lines of Bicep, 10 modules
 
@@ -153,6 +155,8 @@ flowchart LR
 ### S04: E-Commerce Platform
 
 **[📁 View Scenario](S04-ecommerce-platform/)**
+
+> **Character**: Carlos Mendez — E-Commerce Architect at TechRetail Inc
 
 > **Production Example**: [`infra/bicep/ecommerce/`](../infra/bicep/ecommerce/) — Multi-tier retail platform
 > with PCI-DSS compliance

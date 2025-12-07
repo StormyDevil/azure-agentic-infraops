@@ -159,18 +159,21 @@ TechCorp Solutions provides a multi-tenant SaaS platform for project management 
 **Modules Needed**:
 
 1. **Networking**
+
    - Virtual Network with subnet delegation
    - Network Security Groups with least-privilege rules
    - Private DNS zones
    - Application Gateway with WAF v2
 
 2. **Compute**
+
    - App Service with zone redundancy
    - App Service Plan (P1v3 SKU)
    - Managed Identity configuration
    - Private endpoint integration
 
 3. **Data**
+
    - Azure SQL Database with private endpoint
    - SQL Server with Azure AD admin only
    - Advanced Threat Protection
@@ -257,12 +260,14 @@ TechCorp Solutions provides a multi-tenant SaaS platform for project management 
 **Test Types**:
 
 1. **Static Analysis**
+
    - Terraform validate
    - Terraform fmt check
    - tfsec security scanning
    - Checkov policy validation
 
 2. **Unit Tests**
+
    - Terratest for each module
    - Verify outputs are correct
    - Test variable validation
@@ -314,14 +319,14 @@ TechCorp Solutions provides a multi-tenant SaaS platform for project management 
 
 ### Quantitative Metrics
 
-| Metric | Current State | Target State | Timeline |
-|--------|--------------|--------------|----------|
-| **Environment Provisioning** | 3-5 days | 1 hour | 3 months |
-| **Deployment Error Rate** | 40% | < 5% | 3 months |
-| **Security Findings** | 23 critical | 0 critical | 6 months |
-| **Engineer Productivity** | 60 hours/project | 6 hours/project | 3 months |
-| **Code Reusability** | 20% | 90% | 6 months |
-| **Team Standardization** | 15 different patterns | 1 standard | 6 months |
+| Metric                       | Current State         | Target State    | Timeline |
+| ---------------------------- | --------------------- | --------------- | -------- |
+| **Environment Provisioning** | 3-5 days              | 1 hour          | 3 months |
+| **Deployment Error Rate**    | 40%                   | < 5%            | 3 months |
+| **Security Findings**        | 23 critical           | 0 critical      | 6 months |
+| **Engineer Productivity**    | 60 hours/project      | 6 hours/project | 3 months |
+| **Code Reusability**         | 20%                   | 90%             | 6 months |
+| **Team Standardization**     | 15 different patterns | 1 standard      | 6 months |
 
 ### Qualitative Success Factors
 
@@ -449,16 +454,19 @@ These may be addressed in future phases after initial success.
 ### How Copilot Accelerates This Project
 
 1. **Module Development** (90% time reduction)
+
    - Generates HCL syntax correctly
    - Suggests Azure best practices
    - Creates variable validation automatically
 
 2. **Security Hardening** (Automatic suggestions)
+
    - Private endpoints by default
    - Managed Identity patterns
    - NSG rules with least privilege
 
 3. **Testing Code** (85% time reduction)
+
    - Generates Terratest unit tests
    - Creates validation scripts
    - Suggests test scenarios

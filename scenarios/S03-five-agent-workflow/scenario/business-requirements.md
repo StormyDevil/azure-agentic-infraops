@@ -34,12 +34,14 @@
 ### Primary Objectives
 
 1. **Improve Patient Experience**
+
    - 24/7 access to medical records
    - Online appointment scheduling
    - Secure messaging with providers
    - Prescription refill requests
 
 2. **Reduce Administrative Burden**
+
    - Decrease phone call volume (currently 200+/day)
    - Automate appointment reminders
    - Self-service patient information updates

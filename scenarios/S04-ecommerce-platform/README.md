@@ -1,5 +1,17 @@
 # Demo 04: E-Commerce Platform - Full Agent Workflow
 
+## Meet Carlos Mendez
+
+> _"Black Friday isn't a drill. When 50,000 users hit checkout simultaneously,
+> there are no second chances."_
+
+**Carlos Mendez** is an E-Commerce Architect at TechRetail Inc. With 90 days until Black Friday,
+he needs to build infrastructure that handles 50,000 concurrent users while maintaining PCI-DSS
+compliance for payment processing. The full 6-step workflow—including real-time cost validation
+with the Azure Pricing MCP server—is exactly what he needs to deliver on time and on budget.
+
+---
+
 ## 🎯 Overview
 
 This demo showcases GitHub Copilot's **complete agent workflow** for designing and implementing a
