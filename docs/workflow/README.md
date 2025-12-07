@@ -12,12 +12,12 @@ graph LR
     C --> D["bicep-implement"]
 ```
 
-| Step | Agent                     | Purpose                                    |
-| ---- | ------------------------- | ------------------------------------------ |
-| 1    | `@plan`                   | Generate implementation plan               |
-| 2    | `azure-principal-architect` | WAF assessment, architecture guidance    |
-| 3    | `bicep-plan`              | AVM module selection, implementation plan  |
-| 4    | `bicep-implement`         | Generate validated Bicep templates         |
+| Step | Agent                       | Purpose                                   |
+| ---- | --------------------------- | ----------------------------------------- |
+| 1    | `@plan`                     | Generate implementation plan              |
+| 2    | `azure-principal-architect` | WAF assessment, architecture guidance     |
+| 3    | `bicep-plan`                | AVM module selection, implementation plan |
+| 4    | `bicep-implement`           | Generate validated Bicep templates        |
 
 **Optional agents**: `diagram-generator` (architecture visuals), `adr-generator` (decision records)
 

@@ -7,14 +7,14 @@ whether you're presenting to customers, colleagues, training sessions, or leader
 
 ## 🎯 Quick Links
 
-| Resource                                                            | Description                                  |
-| ------------------------------------------------------------------- | -------------------------------------------- |
-| [Demo Delivery Guide](demo-delivery-guide.md)                       | Step-by-step guide for running demos         |
-| [Objection Handling](objection-handling.md)                         | Common concerns and evidence-based responses |
-| [ROI Calculator](roi-calculator.md)                                 | Build a business case with time savings data |
-| [GitHub Copilot for IT Pros](github-copilot-for-itpros.md)          | Marp presentation slides                     |
-| [Visual Elements Guide](visual-elements-guide.md)                   | Image and diagram placement for slides       |
-| [Agentic InfraOps Presentation](agentic-infraops-presentation.md)   | Core presentation content                    |
+| Resource                                                          | Description                                  |
+| ----------------------------------------------------------------- | -------------------------------------------- |
+| [Demo Delivery Guide](demo-delivery-guide.md)                     | Step-by-step guide for running demos         |
+| [Objection Handling](objection-handling.md)                       | Common concerns and evidence-based responses |
+| [ROI Calculator](roi-calculator.md)                               | Build a business case with time savings data |
+| [GitHub Copilot for IT Pros](github-copilot-for-itpros.md)        | Marp presentation slides                     |
+| [Visual Elements Guide](visual-elements-guide.md)                 | Image and diagram placement for slides       |
+| [Agentic InfraOps Presentation](agentic-infraops-presentation.md) | Core presentation content                    |
 
 ## 📊 Key Value Proposition
 
@@ -81,7 +81,7 @@ across all 9 repository scenarios.
 ## 📁 Related Resources
 
 - **Value Proposition Content**: [value-proposition/](../value-proposition/) — Time savings evidence, executive pitch,
-  portfolio showcase (the *what to say*)
+  portfolio showcase (the _what to say_)
 - **Scenario Index**: [scenarios/README.md](../../scenarios/README.md) — All 10 scenarios with learning paths
 - **Workflow Guide**: [workflow/WORKFLOW.md](../workflow/WORKFLOW.md) — Complete agent workflow documentation
 - **Quick Start**: [guides/quickstart.md](../guides/quickstart.md) — 10-minute setup for demo prep

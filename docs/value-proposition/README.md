@@ -4,11 +4,11 @@ This folder contains business-facing content for demonstrating the value of Agen
 
 ## Available Resources
 
-| Document | Description |
-| -------- | ----------- |
-| [Time Savings Evidence](time-savings-evidence.md) | Quantified efficiency gains with methodology |
-| [Copilot Portfolio Showcase](copilot-portfolio-showcase.md) | Real-world project examples |
-| [Executive Pitch](executive-pitch.md) | C-level presentation material with IT Pro personas |
+| Document                                                    | Description                                        |
+| ----------------------------------------------------------- | -------------------------------------------------- |
+| [Time Savings Evidence](time-savings-evidence.md)           | Quantified efficiency gains with methodology       |
+| [Copilot Portfolio Showcase](copilot-portfolio-showcase.md) | Real-world project examples                        |
+| [Executive Pitch](executive-pitch.md)                       | C-level presentation material with IT Pro personas |
 
 ## Audience
 
@@ -27,7 +27,7 @@ For detailed data and methodology, see [Time Savings Evidence](time-savings-evid
 
 ## Related Resources
 
-- [Presenter Toolkit](../presenter-toolkit/) — Demo delivery guides, objection handling (the *how to present*)
+- [Presenter Toolkit](../presenter-toolkit/) — Demo delivery guides, objection handling (the _how to present_)
 - [ROI Calculator](../presenter-toolkit/roi-calculator.md) — Build a custom business case
 - [Scenarios](../../scenarios/) — Hands-on demos with measured time savings
 - [Workflow Guide](../workflow/WORKFLOW.md) — Complete agent workflow for live demonstrations
