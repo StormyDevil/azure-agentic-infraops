@@ -31,24 +31,26 @@ digraph SimpleWorkflow {
         arrowsize="0.7"
     ]
     
-    // Main 6-step workflow nodes
+    // Main 7-step workflow nodes
     plan [label="@plan" fillcolor="#0078D4"]
     architect [label="azure-principal-\narchitect" fillcolor="#FF6B35"]
-    pre_artifacts [label="Pre-Build\nArtifacts" fillcolor="#8b5cf6" style="filled,rounded,dashed"]
+    design_artifacts [label="Design\nArtifacts" fillcolor="#8b5cf6" style="filled,rounded,dashed"]
     bicep_plan [label="bicep-plan" fillcolor="#10b981"]
     bicep_implement [label="bicep-implement" fillcolor="#ec4899"]
-    post_artifacts [label="Post-Build\nArtifacts" fillcolor="#f4722b" style="filled,rounded,dashed"]
+    deploy [label="Deploy" fillcolor="#f4722b"]
+    asbuilt_artifacts [label="As-Built\nArtifacts" fillcolor="#0ea5e9" style="filled,rounded,dashed"]
     
     // Governance indicator
     governance [label="🔒 Governance" fillcolor="#06b6d4"]
     
     // Main flow
     plan -> architect
-    architect -> pre_artifacts [style="dashed"]
+    architect -> design_artifacts [style="dashed"]
     architect -> bicep_plan
-    pre_artifacts -> bicep_plan [style="dashed"]
+    design_artifacts -> bicep_plan [style="dashed"]
     bicep_plan -> bicep_implement
-    bicep_implement -> post_artifacts [style="dashed"]
+    bicep_implement -> deploy
+    deploy -> asbuilt_artifacts [style="dashed"]
     
     // Governance connection
     governance -> bicep_plan [style="dashed" constraint="false"]

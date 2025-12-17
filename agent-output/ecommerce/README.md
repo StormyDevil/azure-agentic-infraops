@@ -7,11 +7,14 @@
 
 - [x] Step 1: Requirements (@plan)
 - [x] Step 2: Architecture (azure-principal-architect)
-- [ ] Step 3: Pre-Build Artifacts (optional)
+- [ ] Step 3: Design Artifacts (optional)
 - [x] Step 4: Planning (bicep-plan)
 - [x] Step 5: Implementation (bicep-implement)
-- [x] Step 6: Post-Build Artifacts (diagram)
-- [x] Step 7: Workload Documentation ✅
+- [x] Step 6: Deploy
+- [x] Step 7: As-Built + Workload Documentation ✅
+
+> **Note**: This demo uses legacy file naming (`06-asbuilt-*` instead of `07-ab-*`).
+> New projects should follow the updated naming conventions in `agent-output/README.md`.
 
 ## Generated Artifacts
 

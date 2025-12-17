@@ -65,7 +65,7 @@ Same workflow, same quality, whether it's AWS or Azure."
 - **Success Metric**: Requirements to deployable code in < 1 hour
 
 **Demo Hook**: "Jennifer has a new client engagement. HIPAA compliance, tight budget,
-ambitious timeline. Watch how the 6-step workflow becomes her secret weapon."
+ambitious timeline. Watch how the 7-step workflow becomes her secret weapon."
 
 ---
 

@@ -14,7 +14,7 @@ This file provides context and guidance for GitHub Copilot when assisting with t
 3. **Name Length Limits**: Key Vault ≤24 chars, Storage ≤24 chars (no hyphens), SQL ≤63 chars
 4. **Azure SQL Auth Policy**: Azure AD-only auth for SQL Server
 5. **Zone Redundancy**: App Service Plans need P1v4 SKU (not S1/P1v2) for zone redundancy
-6. **Six-Step Workflow**: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
+6. **Seven-Step Workflow**: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
    (each step requires approval)
 7. **Deploy Script Pattern**: Use `[CmdletBinding(SupportsShouldProcess)]` + `$WhatIfPreference`
    (NOT explicit `$WhatIf` param)

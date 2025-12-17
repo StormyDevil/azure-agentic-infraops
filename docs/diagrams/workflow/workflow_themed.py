@@ -1,8 +1,8 @@
 """
 Agentic InfraOps Workflow Diagram - PowerPoint Theme
-6-Step workflow with dark purple gradient theme
+7-Step workflow with dark purple gradient theme
 
-Updated: 2025-01 for 6-Step Agentic Workflow
+Updated: 2025-01 for 7-Step Agentic Workflow
 """
 
 import os
@@ -30,7 +30,7 @@ COLORS = {
 
 
 def create_workflow_diagram():
-    """Generate the 6-step workflow diagram with PowerPoint theme."""
+    """Generate the 7-step workflow diagram with PowerPoint theme."""
 
     dot_content = f'''
 digraph AgenticInfraOps {{
@@ -104,9 +104,9 @@ digraph AgenticInfraOps {{
         ]
     }}
     
-    // Step 3: Pre-Build Artifacts
+    // Step 3: Design Artifacts
     subgraph cluster_step3 {{
-        label="Step 3: Pre-Build Artifacts (Optional)"
+        label="Step 3: Design Artifacts (Optional)"
         fontcolor="#94a3b8"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -116,12 +116,12 @@ digraph AgenticInfraOps {{
         penwidth="2"
         
         diagrams_design [
-            label="📊 diagram-generator\\n(-design)"
+            label="📊 diagram-generator\\n(-des)"
             fillcolor="{COLORS['purple']}"
         ]
         
         adr_design [
-            label="📝 adr-generator\\n(-design)"
+            label="📝 adr-generator\\n(-des)"
             fillcolor="{COLORS['teal']}"
         ]
     }}
@@ -174,9 +174,26 @@ digraph AgenticInfraOps {{
         ]
     }}
     
-    // Step 6: Post-Build Artifacts
+    // Step 6: Deploy
     subgraph cluster_step6 {{
-        label="Step 6: Post-Build Artifacts (Optional)"
+        label="Step 6: Deploy"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="{COLORS['card_bg']}"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        deploy [
+            label="🚀 Deploy\\n(Azure CLI/PowerShell)"
+            fillcolor="{COLORS['coral']}"
+        ]
+    }}
+
+    // Step 7: As-Built Artifacts
+    subgraph cluster_step7 {{
+        label="Step 7: As-Built Artifacts (Optional)"
         fontcolor="#94a3b8"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -186,12 +203,12 @@ digraph AgenticInfraOps {{
         penwidth="2"
         
         diagrams_asbuilt [
-            label="📊 diagram-generator\\n(-asbuilt)"
+            label="📊 diagram-generator\\n(-ab)"
             fillcolor="{COLORS['purple']}"
         ]
         
         adr_asbuilt [
-            label="📝 adr-generator\\n(-asbuilt)"
+            label="📝 adr-generator\\n(-ab)"
             fillcolor="{COLORS['teal']}"
         ]
     }}
@@ -204,7 +221,8 @@ digraph AgenticInfraOps {{
     adr_design -> bicep_plan [style="dashed" color="{COLORS['teal']}"]
     policy -> bicep_plan [style="dashed" xlabel="constraints" color="{COLORS['cyan']}" fontcolor="{COLORS['cyan']}"]
     bicep_plan -> bicep_implement [xlabel="plan" color="{COLORS['green']}" fontcolor="{COLORS['green']}"]
-    bicep_implement -> diagrams_asbuilt [style="dashed" xlabel="optional" color="{COLORS['pink']}" fontcolor="#94a3b8"]
+    bicep_implement -> deploy [xlabel="code" color="{COLORS['pink']}" fontcolor="{COLORS['pink']}"]
+    deploy -> diagrams_asbuilt [style="dashed" xlabel="optional" color="{COLORS['coral']}" fontcolor="#94a3b8"]
     
     // Layout hints
     {{rank=same; plan}}
@@ -220,7 +238,7 @@ digraph AgenticInfraOps {{
 
 
 def create_simple_workflow():
-    """Create a simpler horizontal 6-step workflow for README."""
+    """Create a simpler horizontal 7-step workflow for README."""
 
     dot_content = f'''
 digraph SimpleWorkflow {{
@@ -255,24 +273,26 @@ digraph SimpleWorkflow {{
         arrowsize="0.7"
     ]
     
-    // Main 6-step workflow nodes
+    // Main 7-step workflow nodes
     plan [label="@plan" fillcolor="{COLORS['blue']}"]
     architect [label="azure-principal-\\narchitect" fillcolor="{COLORS['orange']}"]
-    pre_artifacts [label="Pre-Build\\nArtifacts" fillcolor="{COLORS['purple']}" style="filled,rounded,dashed"]
+    design_artifacts [label="Design\\nArtifacts" fillcolor="{COLORS['purple']}" style="filled,rounded,dashed"]
     bicep_plan [label="bicep-plan" fillcolor="{COLORS['green']}"]
     bicep_implement [label="bicep-implement" fillcolor="{COLORS['pink']}"]
-    post_artifacts [label="Post-Build\\nArtifacts" fillcolor="{COLORS['coral']}" style="filled,rounded,dashed"]
+    deploy [label="Deploy" fillcolor="{COLORS['coral']}"]
+    asbuilt_artifacts [label="As-Built\\nArtifacts" fillcolor="{COLORS['cyan']}" style="filled,rounded,dashed"]
     
     // Governance indicator
     governance [label="🔒 Governance" fillcolor="{COLORS['cyan']}"]
     
     // Main flow
     plan -> architect
-    architect -> pre_artifacts [style="dashed"]
+    architect -> design_artifacts [style="dashed"]
     architect -> bicep_plan
-    pre_artifacts -> bicep_plan [style="dashed"]
+    design_artifacts -> bicep_plan [style="dashed"]
     bicep_plan -> bicep_implement
-    bicep_implement -> post_artifacts [style="dashed"]
+    bicep_implement -> deploy
+    deploy -> asbuilt_artifacts [style="dashed"]
     
     // Governance connection
     governance -> bicep_plan [style="dashed" constraint="false"]
@@ -289,7 +309,7 @@ if __name__ == "__main__":
     output_dir = os.path.dirname(__file__)
 
     # Generate full workflow diagram
-    print("🎨 Generating themed 6-step workflow diagram...")
+    print("🎨 Generating themed 7-step workflow diagram...")
     full_dot = create_workflow_diagram()
     full_dot_path = os.path.join(output_dir, "workflow_themed.dot")
     full_png_path = os.path.join(output_dir, "workflow_themed.png")
@@ -307,7 +327,7 @@ if __name__ == "__main__":
     print(f"✅ Generated: {full_svg_path}")
 
     # Generate simple workflow diagram
-    print("\n🎨 Generating simple 6-step workflow diagram...")
+    print("\n🎨 Generating simple 7-step workflow diagram...")
     simple_dot = create_simple_workflow()
     simple_dot_path = os.path.join(output_dir, "workflow_simple.dot")
     simple_png_path = os.path.join(output_dir, "workflow_simple.png")
@@ -323,5 +343,5 @@ if __name__ == "__main__":
     print(f"✅ Generated: {simple_png_path}")
     print(f"✅ Generated: {simple_svg_path}")
 
-    print("\n🎉 All 6-step workflow diagrams generated successfully!")
+    print("\n🎉 All 7-step workflow diagrams generated successfully!")
     print(f"\nFiles created in: {output_dir}")

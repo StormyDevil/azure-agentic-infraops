@@ -34,8 +34,8 @@ Before you begin, ensure you have:
 > **Modules**: AVM-first ([ADR-003](../adr/ADR-003-avm-first-approach.md)) for policy-compliant, repeatable
 > deployments.
 >
-> **Agent Workflow**: Six-step flow (`@plan` → `azure-principal-architect` → Pre-Build Artifacts → `bicep-plan` →
-> `bicep-implement` → Post-Build Artifacts). See [Workflow Guide](../workflow/WORKFLOW.md) for details.
+> **Agent Workflow**: Seven-step flow (`@plan` → `azure-principal-architect` → Design Artifacts → `bicep-plan` →
+> `bicep-implement` → Deploy → As-Built Artifacts). See [Workflow Guide](../workflow/WORKFLOW.md) for details.
 
 ---
 
@@ -132,19 +132,20 @@ Environment: dev
 
 ## Step 6: Follow the Workflow
 
-The workflow has 6 steps, each requiring your approval:
+The workflow has 7 steps, each requiring your approval:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
     A["@plan<br/>Step 1"] --> B["architect<br/>Step 2"]
-    B --> C["Pre-Build<br/>Step 3"]
+    B --> C["Design<br/>Step 3"]
     C --> D["bicep-plan<br/>Step 4"]
     D --> E["implement<br/>Step 5"]
-    E --> F["Post-Build<br/>Step 6"]
+    E --> F["Deploy<br/>Step 6"]
+    F --> G["As-Built<br/>Step 7"]
 ```
 
-> **Note**: Steps 3 and 6 (Pre/Post-Build Artifacts) are optional for generating diagrams and ADRs.
+> **Note**: Steps 3 (Design) and 7 (As-Built) are optional for generating diagrams and ADRs.
 
 ### At Each Step
 

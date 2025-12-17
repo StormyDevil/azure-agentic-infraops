@@ -33,15 +33,15 @@ Use this unified agent for end-to-end infrastructure delivery when you need to a
 AND implement in a single session. For complex projects requiring detailed focus on individual phases,
 consider using the specialized agents (`azure-principal-architect`, `bicep-plan`, `bicep-implement`) instead.
 
-## Relationship to 6-Step Agentic Workflow
+## Relationship to 7-Step Agentic Workflow
 
-This unified agent consolidates the 6-step workflow into 3 internal phases:
+This unified agent consolidates the 7-step workflow into 3 internal phases:
 
-| Unified Phase     | Equivalent 6-Step Phases                    |
-| ----------------- | ------------------------------------------- |
-| 1. Assess & Design | Step 1 (@plan) + Step 2 (architect) + Step 3 (pre-build artifacts) |
-| 2. Plan            | Step 4 (bicep-plan with governance discovery) |
-| 3. Implement       | Step 5 (bicep-implement) + Step 6 (post-build artifacts) |
+| Unified Phase     | Equivalent 7-Step Phases                                                 |
+| ----------------- | ------------------------------------------------------------------------ |
+| 1. Assess & Design | Step 1 (@plan) + Step 2 (architect) + Step 3 (design artifacts)          |
+| 2. Plan            | Step 4 (bicep-plan with governance discovery)                            |
+| 3. Implement       | Step 5 (bicep-implement) + Step 6 (deploy) + Step 7 (as-built artifacts) |
 
 For complex projects, use the specialized agents for granular control and approval gates.
 

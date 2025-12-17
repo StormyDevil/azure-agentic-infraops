@@ -1,4 +1,4 @@
-# ADR-001: Six-Step Agent Workflow Design
+# ADR-001: Seven-Step Agent Workflow Design
 
 ## Status
 
@@ -23,32 +23,35 @@ design a workflow that:
 
 1. **Single monolithic agent** - One agent handles everything from requirements to deployment
 2. **Two-step workflow** - Architecture → Implementation only
-3. **Six-step workflow** - Finer granularity with separate agents for each phase
+3. **Seven-step workflow** - Finer granularity with separate agents for each phase, including deploy step
 4. **No custom agents** - Rely entirely on Copilot Chat without custom prompts
 
 ## Decision
 
-We adopted a **six-step workflow** with approval gates:
+We adopted a **seven-step workflow** with approval gates:
 
 ```
-@plan → azure-principal-architect → bicep-plan → bicep-implement
+@plan → azure-principal-architect → [Design Artifacts] → bicep-plan → bicep-implement → Deploy → [As-Built Artifacts]
 ```
 
-With two optional supporting agents:
+With optional artifact phases:
 
-- `diagram-generator` - Python architecture diagrams
-- `adr-generator` - Architecture Decision Records
+- **Step 3**: Design Artifacts - `diagram-generator`, `adr-generator` (suffix: `-des`)
+- **Step 7**: As-Built Artifacts - `diagram-generator`, `adr-generator` (suffix: `-ab`)
 
 ### Workflow Steps
 
-| Step | Agent                       | Purpose                           | Creates Code? |
+| Step | Agent/Phase                 | Purpose                           | Creates Code? |
 | ---- | --------------------------- | --------------------------------- | ------------- |
-| 1    | `@plan`                     | Requirements gathering, cost est. | No            |
+| 1    | `@plan`                     | Requirements gathering            | No            |
 | 2    | `azure-principal-architect` | WAF assessment, recommendations   | No            |
-| 3    | `bicep-plan`                | Implementation planning with AVM  | Planning docs |
-| 4    | `bicep-implement`           | Bicep code generation             | Yes           |
+| 3    | Design Artifacts (optional) | Design diagrams + ADRs            | No            |
+| 4    | `bicep-plan`                | Implementation planning with AVM  | Planning docs |
+| 5    | `bicep-implement`           | Bicep code generation             | Yes           |
+| 6    | Deploy                      | Deploy to Azure                   | No            |
+| 7    | As-Built Artifacts (opt.)   | As-built diagrams + ADRs          | No            |
 
-### Why Four Steps?
+### Why Seven Steps?
 
 1. **Matches real-world workflow** - Architects don't write code, developers don't set requirements
 2. **Prevents token limit issues** - Splitting planning from implementation keeps responses focused

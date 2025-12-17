@@ -1,8 +1,8 @@
 """
 Agentic InfraOps Workflow Diagram Generator v2
-Generates horizontal 6-step workflow diagrams with dark theme
+Generates horizontal 7-step workflow diagrams with dark theme
 
-Updated: 2025-01 for 6-Step Agentic Workflow
+Updated: 2025-01 for 7-Step Agentic Workflow
 """
 
 import os
@@ -26,7 +26,7 @@ COLORS = {
 
 
 def create_workflow_diagram():
-    """Generate the numbered 6-step workflow diagram - widescreen horizontal."""
+    """Generate the numbered 7-step workflow diagram - widescreen horizontal."""
 
     dot_content = f'''
 digraph AgenticInfraOps {{
@@ -82,23 +82,23 @@ digraph AgenticInfraOps {{
     ]
 
     // ============================================
-    // STEP 3: PRE-BUILD ARTIFACTS (Optional)
+    // STEP 3: DESIGN ARTIFACTS (Optional)
     // ============================================
     step3 [
-        label="3. Pre-Build Artifacts\\n(optional)"
+        label="3. Design Artifacts\\n(optional)"
         fillcolor="{COLORS['purple']}"
         width="2.0"
         style="filled,rounded,dashed"
     ]
     
     step3a [
-        label="📊 -design diagram\\ndiagram-generator"
+        label="📊 -des diagram\\ndiagram-generator"
         fillcolor="{COLORS['purple']}"
         fontsize="9"
     ]
     
     step3b [
-        label="📝 -design ADR\\nadr-generator"
+        label="📝 -des ADR\\nadr-generator"
         fillcolor="{COLORS['teal']}"
         fontsize="9"
     ]
@@ -128,23 +128,32 @@ digraph AgenticInfraOps {{
     ]
 
     // ============================================
-    // STEP 6: POST-BUILD ARTIFACTS (Optional)
+    // STEP 6: DEPLOY
     // ============================================
     step6 [
-        label="6. Post-Build Artifacts\\n(optional)"
+        label="6. Deploy\\nAzure CLI/PowerShell"
+        fillcolor="{COLORS['coral']}"
+        width="2.0"
+    ]
+
+    // ============================================
+    // STEP 7: AS-BUILT ARTIFACTS (Optional)
+    // ============================================
+    step7 [
+        label="7. As-Built Artifacts\\n(optional)"
         fillcolor="{COLORS['coral']}"
         width="2.0"
         style="filled,rounded,dashed"
     ]
     
-    step6a [
-        label="📊 -asbuilt diagram\\ndiagram-generator"
+    step7a [
+        label="📊 -ab diagram\\ndiagram-generator"
         fillcolor="{COLORS['purple']}"
         fontsize="9"
     ]
     
-    step6b [
-        label="📝 -asbuilt ADR\\nadr-generator"
+    step7b [
+        label="📝 -ab ADR\\nadr-generator"
         fillcolor="{COLORS['teal']}"
         fontsize="9"
     ]
@@ -189,7 +198,7 @@ digraph AgenticInfraOps {{
 
 
 def create_simple_workflow():
-    """Create a compact horizontal 6-step workflow for README."""
+    """Create a compact horizontal 7-step workflow for README."""
 
     dot_content = f'''
 digraph SimpleWorkflow {{
@@ -221,26 +230,27 @@ digraph SimpleWorkflow {{
         arrowsize="0.6"
     ]
     
-    // Main 6-step workflow
+    // Main 7-step workflow
     s1 [label="1. Plan" fillcolor="{COLORS['blue']}"]
     s2 [label="2. Architect" fillcolor="{COLORS['orange']}"]
-    s3 [label="3. Pre-Build\\nArtifacts" fillcolor="{COLORS['purple']}" style="filled,rounded,dashed"]
+    s3 [label="3. Design\\nArtifacts" fillcolor="{COLORS['purple']}" style="filled,rounded,dashed"]
     s4 [label="4. Plan Infra" fillcolor="{COLORS['green']}"]
     s5 [label="5. Generate" fillcolor="{COLORS['pink']}"]
-    s6 [label="6. Post-Build\\nArtifacts" fillcolor="{COLORS['coral']}" style="filled,rounded,dashed"]
+    s6 [label="6. Deploy" fillcolor="{COLORS['coral']}"]
+    s7 [label="7. As-Built\\nArtifacts" fillcolor="{COLORS['coral']}" style="filled,rounded,dashed"]
     
     // Flow
     s1 -> s2 -> s3 [style="dashed"]
     s2 -> s4
     s3 -> s4 [style="dashed"]
-    s4 -> s5 -> s6 [style="dashed"]
+    s4 -> s5 -> s6 -> s7 [style="dashed"]
 }}
 '''
     return dot_content
 
 
 def create_detailed_workflow():
-    """Create a detailed widescreen horizontal 6-step workflow."""
+    """Create a detailed widescreen horizontal 7-step workflow."""
 
     dot_content = f'''
 digraph DetailedWorkflow {{
@@ -292,17 +302,17 @@ digraph DetailedWorkflow {{
         height="0.6"
     ]
 
-    // Step 3 - Pre-Build Artifacts
+    // Step 3 - Design Artifacts
     step3 [
-        label="③ Pre-Build Artifacts\\n(optional)"
+        label="③ Design Artifacts\\n(optional)"
         fillcolor="{COLORS['purple']}"
         width="2.0"
         height="0.6"
         style="filled,rounded,dashed"
     ]
     
-    opt3a [label="📊 -design diagram\\ndiagram-generator" fillcolor="{COLORS['purple']}" fontsize="10"]
-    opt3b [label="📝 -design ADR\\nadr-generator" fillcolor="{COLORS['teal']}" fontsize="10"]
+    opt3a [label="📊 -des diagram\\ndiagram-generator" fillcolor="{COLORS['purple']}" fontsize="10"]
+    opt3b [label="📝 -des ADR\\nadr-generator" fillcolor="{COLORS['teal']}" fontsize="10"]
 
     // Step 4
     step4 [
@@ -322,17 +332,25 @@ digraph DetailedWorkflow {{
         height="0.6"
     ]
 
-    // Step 6 - Post-Build Artifacts
+    // Step 6 - Deploy
     step6 [
-        label="⑥ Post-Build Artifacts\\n(optional)"
+        label="⑥ Deploy\\nAzure CLI/PowerShell"
+        fillcolor="{COLORS['coral']}"
+        width="2.0"
+        height="0.6"
+    ]
+
+    // Step 7 - As-Built Artifacts
+    step7 [
+        label="⑦ As-Built Artifacts\\n(optional)"
         fillcolor="{COLORS['coral']}"
         width="2.0"
         height="0.6"
         style="filled,rounded,dashed"
     ]
     
-    opt6a [label="📊 -asbuilt diagram\\ndiagram-generator" fillcolor="{COLORS['purple']}" fontsize="10"]
-    opt6b [label="📝 -asbuilt ADR\\nadr-generator" fillcolor="{COLORS['teal']}" fontsize="10"]
+    opt7a [label="📊 -ab diagram\\ndiagram-generator" fillcolor="{COLORS['purple']}" fontsize="10"]
+    opt7b [label="📝 -ab ADR\\nadr-generator" fillcolor="{COLORS['teal']}" fontsize="10"]
 
     // Main flow - thick colored arrows
     step1 -> step2 [color="{COLORS['blue']}" penwidth="3"]
@@ -340,14 +358,15 @@ digraph DetailedWorkflow {{
     step2 -> step4 [color="{COLORS['orange']}" penwidth="3"]
     step3 -> step4 [color="{COLORS['purple']}" penwidth="2" style="dashed"]
     step4 -> step5 [color="{COLORS['green']}" penwidth="3"]
-    step5 -> step6 [color="{COLORS['pink']}" penwidth="2" style="dashed"]
+    step5 -> step6 [color="{COLORS['pink']}" penwidth="3"]
+    step6 -> step7 [color="{COLORS['coral']}" penwidth="2" style="dashed"]
 
     // Optional tools connections - above main flow
     opt3a -> step3 [style="dashed" color="{COLORS['purple']}" arrowhead="none" arrowtail="normal" dir="back"]
     opt3b -> step3 [style="dashed" color="{COLORS['teal']}" arrowhead="none" arrowtail="normal" dir="back"]
     opt4gov -> step4 [style="dashed" color="{COLORS['cyan']}" arrowhead="none" arrowtail="normal" dir="back"]
-    opt6a -> step6 [style="dashed" color="{COLORS['purple']}" arrowhead="none" arrowtail="normal" dir="back"]
-    opt6b -> step6 [style="dashed" color="{COLORS['teal']}" arrowhead="none" arrowtail="normal" dir="back"]
+    opt7a -> step7 [style="dashed" color="{COLORS['purple']}" arrowhead="none" arrowtail="normal" dir="back"]
+    opt7b -> step7 [style="dashed" color="{COLORS['teal']}" arrowhead="none" arrowtail="normal" dir="back"]
 
     // Layout - optionals stacked vertically
     {{ rank=same; opt3a; opt3b }}
@@ -364,7 +383,7 @@ if __name__ == "__main__":
     output_dir = os.path.dirname(__file__)
 
     # Generate numbered workflow
-    print("🎨 Generating numbered 6-step workflow diagram...")
+    print("🎨 Generating numbered 7-step workflow diagram...")
     dot = create_workflow_diagram()
     dot_path = os.path.join(output_dir, "workflow_numbered.dot")
     png_path = os.path.join(output_dir, "workflow_numbered.png")
@@ -380,7 +399,7 @@ if __name__ == "__main__":
     print(f"✅ {svg_path}")
 
     # Generate simple horizontal
-    print("\n🎨 Generating simple 6-step workflow...")
+    print("\n🎨 Generating simple 7-step workflow...")
     dot = create_simple_workflow()
     dot_path = os.path.join(output_dir, "workflow_simple_v2.dot")
     png_path = os.path.join(output_dir, "workflow_simple_v2.png")
@@ -396,7 +415,7 @@ if __name__ == "__main__":
     print(f"✅ {svg_path}")
 
     # Generate detailed workflow
-    print("\n🎨 Generating detailed 6-step workflow...")
+    print("\n🎨 Generating detailed 7-step workflow...")
     dot = create_detailed_workflow()
     dot_path = os.path.join(output_dir, "workflow_detailed.dot")
     png_path = os.path.join(output_dir, "workflow_detailed.png")
@@ -411,5 +430,5 @@ if __name__ == "__main__":
     print(f"✅ {png_path}")
     print(f"✅ {svg_path}")
 
-    print("\n🎉 All 6-step workflow diagrams generated!")
+    print("\n🎉 All 7-step workflow diagrams generated!")
     print(f"\nFiles in: {output_dir}")

@@ -70,7 +70,7 @@ style: |
 
 ---
 
-# The 6-Step Agentic Workflow
+# The 7-Step Agentic Workflow
 
 ![width:1100px](infographics/generated/workflow-diagram.png)
 

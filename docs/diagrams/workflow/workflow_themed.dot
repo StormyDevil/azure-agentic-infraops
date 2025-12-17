@@ -70,9 +70,9 @@ digraph AgenticInfraOps {
         ]
     }
     
-    // Step 3: Pre-Build Artifacts
+    // Step 3: Design Artifacts
     subgraph cluster_step3 {
-        label="Step 3: Pre-Build Artifacts (Optional)"
+        label="Step 3: Design Artifacts (Optional)"
         fontcolor="#94a3b8"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -82,12 +82,12 @@ digraph AgenticInfraOps {
         penwidth="2"
         
         diagrams_design [
-            label="📊 diagram-generator\n(-design)"
+            label="📊 diagram-generator\n(-des)"
             fillcolor="#8b5cf6"
         ]
         
         adr_design [
-            label="📝 adr-generator\n(-design)"
+            label="📝 adr-generator\n(-des)"
             fillcolor="#14b8a6"
         ]
     }
@@ -140,9 +140,26 @@ digraph AgenticInfraOps {
         ]
     }
     
-    // Step 6: Post-Build Artifacts
+    // Step 6: Deploy
     subgraph cluster_step6 {
-        label="Step 6: Post-Build Artifacts (Optional)"
+        label="Step 6: Deploy"
+        fontcolor="white"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        deploy [
+            label="Deploy to Azure\n(Azure CLI/PowerShell)"
+            fillcolor="#f4722b"
+        ]
+    }
+    
+    // Step 7: As-Built Artifacts
+    subgraph cluster_step7 {
+        label="Step 7: As-Built Artifacts (Optional)"
         fontcolor="#94a3b8"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -152,12 +169,12 @@ digraph AgenticInfraOps {
         penwidth="2"
         
         diagrams_asbuilt [
-            label="📊 diagram-generator\n(-asbuilt)"
+            label="📊 diagram-generator\n(-ab)"
             fillcolor="#8b5cf6"
         ]
         
         adr_asbuilt [
-            label="📝 adr-generator\n(-asbuilt)"
+            label="📝 adr-generator\n(-ab)"
             fillcolor="#14b8a6"
         ]
     }
@@ -170,7 +187,8 @@ digraph AgenticInfraOps {
     adr_design -> bicep_plan [style="dashed" color="#14b8a6"]
     policy -> bicep_plan [style="dashed" xlabel="constraints" color="#06b6d4" fontcolor="#06b6d4"]
     bicep_plan -> bicep_implement [xlabel="plan" color="#10b981" fontcolor="#10b981"]
-    bicep_implement -> diagrams_asbuilt [style="dashed" xlabel="optional" color="#ec4899" fontcolor="#94a3b8"]
+    bicep_implement -> deploy [xlabel="templates" color="#ec4899" fontcolor="#ec4899"]
+    deploy -> diagrams_asbuilt [style="dashed" xlabel="optional" color="#f4722b" fontcolor="#94a3b8"]
     
     // Layout hints
     {rank=same; plan}
@@ -178,5 +196,6 @@ digraph AgenticInfraOps {
     {rank=same; diagrams_design; adr_design}
     {rank=same; bicep_plan; policy}
     {rank=same; bicep_implement}
+    {rank=same; deploy}
     {rank=same; diagrams_asbuilt; adr_asbuilt}
 }

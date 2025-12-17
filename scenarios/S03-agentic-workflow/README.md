@@ -1,4 +1,4 @@
-# Demo 03: Six-Step Agent Workflow for Azure Infrastructure
+# Demo 03: Seven-Step Agent Workflow for Azure Infrastructure
 
 ## Meet Jennifer Chen
 

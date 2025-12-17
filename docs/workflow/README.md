@@ -1,6 +1,6 @@
 # Workflow Documentation
 
-This folder contains the complete guide to the Agentic InfraOps six-step agentic workflow.
+This folder contains the complete guide to the Agentic InfraOps seven-step agentic workflow.
 
 ## Quick Reference
 
@@ -8,10 +8,11 @@ This folder contains the complete guide to the Agentic InfraOps six-step agentic
 %%{init: {'theme':'neutral'}}%%
 graph LR
     A["@plan<br/>Step 1"] --> B["architect<br/>Step 2"]
-    B --> C["Pre-Build<br/>Step 3"]
+    B --> C["Design<br/>Step 3"]
     C --> D["bicep-plan<br/>Step 4"]
     D --> E["implement<br/>Step 5"]
-    E --> F["Post-Build<br/>Step 6"]
+    E --> F["Deploy<br/>Step 6"]
+    F --> G["As-Built<br/>Step 7"]
 ```
 
 | Step | Agent/Phase                 | Purpose                                    |

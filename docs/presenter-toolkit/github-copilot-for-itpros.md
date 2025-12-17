@@ -219,7 +219,7 @@ Experts skip boilerplate. Mid-level pros produce expert-quality work. Newcomers 
 
 ---
 
-# The Six-Step Agent Workflow
+# The Seven-Step Agent Workflow
 
 ## From Requirements to Deployed Infrastructure
 
@@ -266,7 +266,7 @@ This is our flagship demo. A real e-commerce platform - Front Door, App Services
 
 # Demo Workflow Steps
 
-## The Complete 6-Step Flow
+## The Complete 7-Step Flow
 
 | Step | Agent/Tool                  | Duration  | Key Output           |
 | ---- | --------------------------- | --------- | -------------------- |

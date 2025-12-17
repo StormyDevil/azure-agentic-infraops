@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Agentic InfraOps - 6-Step Agent Workflow Diagram Generator
+Agentic InfraOps - 7-Step Agent Workflow Diagram Generator
 
 Creates a professional diagram showing the core agent workflow:
 @plan → azure-principal-architect → bicep-plan → bicep-implement
@@ -47,7 +47,7 @@ COLORS = {
 
 
 def create_workflow_diagram():
-    """Generate the 6-step workflow diagram."""
+    """Generate the 7-step workflow diagram."""
 
     # Create figure (landscape, presentation-friendly)
     fig = plt.figure(figsize=(16, 9), facecolor=COLORS['white'])
@@ -92,8 +92,8 @@ def create_workflow_diagram():
         },
         {
             'num': '3',
-            'title': 'Pre-Build\nArtifacts',
-            'subtitle': '-design suffix',
+            'title': 'Design\nArtifacts',
+            'subtitle': '-des suffix',
             'agent': 'Optional',
             'desc': ['Design diagrams', 'Decision ADRs'],
             'color': '#F3E5F5',  # Light purple
@@ -122,12 +122,22 @@ def create_workflow_diagram():
         },
         {
             'num': '6',
-            'title': 'Post-Build\nArtifacts',
-            'subtitle': '-asbuilt suffix',
+            'title': 'Deploy',
+            'subtitle': 'To Azure',
+            'agent': 'CLI/PowerShell',
+            'desc': ['Deploy resources', 'Verify deployment'],
+            'color': '#FFF3E0',  # Light orange
+            'border': '#F57C00',
+            'icon': '🚀'
+        },
+        {
+            'num': '7',
+            'title': 'As-Built\nArtifacts',
+            'subtitle': '-ab suffix',
             'agent': 'Optional',
             'desc': ['As-built diagrams', 'Final ADRs'],
-            'color': '#F3E5F5',  # Light purple
-            'border': '#7B1FA2',
+            'color': '#E3F2FD',  # Light blue
+            'border': '#1976D2',
             'icon': '📊'
         }
     ]
@@ -243,7 +253,7 @@ def main():
     output_dir = Path(__file__).parent / 'generated'
     output_dir.mkdir(exist_ok=True)
 
-    print("🎨 Generating 6-Step Workflow Diagram...")
+    print("🎨 Generating 7-Step Workflow Diagram...")
 
     fig = create_workflow_diagram()
 
