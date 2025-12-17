@@ -63,6 +63,35 @@ to ensure recommendations align with current Microsoft guidance.
 
 **Use swedencentral by default.** Document region selection rationale in all assessments.
 
+### Requirements Validation (Step 2 Pre-Check)
+
+**Before starting the WAF assessment**, validate that requirements from Step 1 (@plan) include:
+
+| Category               | Required Information                                | If Missing                       |
+| ---------------------- | --------------------------------------------------- | -------------------------------- |
+| **NFRs (mandatory)**   | SLA target, RTO, RPO, performance targets           | Ask user for specifics           |
+| **Compliance**         | Regulatory framework (HIPAA, PCI-DSS, GDPR, etc.)   | Ask if any compliance applies    |
+| **Cost Constraints**   | Monthly/annual budget or "optimize for cost"        | Ask for budget range             |
+| **Scale Requirements** | Expected users, transactions, data volume           | Ask for growth projections       |
+
+**Validation Prompt Template:**
+
+If requirements are incomplete, respond:
+
+> ⚠️ **Requirements Gap Detected**
+>
+> Before I can provide an accurate WAF assessment, I need clarification on:
+>
+> - [ ] **SLA Target**: What uptime percentage is required? (99.9%, 99.95%, 99.99%)
+> - [ ] **RTO/RPO**: What are acceptable Recovery Time and Recovery Point Objectives?
+> - [ ] **Compliance**: Are there regulatory requirements? (HIPAA, PCI-DSS, GDPR, SOC 2)
+> - [ ] **Budget**: What is the monthly/annual cost budget?
+>
+> 📋 **Tip**: Use the comprehensive requirements template at
+> [`.github/prompts/plan-requirements.prompt.md`](../.github/prompts/plan-requirements.prompt.md)
+
+**Only proceed with WAF assessment when critical NFRs are defined.**
+
 ## Cloud Adoption Framework (CAF) & Naming Standards
 
 **All architectural recommendations MUST align with Microsoft Cloud Adoption Framework:**

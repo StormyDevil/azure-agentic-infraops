@@ -81,6 +81,39 @@ graph TB
 | 6    | Deploy                      | Deploy to Azure                      | `06-deployment-summary.md`                | ✅ Yes   |
 | 7    | As-Built Artifacts          | Document final state                 | `07-ab-*` diagrams + ADRs + workload docs | Optional |
 
+### Step 1: Requirements (@plan)
+
+Use the VS Code built-in `@plan` agent to gather comprehensive requirements.
+
+**📋 Requirements Template:** See [`.github/prompts/plan-requirements.prompt.md`](../../.github/prompts/plan-requirements.prompt.md)
+
+**Key Information to Capture:**
+
+| Category                   | Examples                                                     |
+| -------------------------- | ------------------------------------------------------------ |
+| **Project Overview**       | Name, type, timeline, stakeholders                           |
+| **Functional Requirements**| Core capabilities, user types, integrations, data types      |
+| **Non-Functional (NFRs)**  | SLA (99.9%/99.95%/99.99%), RTO, RPO, performance targets     |
+| **Compliance & Security**  | HIPAA, PCI-DSS, GDPR, SOC 2, data residency, auth method     |
+| **Cost Constraints**       | Monthly/annual budget, optimization priorities, FinOps       |
+| **Operational**            | Monitoring needs, support SLAs, backup/DR requirements       |
+
+**Example Prompt:**
+
+```text
+@plan Create deployment plan for HIPAA-compliant patient portal.
+Business context: Healthcare startup serving 10,000 patients.
+NFRs: 99.95% SLA, RTO=4hrs, RPO=1hr, <2s page load.
+Compliance: HIPAA, SOC 2, data residency in EU.
+Budget: $3,000/month maximum.
+```
+
+### Step 2: Architecture (azure-principal-architect)
+
+See agent definition: [`.github/agents/azure-principal-architect.agent.md`](../../.github/agents/azure-principal-architect.agent.md)
+
+**Validates requirements include NFRs** before proceeding with WAF assessment.
+
 ### Step 3: Design Artifacts (Optional)
 
 | Tool/Agent             | Purpose                         | Output Suffix | Triggered By                        |

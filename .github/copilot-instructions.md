@@ -24,6 +24,7 @@ This file provides context and guidance for GitHub Copilot when assisting with t
 **Critical Files:**
 
 - Agent definitions: `.github/agents/*.agent.md`
+- **Plan requirements template**: `.github/prompts/plan-requirements.prompt.md` (comprehensive NFR capture)
 - Workflow guide: `docs/workflow/WORKFLOW.md`
 - Quick start: `docs/guides/quickstart.md`
 - Troubleshooting: `docs/guides/troubleshooting.md`
@@ -145,8 +146,10 @@ When generating cost estimates, use these sources in order of preference:
 
 ```
 Step 1: @plan (START HERE)
-Prompt: Create deployment plan for HIPAA-compliant patient portal
-[Plan agent generates requirements → 01-requirements.md]
+📋 Use template: .github/prompts/plan-requirements.prompt.md
+Prompt: "Create deployment plan for HIPAA-compliant patient portal"
+   → Gather: Business context, NFRs (SLA/RTO/RPO), compliance, cost budget
+[Plan agent generates comprehensive requirements → 01-requirements.md]
 → Approve to continue
 
 Step 2: azure-principal-architect
@@ -195,7 +198,10 @@ Step 6: Deploy → Azure Deployment
 **Critical Agent Behaviors:**
 
 - **All agents require approval** before proceeding to next step (reply "yes", "approve", or provide feedback)
+- **@plan uses comprehensive requirements template**: Reference `.github/prompts/plan-requirements.prompt.md`
+  to capture business context, NFRs (SLA/RTO/RPO), compliance needs, and cost budget
 - **azure-principal-architect does NOT create code** - only provides architectural guidance
+- **azure-principal-architect validates requirements**: Checks that Step 1 captured NFRs before assessment
 - **All agents default to `swedencentral` region** (alternative: `germanywestcentral`), unless explicitly specified
 - **Bicep agents ALWAYS generate unique resource name suffixes** using `uniqueString(resourceGroup().id)`
   to prevent naming collisions

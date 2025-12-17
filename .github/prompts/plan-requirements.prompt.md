@@ -18,12 +18,12 @@
 
 ### Stakeholders
 
-| Role | Name/Team | Responsibility |
-|------|-----------|----------------|
-| Business Owner | | Approves requirements |
-| Technical Lead | | Architecture decisions |
-| Operations | | Day-2 support |
-| Security | | Compliance sign-off |
+| Role           | Name/Team | Responsibility         |
+| -------------- | --------- | ---------------------- |
+| Business Owner |           | Approves requirements  |
+| Technical Lead |           | Architecture decisions |
+| Operations     |           | Day-2 support          |
+| Security       |           | Compliance sign-off    |
 
 ---
 
@@ -40,22 +40,22 @@
 ### User Types & Load
 
 | User Type | Expected Count | Peak Concurrent | Geographic Region |
-|-----------|---------------|-----------------|-------------------|
-| | | | |
+| --------- | -------------- | --------------- | ----------------- |
+|           |                |                 |                   |
 
 ### Integration Requirements
 
 <!-- Systems this workload must integrate with -->
 
-| System | Integration Type | Direction | Protocol |
-|--------|-----------------|-----------|----------|
-| | API / Event / File | Inbound/Outbound | REST/GraphQL/AMQP |
+| System | Integration Type   | Direction        | Protocol          |
+| ------ | ------------------ | ---------------- | ----------------- |
+|        | API / Event / File | Inbound/Outbound | REST/GraphQL/AMQP |
 
 ### Data Requirements
 
-| Data Type | Volume | Retention | Sensitivity |
-|-----------|--------|-----------|-------------|
-| | GB/TB | Days/Years | Public/Internal/Confidential/Restricted |
+| Data Type | Volume | Retention  | Sensitivity                             |
+| --------- | ------ | ---------- | --------------------------------------- |
+|           | GB/TB  | Days/Years | Public/Internal/Confidential/Restricted |
 
 ---
 
@@ -63,29 +63,29 @@
 
 ### Availability & Reliability
 
-| Requirement | Target | Notes |
-|-------------|--------|-------|
-| **SLA** | 99.9% / 99.95% / 99.99% | |
-| **RTO** (Recovery Time Objective) | minutes / hours | Max acceptable downtime |
-| **RPO** (Recovery Point Objective) | minutes / hours | Max acceptable data loss |
-| **Maintenance Window** | | Preferred time for updates |
+| Requirement                        | Target                  | Notes                      |
+| ---------------------------------- | ----------------------- | -------------------------- |
+| **SLA**                            | 99.9% / 99.95% / 99.99% |                            |
+| **RTO** (Recovery Time Objective)  | minutes / hours         | Max acceptable downtime    |
+| **RPO** (Recovery Point Objective) | minutes / hours         | Max acceptable data loss   |
+| **Maintenance Window**             |                         | Preferred time for updates |
 
 ### Performance
 
-| Metric | Target | Notes |
-|--------|--------|-------|
-| **Response Time (P95)** | < 200ms / < 500ms / < 2s | |
-| **Throughput** | requests/sec | |
-| **Concurrent Users** | | Peak load |
-| **Data Processing** | records/hour | Batch processing needs |
+| Metric                  | Target                   | Notes                  |
+| ----------------------- | ------------------------ | ---------------------- |
+| **Response Time (P95)** | < 200ms / < 500ms / < 2s |                        |
+| **Throughput**          | requests/sec             |                        |
+| **Concurrent Users**    |                          | Peak load              |
+| **Data Processing**     | records/hour             | Batch processing needs |
 
 ### Scalability
 
-| Dimension | Current | 12-Month Projection | Notes |
-|-----------|---------|---------------------|-------|
-| Users | | | |
-| Data Volume | | | |
-| Transactions | | | |
+| Dimension    | Current | 12-Month Projection | Notes |
+| ------------ | ------- | ------------------- | ----- |
+| Users        |         |                     |       |
+| Data Volume  |         |                     |       |
+| Transactions |         |                     |       |
 
 ---
 
@@ -107,23 +107,23 @@
 
 ### Data Residency
 
-| Requirement | Details |
-|-------------|---------|
-| **Primary Region** | swedencentral / germanywestcentral / other |
-| **Data Sovereignty** | Must data stay in specific country/region? |
-| **Cross-border Transfer** | Any restrictions on data movement? |
+| Requirement               | Details                                    |
+| ------------------------- | ------------------------------------------ |
+| **Primary Region**        | swedencentral / germanywestcentral / other |
+| **Data Sovereignty**      | Must data stay in specific country/region? |
+| **Cross-border Transfer** | Any restrictions on data movement?         |
 
 ### Security Requirements
 
-| Control | Requirement | Notes |
-|---------|-------------|-------|
-| **Authentication** | Azure AD / B2C / External IdP | |
-| **Authorization** | RBAC / ABAC / Custom | |
-| **Encryption at Rest** | Platform / Customer-managed keys | |
-| **Encryption in Transit** | TLS 1.2+ / mTLS | |
-| **Network Isolation** | Private endpoints / VNet integration | |
-| **WAF** | Required / Optional | |
-| **DDoS Protection** | Standard / Premium | |
+| Control                   | Requirement                          | Notes |
+| ------------------------- | ------------------------------------ | ----- |
+| **Authentication**        | Azure AD / B2C / External IdP        |       |
+| **Authorization**         | RBAC / ABAC / Custom                 |       |
+| **Encryption at Rest**    | Platform / Customer-managed keys     |       |
+| **Encryption in Transit** | TLS 1.2+ / mTLS                      |       |
+| **Network Isolation**     | Private endpoints / VNet integration |       |
+| **WAF**                   | Required / Optional                  |       |
+| **DDoS Protection**       | Standard / Premium                   |       |
 
 ---
 
@@ -131,23 +131,23 @@
 
 ### Budget
 
-| Period | Budget | Currency | Notes |
-|--------|--------|----------|-------|
-| **Monthly** | | USD/EUR | Steady-state operational cost |
-| **Annual** | | USD/EUR | Total annual budget |
-| **Initial Setup** | | USD/EUR | One-time deployment costs |
+| Period            | Budget | Currency | Notes                         |
+| ----------------- | ------ | -------- | ----------------------------- |
+| **Monthly**       |        | USD/EUR  | Steady-state operational cost |
+| **Annual**        |        | USD/EUR  | Total annual budget           |
+| **Initial Setup** |        | USD/EUR  | One-time deployment costs     |
 
 ### Cost Optimization Priorities
 
 <!-- Rank 1-5, where 1 is most important -->
 
-| Priority | Rank | Notes |
-|----------|------|-------|
-| Minimize monthly spend | | |
-| Optimize for performance | | |
-| Reduce operational overhead | | |
-| Reserved capacity discounts | | |
-| Spot/preemptible instances | | |
+| Priority                    | Rank | Notes |
+| --------------------------- | ---- | ----- |
+| Minimize monthly spend      |      |       |
+| Optimize for performance    |      |       |
+| Reduce operational overhead |      |       |
+| Reserved capacity discounts |      |       |
+| Spot/preemptible instances  |      |       |
 
 ### FinOps Considerations
 
@@ -162,28 +162,28 @@
 
 ### Monitoring & Observability
 
-| Capability | Requirement | Notes |
-|------------|-------------|-------|
-| **Logging** | Centralized / Per-resource | Retention period |
-| **Metrics** | Platform / Custom | Key metrics to track |
-| **Alerting** | Email / Teams / PagerDuty | On-call integration |
-| **Dashboards** | Azure Portal / Grafana | Stakeholder visibility |
-| **APM** | Application Insights / Other | Distributed tracing |
+| Capability     | Requirement                  | Notes                  |
+| -------------- | ---------------------------- | ---------------------- |
+| **Logging**    | Centralized / Per-resource   | Retention period       |
+| **Metrics**    | Platform / Custom            | Key metrics to track   |
+| **Alerting**   | Email / Teams / PagerDuty    | On-call integration    |
+| **Dashboards** | Azure Portal / Grafana       | Stakeholder visibility |
+| **APM**        | Application Insights / Other | Distributed tracing    |
 
 ### Support Model
 
-| Aspect | Requirement |
-|--------|-------------|
-| **Support Hours** | 24/7 / Business hours / Best effort |
-| **Response Time** | P1: / P2: / P3: |
-| **Escalation Path** | |
-| **Runbook Required** | Yes / No |
+| Aspect               | Requirement                         |
+| -------------------- | ----------------------------------- |
+| **Support Hours**    | 24/7 / Business hours / Best effort |
+| **Response Time**    | P1: / P2: / P3:                     |
+| **Escalation Path**  |                                     |
+| **Runbook Required** | Yes / No                            |
 
 ### Backup & DR
 
-| Component | Backup Frequency | Retention | DR Strategy |
-|-----------|-----------------|-----------|-------------|
-| | Daily/Hourly | Days/Weeks | Active-Active/Passive/Pilot Light |
+| Component | Backup Frequency | Retention  | DR Strategy                       |
+| --------- | ---------------- | ---------- | --------------------------------- |
+|           | Daily/Hourly     | Days/Weeks | Active-Active/Passive/Pilot Light |
 
 ---
 
@@ -239,6 +239,7 @@ Before submitting to `@plan`:
 ```
 
 The plan agent will:
+
 1. Validate requirements completeness
 2. Create `agent-output/{project-name}/` folder
 3. Generate `01-requirements.md` with structured requirements
