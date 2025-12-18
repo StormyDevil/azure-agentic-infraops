@@ -27,9 +27,9 @@ flowchart LR
 
 | Path | Start Here |
 |------|------------|
-| 🟢 **Beginner** | [Quick Start](getting-started/QUICKSTART.md) |
+| 🟢 **Beginner** | [Quick Start](getting-started/quickstart.md) |
 | 🟡 **Experienced** | [Reference Docs](reference/) |
-| 🔴 **Presenter** | [Demo Toolkit](presenter-toolkit/) |
+| 🔴 **Presenter** | [Demo Toolkit](presenter/) |
 
 ---
 
