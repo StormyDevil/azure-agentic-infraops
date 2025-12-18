@@ -1,5 +1,7 @@
 # Architecture Diagrams
 
+> **Version 3.6.0** | [Back to Documentation Hub](../README.md)
+
 This folder contains generated architecture diagrams for various scenarios.
 
 ## Where Diagrams Live
@@ -44,4 +46,5 @@ The agent will create a Python script and generate the corresponding image.
 ## Related Documentation
 
 - [S09 Diagrams as Code](../../scenarios/S09-diagrams-as-code/) - Hands-on scenario for diagram generation
-- [Visual Elements Guide](../presenter-toolkit/visual-elements-guide.md) - Using diagrams in presentations
+- [Visual Elements Guide](../presenter/visual-elements-guide.md) - Using diagrams in presentations
+- [Diagram Generator Agent](../../.github/agents/diagram-generator.agent.md) - Agent definition
