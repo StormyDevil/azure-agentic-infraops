@@ -1,10 +1,10 @@
 # Version Information
 
-**Current Version:** 3.7.6
+**Current Version:** 3.7.7
 
 **Last Updated:** 2025-12-18
 
-**Build:** 015bb08
+**Build:** 48a51cf
 
 ## Version History
 
