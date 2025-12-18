@@ -4,15 +4,15 @@
 
 ## Quick Reference
 
-| Rule | Value |
-|------|-------|
-| **Default Region** | `swedencentral` (alt: `germanywestcentral`) |
-| **Unique Names** | `var uniqueSuffix = uniqueString(resourceGroup().id)` in main.bicep, pass to ALL modules |
-| **Key Vault** | ≤24 chars: `kv-{short}-{env}-{suffix}` |
-| **Storage Account** | ≤24 chars, lowercase+numbers only, NO hyphens |
-| **SQL Server** | ≤63 chars, Azure AD-only auth |
-| **Zone Redundancy** | App Service Plans: P1v4+ (not S1/P1v2) |
-| **Deploy Scripts** | `[CmdletBinding(SupportsShouldProcess)]` + `$WhatIfPreference` |
+| Rule                | Value                                                                                    |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| **Default Region**  | `swedencentral` (alt: `germanywestcentral`)                                              |
+| **Unique Names**    | `var uniqueSuffix = uniqueString(resourceGroup().id)` in main.bicep, pass to ALL modules |
+| **Key Vault**       | ≤24 chars: `kv-{short}-{env}-{suffix}`                                                   |
+| **Storage Account** | ≤24 chars, lowercase+numbers only, NO hyphens                                            |
+| **SQL Server**      | ≤63 chars, Azure AD-only auth                                                            |
+| **Zone Redundancy** | App Service Plans: P1v4+ (not S1/P1v2)                                                   |
+| **Deploy Scripts**  | `[CmdletBinding(SupportsShouldProcess)]` + `$WhatIfPreference`                           |
 
 **Critical Files:**
 
@@ -43,15 +43,15 @@ graph LR
     DEP --> F["As-Built Artifacts<br/>Step 7"]
 ```
 
-| Step | Agent | Output |
-|------|-------|--------|
-| 1 | `@plan` | `01-requirements.md` |
-| 2 | `azure-principal-architect` | `02-architecture-assessment.md` |
-| 3 | `diagram-generator`, `adr-generator` | `03-des-*.md/.py/.png` |
-| 4 | `bicep-plan` | `04-implementation-plan.md` |
-| 5 | `bicep-implement` | `infra/bicep/{project}/` |
-| 6 | Deploy | `06-deployment-summary.md` |
-| 7 | `workload-documentation-generator` | `07-*.md` |
+| Step | Agent                                | Output                          |
+| ---- | ------------------------------------ | ------------------------------- |
+| 1    | `@plan`                              | `01-requirements.md`            |
+| 2    | `azure-principal-architect`          | `02-architecture-assessment.md` |
+| 3    | `diagram-generator`, `adr-generator` | `03-des-*.md/.py/.png`          |
+| 4    | `bicep-plan`                         | `04-implementation-plan.md`     |
+| 5    | `bicep-implement`                    | `infra/bicep/{project}/`        |
+| 6    | Deploy                               | `06-deployment-summary.md`      |
+| 7    | `workload-documentation-generator`   | `07-*.md`                       |
 
 **How to use agents**: `Ctrl+Shift+A` → select agent → type prompt → wait for approval before next step
 
@@ -78,13 +78,13 @@ azure-agentic-infraops/
 
 ## Tech Stack
 
-| Category | Tools |
-|----------|-------|
-| **IaC** | Bicep (primary), Terraform (optional) |
-| **Automation** | PowerShell 7+, Azure CLI 2.50+, Bicep CLI 0.20+ |
-| **Platform** | Azure (public cloud) |
-| **AI** | GitHub Copilot with custom agents |
-| **Dev Environment** | VS Code Dev Container (Ubuntu 24.04) |
+| Category            | Tools                                           |
+| ------------------- | ----------------------------------------------- |
+| **IaC**             | Bicep (primary), Terraform (optional)           |
+| **Automation**      | PowerShell 7+, Azure CLI 2.50+, Bicep CLI 0.20+ |
+| **Platform**        | Azure (public cloud)                            |
+| **AI**              | GitHub Copilot with custom agents               |
+| **Dev Environment** | VS Code Dev Container (Ubuntu 24.04)            |
 
 ## Critical Patterns
 
@@ -116,20 +116,20 @@ tags: {
 
 ### Security Defaults
 
-| Setting | Value |
-|---------|-------|
-| `supportsHttpsTrafficOnly` | `true` |
-| `minimumTlsVersion` | `'TLS1_2'` |
-| `allowBlobPublicAccess` | `false` |
-| Managed Identities | Preferred over connection strings |
+| Setting                    | Value                             |
+| -------------------------- | --------------------------------- |
+| `supportsHttpsTrafficOnly` | `true`                            |
+| `minimumTlsVersion`        | `'TLS1_2'`                        |
+| `allowBlobPublicAccess`    | `false`                           |
+| Managed Identities         | Preferred over connection strings |
 
 ### Azure Policy Compliance
 
-| Policy | Solution |
-|--------|----------|
-| SQL Azure AD-only auth | `azureADOnlyAuthentication: true` |
-| Zone redundancy | Use P1v4+ SKU (not Standard) |
-| Storage shared key access | Use identity-based connections |
+| Policy                    | Solution                          |
+| ------------------------- | --------------------------------- |
+| SQL Azure AD-only auth    | `azureADOnlyAuthentication: true` |
+| Zone redundancy           | Use P1v4+ SKU (not Standard)      |
+| Storage shared key access | Use identity-based connections    |
 
 ## Validation Commands
 
