@@ -2,6 +2,7 @@
 name: step1-requirements
 description: Generate Step 1 requirements document for simple web API project
 agent: project-planner
+model: claude-opus-4.5
 tools:
   - read_file
   - create_file
