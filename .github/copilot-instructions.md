@@ -62,7 +62,7 @@ graph LR
 ```
 azure-agentic-infraops/
 ├── .github/
-│   ├── agents/                  # 6 custom agents
+│   ├── agents/                  # 7 custom agents
 │   │   ├── _shared/defaults.md  # Regions, tags, AVM, security
 │   │   └── *.agent.md           # Agent definitions
 │   ├── instructions/            # File-type specific rules

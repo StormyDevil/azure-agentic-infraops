@@ -1,7 +1,7 @@
 // =============================================================================
-// Static Web App Test - Main Bicep Template
+// Static Web App - Main Bicep Template
 // =============================================================================
-// Project: static-webapp-test
+// Project: static-webapp
 // Purpose: Deploy Azure Static Web App with SQL Database backend
 // Generated: 2024-12-17 by bicep-implement agent
 // =============================================================================
@@ -32,7 +32,7 @@ param environment string = 'dev'
 @description('Project name used for resource naming')
 @minLength(3)
 @maxLength(20)
-param projectName string = 'static-webapp-test'
+param projectName string = 'static-webapp'
 
 @description('Azure AD Object ID for SQL Server administrator')
 param sqlAdminObjectId string

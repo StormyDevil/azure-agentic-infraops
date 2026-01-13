@@ -1,6 +1,6 @@
 # Learning Paths
 
-> **Version 3.6.0** | [Changelog](../../VERSION.md)
+> **Version 3.7.8** | [Changelog](../../VERSION.md)
 >
 > **From zero to productive in 30 minutes.** This comprehensive guide covers setup, your first scenario,
 > exploration paths, and mastery.

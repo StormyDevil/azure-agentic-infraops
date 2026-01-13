@@ -1,4 +1,4 @@
-# Resource Inventory: static-webapp-test
+# Resource Inventory: static-webapp
 
 **Generated**: December 17, 2025
 **Source**: Infrastructure as Code (Bicep)
@@ -24,7 +24,7 @@
 
 | Name                         | Type           | SKU  | Location      | Purpose                |
 | ---------------------------- | -------------- | ---- | ------------- | ---------------------- |
-| stapp-static-webapp-test-dev | Static Web App | Free | swedencentral | React/HTML frontend    |
+| stapp-static-webapp-dev | Static Web App | Free | swedencentral | React/HTML frontend    |
 | (integrated)                 | Azure Function | Free | swedencentral | Backend API (with SWA) |
 
 ### 💾 Data Services
@@ -32,14 +32,14 @@
 | Name                         | Type         | SKU         | Configuration      | Location      |
 | ---------------------------- | ------------ | ----------- | ------------------ | ------------- |
 | sql-staticweba-dev-{suffix}  | SQL Server   | -           | Azure AD-only auth | swedencentral |
-| sqldb-static-webapp-test-dev | SQL Database | S0 (10 DTU) | Basic tier         | swedencentral |
+| sqldb-static-webapp-dev | SQL Database | S0 (10 DTU) | Basic tier         | swedencentral |
 
 ### 📊 Monitoring Resources
 
 | Name                        | Type                 | Configuration              | Location      |
 | --------------------------- | -------------------- | -------------------------- | ------------- |
-| log-static-webapp-test-dev  | Log Analytics        | 30-day retention           | swedencentral |
-| appi-static-webapp-test-dev | Application Insights | Connected to Log Analytics | swedencentral |
+| log-static-webapp-dev  | Log Analytics        | 30-day retention           | swedencentral |
+| appi-static-webapp-dev | Application Insights | Connected to Log Analytics | swedencentral |
 
 ---
 
@@ -49,7 +49,7 @@
 
 | Setting                 | Value                        |
 | ----------------------- | ---------------------------- |
-| **Name**                | stapp-static-webapp-test-dev |
+| **Name**                | stapp-static-webapp-dev |
 | **SKU**                 | Free                         |
 | **Build Configuration** | GitHub Actions (auto)        |
 | **API Runtime**         | Node.js 18 (Azure Functions) |
@@ -61,7 +61,7 @@
 | Setting              | Value                        |
 | -------------------- | ---------------------------- |
 | **Server Name**      | sql-staticweba-dev-{suffix}  |
-| **Database Name**    | sqldb-static-webapp-test-dev |
+| **Database Name**    | sqldb-static-webapp-dev |
 | **SKU**              | S0 (10 DTU)                  |
 | **Max Size**         | 250 GB                       |
 | **Backup Retention** | 7 days (Basic)               |
@@ -73,7 +73,7 @@
 
 | Setting       | Value                       |
 | ------------- | --------------------------- |
-| **Name**      | log-static-webapp-test-dev  |
+| **Name**      | log-static-webapp-dev  |
 | **SKU**       | PerGB2018                   |
 | **Retention** | 30 days                     |
 | **Daily Cap** | None (using free tier <5GB) |
@@ -82,8 +82,8 @@
 
 | Setting       | Value                       |
 | ------------- | --------------------------- |
-| **Name**      | appi-static-webapp-test-dev |
-| **Workspace** | log-static-webapp-test-dev  |
+| **Name**      | appi-static-webapp-dev |
+| **Workspace** | log-static-webapp-dev  |
 | **Sampling**  | Adaptive (default)          |
 | **Daily Cap** | 5 GB (free tier)            |
 
@@ -93,11 +93,11 @@
 
 | Resource                     | Environment | Project            | Owner | ManagedBy |
 | ---------------------------- | ----------- | ------------------ | ----- | --------- |
-| stapp-static-webapp-test-dev | dev         | static-webapp-test | Team  | Bicep     |
-| sql-staticweba-dev-{suffix}  | dev         | static-webapp-test | Team  | Bicep     |
-| sqldb-static-webapp-test-dev | dev         | static-webapp-test | Team  | Bicep     |
-| log-static-webapp-test-dev   | dev         | static-webapp-test | Team  | Bicep     |
-| appi-static-webapp-test-dev  | dev         | static-webapp-test | Team  | Bicep     |
+| stapp-static-webapp-dev | dev         | static-webapp | Team  | Bicep     |
+| sql-staticweba-dev-{suffix}  | dev         | static-webapp | Team  | Bicep     |
+| sqldb-static-webapp-dev | dev         | static-webapp | Team  | Bicep     |
+| log-static-webapp-dev   | dev         | static-webapp | Team  | Bicep     |
+| appi-static-webapp-dev  | dev         | static-webapp | Team  | Bicep     |
 
 ---
 

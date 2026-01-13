@@ -1,4 +1,4 @@
-# static-webapp-test - Agent Outputs
+# static-webapp - Agent Outputs
 
 **Created**: 2024-12-17
 **Last Updated**: 2024-12-17
@@ -37,4 +37,4 @@
 
 ## Related Resources
 
-- **Bicep Code**: [`infra/bicep/static-webapp-test/`](../../infra/bicep/static-webapp-test/)
+- **Bicep Code**: [`infra/bicep/static-webapp/`](../../infra/bicep/static-webapp/)

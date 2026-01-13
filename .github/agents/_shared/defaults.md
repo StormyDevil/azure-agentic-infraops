@@ -188,6 +188,6 @@ All agents generating workflow artifacts MUST follow the template-first approach
 
 All generated artifacts are validated by:
 
-- **Pre-commit hook**: `STRICTNESS=relaxed npm run lint:wave1-artifacts`
+- **Pre-commit hook**: `STRICTNESS=standard npm run lint:wave1-artifacts`
 - **CI workflow**: `.github/workflows/wave1-artifact-drift-guard.yml`
 - **Project-specific**: `npm run validate:{project-name}` (if available)

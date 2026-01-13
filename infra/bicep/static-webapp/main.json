@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.39.26.7824",
-      "templateHash": "16599376737292007153"
+      "templateHash": "7483983560468585599"
     }
   },
   "parameters": {
@@ -36,7 +36,7 @@
     },
     "projectName": {
       "type": "string",
-      "defaultValue": "static-webapp-test",
+      "defaultValue": "static-webapp",
       "minLength": 3,
       "maxLength": 20,
       "metadata": {

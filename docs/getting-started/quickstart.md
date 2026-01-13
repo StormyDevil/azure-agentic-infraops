@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-> **Version 3.6.0** | 10 minutes to your first AI-assisted infrastructure deployment
+> **Version 3.7.8** | 10 minutes to your first AI-assisted infrastructure deployment
 >
 > ⚡ For a comprehensive learning journey with role-based paths, see [Learning Paths](learning-paths.md).
 

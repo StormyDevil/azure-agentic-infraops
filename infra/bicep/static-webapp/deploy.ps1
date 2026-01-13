@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-    Deploys the static-webapp-test infrastructure to Azure.
+    Deploys the static-webapp infrastructure to Azure.
 
 .DESCRIPTION
     This script validates and deploys Bicep templates for the static web app with SQL database.
     Supports WhatIf mode for deployment preview.
 
 .PARAMETER ResourceGroupName
-    Name of the resource group (default: rg-static-webapp-test-dev)
+    Name of the resource group (default: rg-static-webapp-dev)
 
 .PARAMETER Location
     Azure region for deployment (default: swedencentral)
@@ -32,7 +32,7 @@
 param(
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$ResourceGroupName = "rg-static-webapp-test-dev",
+    [string]$ResourceGroupName = "rg-static-webapp-dev",
 
     [Parameter()]
     [ValidateSet('swedencentral', 'germanywestcentral', 'northeurope', 'westeurope')]
@@ -59,7 +59,7 @@ $ErrorActionPreference = 'Stop'
 Write-Host @"
 
     ╔═══════════════════════════════════════════════════════════════════════╗
-    ║   Static Web App Test - Azure Deployment                              ║
+    ║   Static Web App - Azure Deployment                                   ║
     ║   Infrastructure: SWA + Azure SQL + Application Insights              ║
     ╚═══════════════════════════════════════════════════════════════════════╝
 
@@ -176,7 +176,7 @@ Write-Host "  [4/5] " -ForegroundColor DarkGray -NoNewline
 Write-Host "Ensuring resource group exists..." -ForegroundColor Yellow
 
 if ($PSCmdlet.ShouldProcess($ResourceGroupName, "Create Resource Group")) {
-    az group create --name $ResourceGroupName --location $Location --tags Environment=$Environment ManagedBy=Bicep Project=static-webapp-test | Out-Null
+    az group create --name $ResourceGroupName --location $Location --tags Environment=$Environment ManagedBy=Bicep Project=static-webapp | Out-Null
     Write-Host "  ✓ " -ForegroundColor Green -NoNewline
     Write-Host "Resource group ready: $ResourceGroupName" -ForegroundColor White
 }
@@ -196,7 +196,7 @@ if ($WhatIfPreference) {
         --template-file $bicepPath `
         --parameters location=$Location `
         --parameters environment=$Environment `
-        --parameters projectName="static-webapp-test" `
+        --parameters projectName="static-webapp" `
         --parameters sqlAdminObjectId=$SqlAdminObjectId `
         --parameters sqlAdminName=$SqlAdminName `
         2>&1
@@ -224,7 +224,7 @@ if ($WhatIfPreference) {
 } else {
     Write-Host "Deploying infrastructure..." -ForegroundColor Yellow
     
-    $deploymentName = "static-webapp-test-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+    $deploymentName = "static-webapp-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
     
     $result = az deployment group create `
         --resource-group $ResourceGroupName `
@@ -232,7 +232,7 @@ if ($WhatIfPreference) {
         --name $deploymentName `
         --parameters location=$Location `
         --parameters environment=$Environment `
-        --parameters projectName="static-webapp-test" `
+        --parameters projectName="static-webapp" `
         --parameters sqlAdminObjectId=$SqlAdminObjectId `
         --parameters sqlAdminName=$SqlAdminName `
         --query "properties.outputs" `

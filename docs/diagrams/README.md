@@ -1,6 +1,6 @@
 # Architecture Diagrams
 
-> **Version 3.6.0** | [Back to Documentation Hub](../README.md)
+> **Version 3.7.8** | [Back to Documentation Hub](../README.md)
 
 This folder contains generated architecture diagrams for various scenarios.
 

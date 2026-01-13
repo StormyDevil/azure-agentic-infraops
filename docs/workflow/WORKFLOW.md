@@ -1,6 +1,6 @@
 # Agentic InfraOps - Agent Workflow
 
-> **Version 3.6.0** | [Changelog](../../VERSION.md)
+> **Version 3.7.8** | [Changelog](../../VERSION.md)
 
 This document describes the 7-step agent workflow for Azure infrastructure development with Agentic InfraOps.
 

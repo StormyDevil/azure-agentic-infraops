@@ -1,7 +1,7 @@
 using 'main.bicep'
 
 // =============================================================================
-// Static Web App Test - Parameter File
+// Static Web App - Parameter File
 // =============================================================================
 // Environment: dev
 // Region: swedencentral
@@ -9,7 +9,7 @@ using 'main.bicep'
 
 param location = 'swedencentral'
 param environment = 'dev'
-param projectName = 'static-webapp-test'
+param projectName = 'static-webapp'
 
 // SQL Admin - Replace with your Azure AD Object ID
 // Get your Object ID: az ad signed-in-user show --query id -o tsv
@@ -19,7 +19,7 @@ param sqlAdminName = 'SQL Admin'
 param tags = {
   Environment: 'dev'
   ManagedBy: 'Bicep'
-  Project: 'static-webapp-test'
+  Project: 'static-webapp'
   Owner: 'DevOps Team'
   CostCenter: 'Demo'
 }

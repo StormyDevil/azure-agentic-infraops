@@ -1,6 +1,6 @@
 # Agents Overview
 
-> **Version 3.6.0** | Complete reference for all 7 custom agents
+> **Version 3.7.8** | Complete reference for all 7 custom agents
 
 This document provides a single-page overview of all agents in Agentic InfraOps, their purposes, when to use them,
 and example prompts.

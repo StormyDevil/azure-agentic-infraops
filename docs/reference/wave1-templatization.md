@@ -195,24 +195,30 @@ graph TD
 
 ### Validation Status
 
-**static-webapp-test** (Golden example):
+**static-webapp** (Golden example):
 
 - ✅ `01-requirements.md` - Conforms to template
 - ✅ `02-architecture-assessment.md` - Conforms to template
 - ✅ `04-implementation-plan.md` - Conforms to template
 - ✅ `06-deployment-summary.md` - Conforms to template
 
-**ecommerce** (Pre-template example):
+**simple-web-api** (Regenerated example):
 
-- ⚠️ `04-implementation-plan.md` - Missing invariant sections (expected - generated before templates)
+- ✅ `01-requirements.md` - Conforms to template
+- ✅ `02-architecture-assessment.md` - Conforms to template
+- ✅ `04-implementation-plan.md` - Conforms to template
+
+**ecommerce** (Updated to conform):
+
+- ✅ `04-implementation-plan.md` - Updated to match Wave 1 template
 
 ### Regeneration Plan
 
-To prove template stability:
+Completed regenerations:
 
-1. Regenerate one scenario end-to-end (e.g., `S03-agentic-workflow`)
-2. Validate all Wave 1 artifacts conform (no warnings)
-3. Regenerate second scenario (e.g., new scenario or `S04-ecommerce-platform`)
+1. ✅ `simple-web-api` - Regenerated and validated (0 failures, 12 warnings)
+2. ✅ `static-webapp` - Validated (0 failures, 0 warnings)
+3. ✅ `ecommerce` - Updated to conform (0 failures, 0 warnings)
 4. Validate conformance
 5. Ratchet to `standard` strictness
 6. Update `wave1-artifact-drift-guard.yml` to use `STRICTNESS=standard`
@@ -222,13 +228,13 @@ To prove template stability:
 | Phase       | Action                               | Success Criteria                              |
 | ----------- | ------------------------------------ | --------------------------------------------- |
 | **Phase 1** | Templates + validator implemented    | ✅ CI passes, golden example validates        |
-| **Phase 2** | Regenerate Scenario 1                | All Wave 1 artifacts conform (no warnings)    |
-| **Phase 3** | Regenerate Scenario 2                | All Wave 1 artifacts conform (no warnings)    |
-| **Phase 4** | Ratchet to `standard`                | CI updated, no new warnings for 1 sprint      |
+| **Phase 2** | Regenerate Scenario 1                | ✅ simple-web-api conforms (0 failures)       |
+| **Phase 3** | Regenerate Scenario 2                | ✅ static-webapp conforms (0 failures)        |
+| **Phase 4** | Ratchet to `standard`                | ✅ CI updated, strictness=standard            |
 | **Phase 5** | Wave 2 planning (03, ADRs, diagrams) | Design contract surfaces for Step 3 artifacts |
 
-**Current Phase**: Phase 1 (✅ Complete)  
-**Next Milestone**: Phase 2 (Regenerate S03 or create new scenario)
+**Current Phase**: Phase 4 (✅ Complete)  
+**Next Milestone**: Phase 5 (Wave 2 planning for Step 3 artifacts)
 
 ## Future Work
 

@@ -41,6 +41,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Wave 1 artifact template validation system:
+  - `scripts/validate-wave1-artifacts.mjs` - Validates 01-requirements, 02-architecture-assessment, 04-implementation-plan
+  - `.github/workflows/wave1-artifact-drift-guard.yml` - CI workflow for template compliance
+  - `.github/templates/01-requirements.template.md`
+  - `.github/templates/02-architecture-assessment.template.md`
+  - `.github/templates/04-implementation-plan.template.md`
+- Strictness ratcheting tracker: `docs/guides/strictness-ratcheting-tracker.md`
+- GitHub issues skill with MCP tools: `.github/skills/github-issues/`
 - Golden cost estimate templates:
   - `.github/templates/03-des-cost-estimate.template.md`
   - `.github/templates/07-ab-cost-estimate.template.md`
@@ -86,6 +94,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Upgraded Wave 1 validation strictness from `relaxed` to `standard`
+- Renamed `static-webapp-test` to `static-webapp` for consistency (Bicep folder + agent-output)
+- Updated all agent files to use relative template paths (removed embedded skeletons)
 - Updated root README.md links to new docs structure
 - Updated copilot-instructions.md with Reference Documentation section
 - Updated diagrams/README.md with version and correct links
@@ -93,6 +104,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Resolved 165 markdown linting violations in instruction files (github-actions, github-issues)
+- Fixed ecommerce `04-implementation-plan.md` to match Wave 1 template structure
+- Regenerated Wave 1 artifacts for all 3 projects (simple-web-api, static-webapp, ecommerce)
 - **Broken links cleanup**: Fixed 30+ references to old folder paths
   - `presenter-toolkit/` → `presenter/`
   - `value-proposition/` → `presenter/`

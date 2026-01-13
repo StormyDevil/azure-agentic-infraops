@@ -13,25 +13,25 @@ Total of 26 resources across phases with estimated monthly cost of ~$1,826.
 
 ## Resource Inventory
 
-| Resource | Type | SKU | Dependencies |
-|----------|------|-----|--------------|
-| Virtual Network | Microsoft.Network/virtualNetworks | Standard | None |
-| Network Security Groups (3) | Microsoft.Network/networkSecurityGroups | Standard | VNet |
-| Key Vault | Microsoft.KeyVault/vaults | Premium | NSG |
-| App Service Plan | Microsoft.Web/serverfarms | P1v3 | NSG |
-| Azure SQL Server | Microsoft.Sql/servers | Standard | NSG |
-| Azure SQL Database | Microsoft.Sql/servers/databases | S1 | SQL Server |
-| Azure Cache for Redis | Microsoft.Cache/redis | Premium | NSG |
-| App Service | Microsoft.Web/sites | P1v3 | ASP |
-| Cognitive Search | Microsoft.Search/searchServices | Standard | NSG |
-| Service Bus Namespace | Microsoft.ServiceBus/namespaces | Premium | NSG |
-| Azure Functions | Microsoft.Web/sites | EP1 | ASP |
-| Azure Front Door | Microsoft.Network/frontDoors | Standard | None |
-| Web Application Firewall | Microsoft.Network/FrontDoorWebApplicationFirewallPolicies | Standard | Front Door |
-| Application Insights | Microsoft.Insights/components | Standard | None |
-| Log Analytics Workspace | Microsoft.OperationalInsights/workspaces | PerGB2018 | None |
-| Private DNS Zones (4) | Microsoft.Network/privateDnsZones | Standard | VNet |
-| Private Endpoints (5) | Microsoft.Network/privateEndpoints | Standard | Resources |
+| Resource                    | Type                                                      | SKU       | Dependencies |
+| --------------------------- | --------------------------------------------------------- | --------- | ------------ |
+| Virtual Network             | Microsoft.Network/virtualNetworks                         | Standard  | None         |
+| Network Security Groups (3) | Microsoft.Network/networkSecurityGroups                   | Standard  | VNet         |
+| Key Vault                   | Microsoft.KeyVault/vaults                                 | Premium   | NSG          |
+| App Service Plan            | Microsoft.Web/serverfarms                                 | P1v3      | NSG          |
+| Azure SQL Server            | Microsoft.Sql/servers                                     | Standard  | NSG          |
+| Azure SQL Database          | Microsoft.Sql/servers/databases                           | S1        | SQL Server   |
+| Azure Cache for Redis       | Microsoft.Cache/redis                                     | Premium   | NSG          |
+| App Service                 | Microsoft.Web/sites                                       | P1v3      | ASP          |
+| Cognitive Search            | Microsoft.Search/searchServices                           | Standard  | NSG          |
+| Service Bus Namespace       | Microsoft.ServiceBus/namespaces                           | Premium   | NSG          |
+| Azure Functions             | Microsoft.Web/sites                                       | EP1       | ASP          |
+| Azure Front Door            | Microsoft.Network/frontDoors                              | Standard  | None         |
+| Web Application Firewall    | Microsoft.Network/FrontDoorWebApplicationFirewallPolicies | Standard  | Front Door   |
+| Application Insights        | Microsoft.Insights/components                             | Standard  | None         |
+| Log Analytics Workspace     | Microsoft.OperationalInsights/workspaces                  | PerGB2018 | None         |
+| Private DNS Zones (4)       | Microsoft.Network/privateDnsZones                         | Standard  | VNet         |
+| Private Endpoints (5)       | Microsoft.Network/privateEndpoints                        | Standard  | Resources    |
 
 ---
 
@@ -225,27 +225,27 @@ graph TD
     RG[Resource Group]
     RG --> P1[Phase 1: Foundation]
     P1 --> VNet[VNet/NSGs/Subnets]
-    
+
     RG --> P2[Phase 2: Platform]
     VNet --> P2
     P2 --> KV[Key Vault]
     P2 --> SQL[Azure SQL]
     P2 --> Redis[Redis Cache]
     P2 --> ASP[App Service Plan]
-    
+
     RG --> P3[Phase 3: Application]
     ASP --> P3
     P3 --> AppSvc[App Service]
     P3 --> Search[Cognitive Search]
     P3 --> SB[Service Bus]
     P3 --> Func[Functions]
-    
+
     RG --> P4[Phase 4: Edge/Monitoring]
     P4 --> FD[Front Door]
     P4 --> WAF[WAF Policy]
     P4 --> LAW[Log Analytics]
     P4 --> AI[App Insights]
-    
+
     KV -.->|secrets| AppSvc
     SQL -.->|data| AppSvc
     Redis -.->|cache| AppSvc
@@ -255,55 +255,55 @@ graph TD
 
 ## Naming Conventions
 
-| Resource | Pattern | Example |
-|----------|---------|---------|
-| Resource Group | rg-ecommerce-{env} | rg-ecommerce-prod |
-| Virtual Network | vnet-{project}-{env} | vnet-ecommerce-prod |
-| NSG | nsg-{subnet}-{env} | nsg-web-prod |
-| Key Vault | kv-eco-{env}-{suffix} | kv-eco-prod-a1b2c3 |
-| App Service Plan | asp-{project}-{env} | asp-ecommerce-prod |
-| App Service | app-{project}-{env} | app-ecommerce-prod |
-| SQL Server | sql-{project}-{env}-{suffix} | sql-ecommerce-prod-a1b2c3 |
-| Redis | redis-{project}-{env} | redis-ecommerce-prod |
-| Search Service | srch-{project}-{env} | srch-ecommerce-prod |
-| Service Bus | sb-{project}-{env} | sb-ecommerce-prod |
-| Functions | func-{project}-{env} | func-ecommerce-prod |
-| Front Door | fd-{project}-{env} | fd-ecommerce-prod |
-| Log Analytics | law-{project}-{env} | law-ecommerce-prod |
-| App Insights | ai-{project}-{env} | ai-ecommerce-prod |
+| Resource         | Pattern                      | Example                   |
+| ---------------- | ---------------------------- | ------------------------- |
+| Resource Group   | rg-ecommerce-{env}           | rg-ecommerce-prod         |
+| Virtual Network  | vnet-{project}-{env}         | vnet-ecommerce-prod       |
+| NSG              | nsg-{subnet}-{env}           | nsg-web-prod              |
+| Key Vault        | kv-eco-{env}-{suffix}        | kv-eco-prod-a1b2c3        |
+| App Service Plan | asp-{project}-{env}          | asp-ecommerce-prod        |
+| App Service      | app-{project}-{env}          | app-ecommerce-prod        |
+| SQL Server       | sql-{project}-{env}-{suffix} | sql-ecommerce-prod-a1b2c3 |
+| Redis            | redis-{project}-{env}        | redis-ecommerce-prod      |
+| Search Service   | srch-{project}-{env}         | srch-ecommerce-prod       |
+| Service Bus      | sb-{project}-{env}           | sb-ecommerce-prod         |
+| Functions        | func-{project}-{env}         | func-ecommerce-prod       |
+| Front Door       | fd-{project}-{env}           | fd-ecommerce-prod         |
+| Log Analytics    | law-{project}-{env}          | law-ecommerce-prod        |
+| App Insights     | ai-{project}-{env}           | ai-ecommerce-prod         |
 
 ---
 
 ## Security Configuration
 
-| Resource | Security Setting | Value |
-|----------|------------------|-------|
-| SQL Server | Azure AD-only auth | true |
-| SQL Server | Minimal TLS | 1.2 |
-| Key Vault | RBAC Authorization | Enabled |
-| Key Vault | Soft Delete | 90 days |
-| Key Vault | Purge Protection | Enabled |
-| App Service | HTTPS Only | true |
-| App Service | Minimum TLS | 1.2 |
-| Redis | TLS Encryption | Enabled |
-| Service Bus | Default Access Rules | None (RBAC only) |
-| Storage Accounts | Public Access | Disabled |
-| Front Door | WAF Mode | Prevention |
-| All Resources | Diagnostic Logging | To Log Analytics |
-| All Resources | Private Endpoints | Enabled where applicable |
+| Resource         | Security Setting     | Value                    |
+| ---------------- | -------------------- | ------------------------ |
+| SQL Server       | Azure AD-only auth   | true                     |
+| SQL Server       | Minimal TLS          | 1.2                      |
+| Key Vault        | RBAC Authorization   | Enabled                  |
+| Key Vault        | Soft Delete          | 90 days                  |
+| Key Vault        | Purge Protection     | Enabled                  |
+| App Service      | HTTPS Only           | true                     |
+| App Service      | Minimum TLS          | 1.2                      |
+| Redis            | TLS Encryption       | Enabled                  |
+| Service Bus      | Default Access Rules | None (RBAC only)         |
+| Storage Accounts | Public Access        | Disabled                 |
+| Front Door       | WAF Mode             | Prevention               |
+| All Resources    | Diagnostic Logging   | To Log Analytics         |
+| All Resources    | Private Endpoints    | Enabled where applicable |
 
 ---
 
 ## Estimated Implementation Time
 
-| Task | Estimated Duration |
-|------|-------------------|
-| Phase 1 Bicep modules | 45 minutes |
-| Phase 2 Bicep modules | 60 minutes |
-| Phase 3 Bicep modules | 60 minutes |
-| Phase 4 Bicep modules | 45 minutes |
-| Deploy script & testing | 30 minutes |
-| **Total** | **~4.5 hours** |
+| Task                    | Estimated Duration |
+| ----------------------- | ------------------ |
+| Phase 1 Bicep modules   | 45 minutes         |
+| Phase 2 Bicep modules   | 60 minutes         |
+| Phase 3 Bicep modules   | 60 minutes         |
+| Phase 4 Bicep modules   | 45 minutes         |
+| Deploy script & testing | 30 minutes         |
+| **Total**               | **~4.5 hours**     |
 
 ---
 
