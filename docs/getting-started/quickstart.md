@@ -100,7 +100,7 @@ Navigate to `scenarios/S01-bicep-baseline/` and follow the README.
 Or copy this prompt into Copilot Chat:
 
 ```text
-@plan Create a hub-spoke network in Azure with:
+Create a hub-spoke network in Azure with:
 - Hub VNet (10.0.0.0/16) with Azure Firewall subnet
 - Spoke VNet (10.1.0.0/16) with web and data subnets
 - NSGs on all subnets
@@ -115,7 +115,7 @@ The 7-step workflow guides you through:
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    A["@plan<br/>Step 1"] --> B["architect<br/>Step 2"]
+    A["Project Planner<br/>Step 1"] --> B["architect<br/>Step 2"]
     B --> C["Design<br/>Step 3"]
     C --> D["bicep-plan<br/>Step 4"]
     D --> E["implement<br/>Step 5"]

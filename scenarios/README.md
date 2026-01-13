@@ -12,7 +12,7 @@
 >
 > **Modules**: AVM-first for policy-compliant deployments. See [ADR-003](../docs/adr/ADR-003-avm-first-approach.md).
 >
-> **Agent Workflow**: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`. See
+> **Agent Workflow**: `Project Planner` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`. See
 > [Workflow Guide](../docs/workflow/WORKFLOW.md).
 
 ---
@@ -124,7 +124,7 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
-    A["@plan<br/>Step 1"] --> B["Azure Architect<br/>Step 2"]
+    A["Project Planner<br/>Step 1"] --> B["Azure Architect<br/>Step 2"]
     B --> C["Design Artifacts<br/>Step 3"]
     C --> D["Bicep Planner<br/>Step 4"]
     D --> E["Bicep Implement<br/>Step 5"]
@@ -142,7 +142,7 @@ flowchart LR
 
 | Step | Agent/Phase                 | Type     | Purpose                                   |
 | ---- | --------------------------- | -------- | ----------------------------------------- |
-| 1    | `@plan`                     | Built-in | Requirements gathering → `01-*`           |
+| 1    | `Project Planner`                     | Built-in | Requirements gathering → `01-*`           |
 | 2    | `azure-principal-architect` | Custom   | Azure WAF assessment → `02-*`             |
 | 3    | Design Artifacts            | Optional | Design diagrams + ADRs (`-des`) → `03-*`  |
 | 4    | `bicep-plan`                | Custom   | Infrastructure planning → `04-*`          |
@@ -150,7 +150,7 @@ flowchart LR
 | 6    | Deploy                      | Manual   | Deploy to Azure → `06-*`                  |
 | 7    | As-Built Artifacts          | Optional | As-built diagrams + ADRs (`-ab`) → `07-*` |
 
-> **Note:** The Plan Agent (`@plan`) is a **built-in VS Code feature**—see [VS Code docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning).
+> **Note:** The Plan Agent (`Project Planner`) is a **custom agent**—see [VS Code docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning).
 > The other agents are custom agents defined in `.github/agents/`.
 
 **Time Comparison**:
@@ -180,7 +180,7 @@ flowchart LR
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
-    A["@plan<br/>Requirements"] --> B["Azure Architect<br/>WAF Assessment"]
+    A["Project Planner<br/>Requirements"] --> B["Azure Architect<br/>WAF Assessment"]
     B --> C["Pricing MCP<br/>Cost Analysis"]
     C --> D["Diagram Gen<br/>Architecture"]
     D --> E["Bicep Planner<br/>Module Design"]
@@ -196,7 +196,7 @@ flowchart LR
 
 | Agent/Tool                  | Type     | Purpose                         |
 | --------------------------- | -------- | ------------------------------- |
-| `@plan`                     | Built-in | Strategic requirements planning |
+| `Project Planner`                     | Built-in | Strategic requirements planning |
 | `azure-principal-architect` | Custom   | Azure WAF & PCI-DSS assessment  |
 | Azure Pricing MCP           | MCP      | Real-time cost estimation       |
 | `diagram-generator`         | Custom   | Python architecture diagrams    |

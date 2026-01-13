@@ -11,7 +11,7 @@
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    A["Step 1<br/>@plan"] --> B["Step 2<br/>azure-principal-architect"]
+    A["Step 1<br/>Project Planner"] --> B["Step 2<br/>azure-principal-architect"]
     B --> C["Step 3<br/>diagram-generator"]
     C --> D["Step 4<br/>bicep-plan"]
     D --> E["Step 5<br/>bicep-implement"]
@@ -25,7 +25,7 @@ graph LR
 
 | Step | Agent                       | Purpose                      | Output File             |
 | ---- | --------------------------- | ---------------------------- | ----------------------- |
-| 1    | `@plan`                     | Requirements & cost estimate | `00-plan.md`            |
+| 1    | `Project Planner`                     | Requirements & cost estimate | `00-plan.md`            |
 | 2    | `azure-principal-architect` | WAF assessment               | `01-azure-architect.md` |
 | 3    | `diagram-generator`         | Architecture visualization   | `architecture.py`       |
 | 4    | `bicep-plan`                | Implementation planning      | `02-bicep-plan.md`      |
@@ -33,9 +33,9 @@ graph LR
 
 ---
 
-## Step 1: Plan Agent (@plan)
+## Step 1: Plan Agent (Project Planner)
 
-> **How to invoke:** Type `@plan` in Copilot Chat
+> **How to invoke:** Select **Project Planner** from the agent picker
 
 ```text
 Create a deployment plan for a multi-tier e-commerce platform on Azure with the following requirements:
@@ -74,7 +74,7 @@ Please provide a detailed implementation plan including:
 
 ## Step 2: Azure Principal Architect Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `azure-principal-architect`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `azure-principal-architect`
 
 ```text
 Assess the e-commerce platform architecture from the plan against the Azure Well-Architected Framework.
@@ -87,7 +87,7 @@ Provide scores for each pillar and specific recommendations.
 
 ## Step 3: Diagram Generator Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `diagram-generator`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `diagram-generator`
 
 ```text
 Generate a Python architecture diagram for the e-commerce platform using the diagrams library.
@@ -100,7 +100,7 @@ Include all Azure services from the WAF assessment.
 
 ## Step 4: Bicep Plan Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-plan`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-plan`
 
 ### Initial Prompt (May Hit Token Limit)
 
@@ -166,7 +166,7 @@ Create Bicep implementation plan for Phase 4:
 
 ## Step 5: Bicep Implement Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-implement`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-implement`
 
 ### Strategy Discussion
 

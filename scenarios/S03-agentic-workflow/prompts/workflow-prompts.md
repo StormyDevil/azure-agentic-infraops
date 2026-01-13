@@ -4,7 +4,7 @@
 **Use Case:** Demonstrates agentic workflow starting with VS Code's built-in Plan Agent  
 **Budget:** $800/month | **Users:** 10,000 patients, 50 staff | **Timeline:** 3 months
 
-> 💡 **Plan-First Approach:** This workflow starts with VS Code's built-in Plan Agent (`@plan`) to research
+> 💡 **Plan-First Approach:** This workflow starts with VS Code's built-in Plan Agent (`Project Planner`) to research
 > and break down the project before diving into architecture. The Plan Agent uses read-only tools
 > to understand requirements, generates clarifying questions, and produces reusable `*.prompt.md` files.
 > See [VS Code Plan Agent Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-planning) for details.
@@ -17,10 +17,10 @@
 
 ## Stage 0: Planning with VS Code Plan Agent
 
-**Agent:** `@plan` (VS Code Built-in - Select "Plan" from agents dropdown)  
+**Agent:** `Project Planner` (VS Code Built-in - Select "Plan" from agents dropdown)  
 **Objective:** Research requirements comprehensively and create actionable implementation plan before architecture
 
-> **Key Capability:** The Plan Agent is a built-in VS Code feature that:
+> **Key Capability:** The Plan Agent is a custom agent that:
 > - **Researches using read-only tools** - analyzes codebase without making changes
 > - **Breaks down tasks** into manageable, actionable steps
 > - **Asks clarifying questions** to refine understanding
@@ -152,7 +152,7 @@ This file can be:
 ### Handoff to Architecture
 
 Click **"Hand off to implementation agent"** or manually:
-1. Press `Ctrl+Shift+A`
+1. Press `Ctrl+Alt+I`
 2. Select `azure-principal-architect`
 3. The plan context carries forward automatically
 

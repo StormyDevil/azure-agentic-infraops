@@ -11,7 +11,7 @@
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    A["Step 1<br/>@plan"] --> B["Step 2<br/>azure-principal-architect"]
+    A["Step 1<br/>Project Planner"] --> B["Step 2<br/>azure-principal-architect"]
     B --> C["Step 3<br/>diagram-generator"]
     C --> D["Step 4<br/>bicep-plan"]
     D --> E["Step 5<br/>bicep-implement"]
@@ -25,7 +25,7 @@ graph LR
 
 | Step | Agent                       | Purpose                      | Output Folder               |
 | ---- | --------------------------- | ---------------------------- | --------------------------- |
-| 1    | `@plan`                     | Requirements & cost estimate | `scenario-output/healthcare/`   |
+| 1    | `Project Planner`                     | Requirements & cost estimate | `scenario-output/healthcare/`   |
 | 2    | `azure-principal-architect` | WAF + HIPAA assessment       | `scenario-output/healthcare/`   |
 | 3    | `diagram-generator`         | Architecture visualization   | `docs/diagrams/healthcare/` |
 | 4    | `bicep-plan`                | Implementation planning      | `.bicep-planning-files/`    |
@@ -33,9 +33,9 @@ graph LR
 
 ---
 
-## Step 1: Plan Agent (@plan)
+## Step 1: Plan Agent (Project Planner)
 
-> **How to invoke:** Type `@plan` in Copilot Chat
+> **How to invoke:** Select **Project Planner** from the agent picker
 
 ```text
 Create a deployment plan for a HIPAA-compliant patient portal on Azure with the following requirements:
@@ -83,7 +83,7 @@ Please provide:
 
 ## Step 2: Azure Principal Architect Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `azure-principal-architect`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `azure-principal-architect`
 
 ```text
 Assess the healthcare patient portal architecture against the Azure Well-Architected Framework.
@@ -102,7 +102,7 @@ Provide WAF scores and specific HIPAA compliance recommendations.
 
 ## Step 3: Diagram Generator Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `diagram-generator`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `diagram-generator`
 
 ```text
 Generate a Python architecture diagram for the healthcare patient portal.
@@ -116,7 +116,7 @@ Show encryption points and audit logging paths.
 
 ## Step 4: Bicep Plan Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-plan`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-plan`
 
 ### Phase 1 — Security Foundation
 
@@ -177,7 +177,7 @@ Reference Phase 1-3 outputs.
 
 ## Step 5: Bicep Implement Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-implement`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-implement`
 
 ### Implement Phase 1 (Security Foundation)
 

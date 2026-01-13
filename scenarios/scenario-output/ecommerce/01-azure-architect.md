@@ -231,7 +231,7 @@ Legend: [PE] = Private Endpoint
 Proceed to **`bicep-plan`** agent to create the Bicep implementation plan.
 
 ```
-Step 1: ✅ @plan (requirements gathered)
+Step 1: ✅ Project Planner (requirements gathered)
 Step 2: ✅ azure-principal-architect (this assessment)
 Step 3: ⬜ Pre-Build Artifacts (optional diagrams/ADRs)
 Step 4: ➡️ bicep-plan (create implementation plan)

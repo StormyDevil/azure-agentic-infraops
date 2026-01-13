@@ -2,13 +2,13 @@
 
 > **Copy-paste prompts for each step of the demo**
 >
-> **Tip**: Use `Ctrl+Shift+A` to open agent selector
+> **Tip**: Use `Ctrl+Alt+I` to open agent selector
 
 ---
 
-## Step 1: Plan Agent (@plan)
+## Step 1: Plan Agent (Project Planner)
 
-**Agent**: Select **Plan** from agents dropdown (built-in)
+**Agent**: Select **Plan** from agents dropdown (custom)
 
 ```text
 Create a deployment plan for a multi-tier e-commerce platform on Azure with:
@@ -37,7 +37,7 @@ Constraints:
 
 ## Step 2: Azure Principal Architect
 
-**Agent**: `azure-principal-architect` (Ctrl+Shift+A → Select)
+**Agent**: `azure-principal-architect` (Ctrl+Alt+I → Select)
 
 ```text
 Assess this e-commerce platform architecture for Azure Well-Architected Framework alignment:
@@ -81,7 +81,7 @@ Use the Azure Pricing MCP tools to get real-time pricing for our e-commerce plat
 
 ## Step 3b: Diagram Generator
 
-**Agent**: `diagram-generator` (Ctrl+Shift+A → Select)
+**Agent**: `diagram-generator` (Ctrl+Alt+I → Select)
 
 ```text
 Generate a Python architecture diagram for our e-commerce platform:
@@ -103,7 +103,7 @@ Save to scenarios/scenario-output/ecommerce/architecture.py
 
 ## Step 4: Bicep Planning Specialist
 
-**Agent**: `bicep-plan` (Ctrl+Shift+A → Select)
+**Agent**: `bicep-plan` (Ctrl+Alt+I → Select)
 
 ```text
 Create an implementation plan for the e-commerce platform Bicep templates.
@@ -132,7 +132,7 @@ Use 4 deployment phases. Output to .bicep-planning-files/
 
 ## Step 5: Bicep Implementation Specialist
 
-**Agent**: `bicep-implement` (Ctrl+Shift+A → Select)
+**Agent**: `bicep-implement` (Ctrl+Alt+I → Select)
 
 ```text
 Generate Bicep templates from the e-commerce implementation plan.
@@ -175,7 +175,7 @@ cd infra/bicep/ecommerce
 
 ## Optional: ADR Generator
 
-**Agent**: `adr-generator` (Ctrl+Shift+A → Select)
+**Agent**: `adr-generator` (Ctrl+Alt+I → Select)
 
 ```text
 Create an ADR documenting the decision to use Front Door Premium instead of Standard for the e-commerce platform.
@@ -198,6 +198,6 @@ Save to: scenarios/scenario-output/ecommerce/adr/
 | Action              | Shortcut       |
 | ------------------- | -------------- |
 | Open Copilot Chat   | `Ctrl+Alt+I`   |
-| Open Agent Selector | `Ctrl+Shift+A` |
+| Open Agent Selector | `Ctrl+Alt+I` |
 | Submit prompt       | `Enter`        |
 | New line in prompt  | `Shift+Enter`  |

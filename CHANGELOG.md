@@ -94,6 +94,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Renamed @plan agent to Project Planner** - Updated 100+ files to use custom agent naming
+  - All documentation now references "Project Planner" instead of "@plan"
+  - Fixed agent invocation instructions: `Ctrl+Alt+I` → agent picker (not `Ctrl+Shift+A`)
+  - Added clarification note distinguishing from VS Code's built-in "Plan" agent
 - Upgraded Wave 1 validation strictness from `relaxed` to `standard`
 - Renamed `static-webapp-test` to `static-webapp` for consistency (Bicep folder + agent-output)
 - Updated all agent files to use relative template paths (removed embedded skeletons)

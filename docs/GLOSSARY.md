@@ -50,7 +50,7 @@ Run with `bicep lint main.bicep` or automatically via VS Code extension.
 ### Copilot Chat
 
 The conversational interface for GitHub Copilot in VS Code. Accessed via `Ctrl+Alt+I`. Supports
-custom agents via the Agent button (`Ctrl+Shift+A`).
+custom agents via the agent picker dropdown.
 
 ### Custom Agent
 
@@ -199,18 +199,21 @@ making actual changes. Run with `az deployment group create --what-if`.
 
 ### 7-Step Agentic Workflow
 
-The core Agentic InfraOps workflow: `@plan` → `azure-principal-architect` → Design Artifacts →
+The core Agentic InfraOps workflow: `project-planner` → `azure-principal-architect` → Design Artifacts →
 `bicep-plan` → `bicep-implement` → Deploy → As-Built Artifacts. Each step has an approval gate before proceeding.
 Steps 3 (Design Artifacts) and 7 (As-Built Artifacts) are optional for generating diagrams and ADRs.
 
 📁 **See**: [Workflow Guide](workflow/WORKFLOW.md)
 
-### @plan
+### Project Planner
 
-VS Code's built-in planning agent. Starting point for the 7-step workflow. Gathers requirements
-and creates implementation plans.
+Custom agent for Azure infrastructure requirements gathering. Starting point for the 7-step workflow.
+Gathers requirements and creates implementation plans. Defined in `project-planner.agent.md`.
 
-🔗 **External**: [VS Code Plan Agent](https://code.visualstudio.com/docs/copilot/chat/chat-planning)
+> **Note**: VS Code includes a built-in "Plan" agent for general planning. This repository uses
+> the custom **Project Planner** agent with Azure-specific instructions and workflow handoffs.
+
+🔗 **External**: [VS Code Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
 ---
 

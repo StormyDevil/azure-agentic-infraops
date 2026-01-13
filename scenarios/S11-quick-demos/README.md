@@ -25,7 +25,7 @@ For comprehensive learning scenarios with full solutions and validation, see the
 1. **Open** the demo file for your chosen scenario
 2. **Copy** the prompt(s) from each step
 3. **Paste** into Copilot Chat with the appropriate agent
-4. **Follow** the workflow: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
+4. **Follow** the workflow: `Project Planner` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
 
 ---
 

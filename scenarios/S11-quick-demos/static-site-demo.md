@@ -11,7 +11,7 @@
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    A["Step 1<br/>@plan"] --> B["Step 2<br/>azure-principal-architect"]
+    A["Step 1<br/>Project Planner"] --> B["Step 2<br/>azure-principal-architect"]
     B --> C["Step 3<br/>diagram-generator"]
     C --> D["Step 4<br/>bicep-plan"]
     D --> E["Step 5<br/>bicep-implement"]
@@ -25,7 +25,7 @@ graph LR
 
 | Step | Agent                       | Purpose                      | Output Folder               |
 | ---- | --------------------------- | ---------------------------- | --------------------------- |
-| 1    | `@plan`                     | Requirements & cost estimate | `scenario-output/staticsite/`   |
+| 1    | `Project Planner`                     | Requirements & cost estimate | `scenario-output/staticsite/`   |
 | 2    | `azure-principal-architect` | WAF assessment               | `scenario-output/staticsite/`   |
 | 3    | `diagram-generator`         | Architecture visualization   | `docs/diagrams/staticsite/` |
 | 4    | `bicep-plan`                | Implementation planning      | `.bicep-planning-files/`    |
@@ -45,9 +45,9 @@ This is the **recommended first demo** because:
 
 ---
 
-## Step 1: Plan Agent (@plan)
+## Step 1: Plan Agent (Project Planner)
 
-> **How to invoke:** Type `@plan` in Copilot Chat
+> **How to invoke:** Select **Project Planner** from the agent picker
 
 ```text
 Create a deployment plan for a static marketing website on Azure with the following requirements:
@@ -85,7 +85,7 @@ Please provide:
 
 ## Step 2: Azure Principal Architect Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `azure-principal-architect`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `azure-principal-architect`
 
 ```text
 Assess the static website architecture against the Azure Well-Architected Framework.
@@ -99,7 +99,7 @@ Focus on security and cost optimization.
 
 ## Step 3: Diagram Generator Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `diagram-generator`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `diagram-generator`
 
 ```text
 Generate a simple Python architecture diagram for the static marketing website.
@@ -113,7 +113,7 @@ Keep it clean and minimal.
 
 ## Step 4: Bicep Plan Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-plan`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-plan`
 
 ### Single Phase Plan
 
@@ -135,7 +135,7 @@ Environment: prod
 
 ## Step 5: Bicep Implement Agent
 
-> **How to invoke:** Press `Ctrl+Shift+A` → Select `bicep-implement`
+> **How to invoke:** Press `Ctrl+Alt+I` → Select `bicep-implement`
 
 ### Complete Implementation
 

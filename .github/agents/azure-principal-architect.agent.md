@@ -67,7 +67,7 @@ to ensure recommendations align with current Microsoft guidance.
 
 ### Requirements Validation (Step 2 Pre-Check)
 
-**Before starting the WAF assessment**, validate that requirements from Step 1 (@plan) include:
+**Before starting the WAF assessment**, validate that requirements from Step 1 (Project Planner) include:
 
 | Category               | Required Information                              | If Missing                    |
 | ---------------------- | ------------------------------------------------- | ----------------------------- |
@@ -284,7 +284,7 @@ This agent is **Step 2** of the 7-step agentic infrastructure workflow.
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    P["@plan<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
+    P["Project Planner<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
     A --> D["Design Artifacts<br/>(Step 3)"]
     D --> B[bicep-plan<br/>Step 4]
     B --> I[bicep-implement<br/>Step 5]
@@ -297,7 +297,7 @@ graph LR
 
 | Step | Agent/Phase                   | Purpose                                                |
 | ---- | ----------------------------- | ------------------------------------------------------ |
-| 1    | @plan                         | Requirements gathering → saved to `01-requirements.md` |
+| 1    | project-planner               | Requirements gathering → saved to `01-requirements.md` |
 | 2    | **azure-principal-architect** | WAF assessment (YOU ARE HERE) → `02-*` files           |
 | 3    | Design Artifacts              | Design diagrams + ADRs → `03-des-*` files              |
 | 4    | bicep-plan                    | Implementation planning + governance discovery         |
@@ -307,7 +307,7 @@ graph LR
 
 ### Input
 
-- Requirements plan from `@plan` agent (built-in VS Code feature)
+- Requirements plan from **Project Planner** agent (custom agent in this repository)
 - Or direct user requirements
 
 ### Output
@@ -362,13 +362,13 @@ Also update the project's `agent-output/{project-name}/README.md` to track this 
 
 ### Saving Step 1 Requirements
 
-**IMPORTANT**: At the start of Step 2, save the requirements from the @plan conversation to:
+**IMPORTANT**: At the start of Step 2, save the requirements from the Project Planner conversation to:
 
 **File Location**: `agent-output/{project-name}/01-requirements.md`
 
 **Template**: Use [`../templates/01-requirements.template.md`](../templates/01-requirements.template.md)
 
-This captures the requirements from Step 1 (@plan) for reference by subsequent agents.
+This captures the requirements from Step 1 (Project Planner) for reference by subsequent agents.
 
 ### Saving Cost Estimates to Documentation (MANDATORY)
 

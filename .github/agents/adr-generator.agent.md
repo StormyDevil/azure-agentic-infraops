@@ -309,7 +309,7 @@ graph TD
 
 | Step | Phase                     | This Agent's Role                           |
 | ---- | ------------------------- | ------------------------------------------- |
-| 1    | @plan                     | —                                           |
+| 1    | project-planner           | —                                           |
 | 2    | azure-principal-architect | Caller (triggers Step 3)                    |
 | 3    | **Design Artifacts**      | Generate `-des` ADRs (proposed decisions)   |
 | 4    | bicep-plan                | —                                           |

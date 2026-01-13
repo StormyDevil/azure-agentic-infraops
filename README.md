@@ -100,8 +100,8 @@ graph LR
 | 1️⃣   | **Install Prerequisites** | [Docker Desktop](https://docker.com/products/docker-desktop/) + [VS Code](https://code.visualstudio.com/) + [Copilot][1] |
 | 2️⃣   | **Clone & Open**          | `git clone https://github.com/jonathan-vella/azure-agentic-infraops.git` then `code azure-agentic-infraops`              |
 | 3️⃣   | **Open in Dev Container** | Press `F1` → "Dev Containers: Reopen in Container" (wait ~2 min)                                                         |
-| 4️⃣   | **Open Copilot Chat**     | Press `Ctrl+Alt+I` → Click **Agent** button (`Ctrl+Shift+A`) → Select `@plan`                                            |
-| 5️⃣   | **Try It**                | Type: `@plan Create a web app with Azure App Service and SQL Database`                                                   |
+| 4️⃣   | **Open Copilot Chat**     | Press `Ctrl+Alt+I` → Select **Project Planner** from the agent picker dropdown                                           |
+| 5️⃣   | **Try It**                | Type: `Create a web app with Azure App Service and SQL Database`                                                         |
 
 <!-- markdownlint-enable MD013 -->
 

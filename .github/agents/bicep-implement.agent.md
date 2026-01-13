@@ -605,7 +605,7 @@ This agent is **Step 5** of the 7-step agentic infrastructure workflow.
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    P["@plan<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
+    P["Project Planner<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
     A --> D["Design Artifacts<br/>(Step 3)"]
     D --> B[bicep-plan<br/>Step 4]
     B --> I[bicep-implement<br/>Step 5]
@@ -618,7 +618,7 @@ graph LR
 
 | Step | Agent/Phase               | Purpose                                         |
 | ---- | ------------------------- | ----------------------------------------------- |
-| 1    | @plan                     | Requirements gathering → `01-requirements.md`   |
+| 1    | project-planner           | Requirements gathering → `01-requirements.md`   |
 | 2    | azure-principal-architect | WAF assessment → `02-*` files                   |
 | 3    | Design Artifacts          | Design diagrams + ADRs → `03-des-*` files       |
 | 4    | bicep-plan                | Implementation planning → `04-*` files          |

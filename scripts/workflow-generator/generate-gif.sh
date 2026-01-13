@@ -11,22 +11,22 @@ mkdir -p "$FRAMES_DIR"
 
 echo "=== Generating workflow animation frames ==="
 
-# Step 1: @plan only
+# Step 1: Project Planner only
 cat > "$FRAMES_DIR/step1.mmd" << 'EOF'
 %%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph "Step 1: Requirements"
-        P["@plan"]
+        P["Project Planner"]
     end
     style P fill:#e1f5fe
 EOF
 
-# Step 2: @plan -> architect
+# Step 2: Project Planner -> architect
 cat > "$FRAMES_DIR/step2.mmd" << 'EOF'
 %%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph "Step 1: Requirements"
-        P["@plan"]
+        P["Project Planner"]
     end
     subgraph "Step 2: Architecture"
         A["azure-principal-<br/>architect"]
@@ -41,7 +41,7 @@ cat > "$FRAMES_DIR/step3.mmd" << 'EOF'
 %%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph "Step 1: Requirements"
-        P["@plan"]
+        P["Project Planner"]
     end
     subgraph "Step 2: Architecture"
         A["azure-principal-<br/>architect"]
@@ -62,7 +62,7 @@ cat > "$FRAMES_DIR/step4.mmd" << 'EOF'
 %%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph "Step 1: Requirements"
-        P["@plan"]
+        P["Project Planner"]
     end
     subgraph "Step 2: Architecture"
         A["azure-principal-<br/>architect"]
@@ -88,7 +88,7 @@ cat > "$FRAMES_DIR/step5.mmd" << 'EOF'
 %%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph "Step 1: Requirements"
-        P["@plan"]
+        P["Project Planner"]
     end
     subgraph "Step 2: Architecture"
         A["azure-principal-<br/>architect"]

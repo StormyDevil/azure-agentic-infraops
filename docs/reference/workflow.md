@@ -13,7 +13,7 @@ link to this document rather than duplicating the diagram.
 %%{init: {'theme':'neutral'}}%%
 graph TB
     subgraph "Step 1: Requirements"
-        P["@plan<br/>(built-in)"]
+        P["Project Planner<br/>(custom)"]
     end
 
     subgraph "Step 2: Architecture"

@@ -10,7 +10,7 @@
 
 | Step | File                                               | Agent/Tool                  | Purpose                        |
 | ---- | -------------------------------------------------- | --------------------------- | ------------------------------ |
-| 1    | [`00-plan.md`](./00-plan.md)                       | `@plan` (built-in)          | Initial deployment planning    |
+| 1    | [`00-plan.md`](./00-plan.md)                       | `Project Planner` (custom)          | Initial deployment planning    |
 | 2    | [`01-azure-architect.md`](./01-azure-architect.md) | `azure-principal-architect` | WAF assessment & HIPAA mapping |
 | 3    | [`02-bicep-plan.md`](./02-bicep-plan.md)           | `bicep-plan`                | Implementation planning        |
 | 4    | [`03-bicep-code-gen.md`](./03-bicep-code-gen.md)   | `bicep-implement`           | Bicep code generation          |
@@ -33,7 +33,7 @@
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
     subgraph Planning
-        A["@plan"] --> B[azure-principal-architect]
+        A["Project Planner"] --> B[azure-principal-architect]
     end
     subgraph Implementation
         B --> C[bicep-plan]

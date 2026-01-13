@@ -211,7 +211,7 @@ function validateTemplate(artifactName) {
 
 function validateAgentLinks() {
   for (const [artifactName, agentPath] of Object.entries(AGENTS)) {
-    if (!agentPath) continue; // Skip if no agent (e.g., @plan or manual)
+    if (!agentPath) continue; // Skip if no agent (e.g., Project Planner or manual)
 
     if (!exists(agentPath)) {
       error(`Missing agent file: ${agentPath}`, {

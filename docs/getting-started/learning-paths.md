@@ -227,7 +227,7 @@ This is the advanced workflow that delivers **96% time savings** on complex proj
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
-    A["@plan"] --> B["ADR Generator"]
+    A["Project Planner"] --> B["ADR Generator"]
     B --> C["Azure Architect"]
     C --> D["Bicep Planner"]
     D --> E["Bicep Implement"]
@@ -241,21 +241,21 @@ flowchart LR
 
 **Workflow Components:**
 
-| Agent                         | Type             | Access                                       |
-| ----------------------------- | ---------------- | -------------------------------------------- |
-| **@plan**                     | Built-in VS Code | Select from Agents dropdown (`Ctrl+Shift+A`) |
-| **adr_generator**             | Custom           | Select from Agents dropdown                  |
-| **azure-principal-architect** | Custom           | Select from Agents dropdown                  |
-| **bicep-plan**                | Custom           | Select from Agents dropdown                  |
-| **bicep-implement**           | Custom           | Select from Agents dropdown                  |
+| Agent                         | Type   | Access                                |
+| ----------------------------- | ------ | ------------------------------------- |
+| **Project Planner**           | Custom | Select from agent picker (`Ctrl+Alt+I`) |
+| **adr_generator**             | Custom | Select from agent picker              |
+| **azure-principal-architect** | Custom | Select from agent picker              |
+| **bicep-plan**                | Custom | Select from agent picker              |
+| **bicep-implement**           | Custom | Select from agent picker              |
 
-> **Note:** The Plan Agent (`@plan`) is a **built-in VS Code feature**, not a custom agent. It generates
-> reusable `*.prompt.md` files and provides automatic handoff buttons.
-> See [VS Code Plan Agent docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning).
+> **Note**: This repository uses a custom **Project Planner** agent (`project-planner.agent.md`)
+> specifically designed for Azure infrastructure requirements gathering. VS Code also has a
+> built-in "Plan" agent for general planning tasks.
 
 **How to use:**
 
-1. **Start with `@plan`** - Select from Agents dropdown (`Ctrl+Shift+A`)
+1. **Start with Project Planner** - Select from agent picker (`Ctrl+Alt+I`)
 2. **Describe your project** - e.g., "HIPAA-compliant patient portal"
 3. **Follow agent handoffs** - Each agent suggests the next step via buttons
 4. **Review outputs** - Plan files, ADRs, architecture docs, Bicep code
@@ -312,15 +312,15 @@ pwsh -File validation/validate.ps1
 
 ### Agent Quick Access
 
-| Agent                       | Type     | Access                  | Use For             |
-| --------------------------- | -------- | ----------------------- | ------------------- |
-| `@plan`                     | Built-in | `Ctrl+Shift+A` → Select | Multi-step planning |
-| `adr_generator`             | Custom   | `Ctrl+Shift+A` → Select | Document decisions  |
-| `azure-principal-architect` | Custom   | `Ctrl+Shift+A` → Select | WAF assessment      |
-| `bicep-plan`                | Custom   | `Ctrl+Shift+A` → Select | Module design       |
-| `bicep-implement`           | Custom   | `Ctrl+Shift+A` → Select | Code generation     |
+| Agent                       | Type   | Access                     | Use For             |
+| --------------------------- | ------ | -------------------------- | ------------------- |
+| `project-planner`           | Custom | Agent picker (`Ctrl+Alt+I`) | Multi-step planning |
+| `adr_generator`             | Custom | Agent picker               | Document decisions  |
+| `azure-principal-architect` | Custom | Agent picker               | WAF assessment      |
+| `bicep-plan`                | Custom | Agent picker               | Module design       |
+| `bicep-implement`           | Custom | Agent picker               | Code generation     |
 
-> 📖 **Plan Agent Documentation:** [VS Code Chat Planning](https://code.visualstudio.com/docs/copilot/chat/chat-planning)
+> 📖 **Custom Agents Documentation:** [VS Code Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
 ---
 

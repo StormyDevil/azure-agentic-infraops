@@ -14,7 +14,7 @@ const PROJECT_DIR = path.resolve(process.cwd(), "agent-output", PROJECT);
 // Expected artifacts for simple-web-api project
 const EXPECTED_ARTIFACTS = {
   "01-requirements.md": {
-    agent: "@plan",
+    agent: "Project Planner",
     template: ".github/templates/01-requirements.template.md",
   },
   "02-architecture-assessment.md": {

@@ -1,6 +1,6 @@
-# Step 1: Plan Agent (@plan)
+# Step 1: Plan Agent (Project Planner)
 
-> **Agent Used:** `@plan` (built-in VS Code Copilot agent)
+> **Agent Used:** `Project Planner` (custom agent in this repository)
 > **Purpose:** Create initial deployment plan with requirements and cost estimates
 
 ---

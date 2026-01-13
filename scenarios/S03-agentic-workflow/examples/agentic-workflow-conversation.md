@@ -10,7 +10,7 @@ to design and implement Azure infrastructure for Contoso Healthcare's patient po
 
 ---
 
-## Stage 0: Planning with @plan (5-10 minutes)
+## Stage 0: Planning with Project Planner (5-10 minutes)
 
 ### Starting the Conversation
 
@@ -19,7 +19,7 @@ appointment scheduling. They have 10,000 patients, $800/month budget, and HIPAA 
 is mandatory. I want to plan this infrastructure project before jumping into architecture
 or code. Can you help me break this down?
 
-**@plan Agent**: I'd be happy to help you plan this infrastructure project. Before we dive in,
+**Project Planner Agent**: I'd be happy to help you plan this infrastructure project. Before we dive in,
 let me ask a few clarifying questions to ensure we create a comprehensive plan:
 
 **Clarifying Questions:**
@@ -54,7 +54,7 @@ let me ask a few clarifying questions to ensure we create a comprehensive plan:
 4. Availability: 99.9% SLA is acceptable
 5. Data: US regions only for HIPAA compliance
 
-**@plan Agent**: Thank you for those details. Based on your requirements, here's a
+**Project Planner Agent**: Thank you for those details. Based on your requirements, here's a
 structured implementation plan:
 
 ---

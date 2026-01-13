@@ -263,8 +263,8 @@ All specified demo folders have been cleaned and recreated.
 
 To run a demo:
   1. Open the demo prompt file in VS Code
-  2. Use Ctrl+Shift+A to select agents
-  3. Follow the workflow: @plan → azure-principal-architect → bicep-plan → bicep-implement
+  2. Use Ctrl+Alt+I to select agents
+  3. Follow the workflow: Project Planner → azure-principal-architect → bicep-plan → bicep-implement
   4. Save outputs to the appropriate demo-output folder
 
 Demo prompt files:

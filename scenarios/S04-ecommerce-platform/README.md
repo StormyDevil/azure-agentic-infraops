@@ -17,7 +17,7 @@ with the Azure Pricing MCP server—is exactly what he needs to deliver on time 
 This demo showcases GitHub Copilot's **complete agent workflow** for designing and implementing a
 **PCI-DSS compliant e-commerce platform** on Azure.
 It demonstrates all 7 steps:
-`@plan → azure-principal-architect → pricing/diagram → bicep-plan → bicep-implement → deploy`,
+`Project Planner → azure-principal-architect → pricing/diagram → bicep-plan → bicep-implement → deploy`,
 with real-time cost validation using the Azure Pricing MCP server.
 
 > **Working Implementation**: Complete Bicep templates available in
@@ -64,7 +64,7 @@ This demo extends the 7-step workflow by adding:
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
     subgraph Planning
-        A["@plan"] --> B[azure-principal-architect]
+        A["Project Planner"] --> B[azure-principal-architect]
     end
     subgraph Validation
         B --> C[Azure Pricing MCP]
@@ -91,7 +91,7 @@ flowchart LR
 
 | Step | Agent/Tool                  | Duration  | Key Output                            |
 | ---- | --------------------------- | --------- | ------------------------------------- |
-| 1    | `@plan` (built-in)          | 5-10 min  | Implementation plan + requirements    |
+| 1    | `Project Planner` (custom)          | 5-10 min  | Implementation plan + requirements    |
 | 2    | `azure-principal-architect` | 10-15 min | WAF assessment (8.0/10) + compliance  |
 | 3a   | Azure Pricing MCP           | 5 min     | Real-time cost estimate (~$1,595/mo)  |
 | 3b   | `diagram-generator`         | 5 min     | Python architecture diagram           |
@@ -162,7 +162,7 @@ S04-ecommerce-platform/
 ├── prompts/
 │   └── workflow-prompts.md      # Copy-paste prompts for each step
 └── [Outputs in ../scenario-output/ecommerce/]
-    ├── 00-plan.md               # @plan output
+    ├── 00-plan.md               # Project Planner output
     ├── 01-azure-architect.md    # WAF assessment
     ├── 02-bicep-plan.md         # Implementation plan
     ├── 03-bicep-code-gen.md     # Bicep strategy
@@ -300,7 +300,7 @@ By the end of this demo, participants will:
 
 - **Summarize metrics** - 87% time reduction, 20 hours saved
 - **Emphasize cost accuracy** - Real-time pricing before deployment
-- **Call to action** - "Start with @plan for your next project"
+- **Call to action** - "Start with Project Planner for your next project"
 
 ## 📚 Resources
 

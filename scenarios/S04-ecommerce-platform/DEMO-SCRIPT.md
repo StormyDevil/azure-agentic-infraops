@@ -29,7 +29,7 @@ bicep --version
 
 ---
 
-## Part 0: Planning with @plan (5-10 minutes)
+## Part 0: Planning with Project Planner (5-10 minutes)
 
 ### 📝 Setup
 
@@ -87,7 +87,7 @@ Click **"Save Plan"** to create `*.prompt.md` file, then click **"Hand off to im
 ### 📝 Setup
 
 1. Agent auto-selects from handoff, OR
-2. Press `Ctrl+Shift+A` → Select `azure-principal-architect`
+2. Press `Ctrl+Alt+I` → Select `azure-principal-architect`
 
 ### 💬 Prompt (if manual)
 
@@ -186,7 +186,7 @@ Use the Azure Pricing MCP tools to get real-time pricing for our e-commerce plat
 
 ### 📝 Setup
 
-1. Press `Ctrl+Shift+A` → Select `diagram-generator`
+1. Press `Ctrl+Alt+I` → Select `diagram-generator`
 
 ### 💬 Prompt
 
@@ -224,7 +224,7 @@ Save to scenarios/scenario-output/ecommerce/architecture.py
 
 ### 📝 Setup
 
-1. Press `Ctrl+Shift+A` → Select `bicep-plan`
+1. Press `Ctrl+Alt+I` → Select `bicep-plan`
 
 ### 💬 Prompt
 
@@ -270,7 +270,7 @@ Use 4 deployment phases. Output to .bicep-planning-files/
 
 ### 📝 Setup
 
-1. Press `Ctrl+Shift+A` → Select `bicep-implement`
+1. Press `Ctrl+Alt+I` → Select `bicep-implement`
 
 ### 💬 Prompt
 
@@ -385,7 +385,7 @@ cd infra/bicep/ecommerce
 
 ### 💡 Next Steps for Audience
 
-1. Try `@plan` with your next infrastructure project
+1. Try `Project Planner` with your next infrastructure project
 2. Set up Azure Pricing MCP for accurate cost estimates
 3. Use `diagram-generator` for stakeholder documentation
 4. Reference the issue solutions when you hit Bicep errors

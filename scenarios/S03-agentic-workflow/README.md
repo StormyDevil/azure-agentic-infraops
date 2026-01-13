@@ -68,9 +68,9 @@ Traditional infrastructure design involves:
 
 ## 🤖 The Seven Steps
 
-### Step 1: Plan Agent (`@plan`) - _VS Code Built-in - Start Here_
+### Step 1: Plan Agent (`Project Planner`) - _VS Code Built-in - Start Here_
 
-> **This is a built-in VS Code feature**, not a custom agent.
+> **This is a custom agent**, not a custom agent.
 > It's designed to research and plan before any code changes are made.
 
 - **Purpose**: Research tasks comprehensively using read-only tools and codebase analysis before implementation
@@ -101,7 +101,7 @@ Traditional infrastructure design involves:
 - "Create infrastructure for a multi-tier web application with Azure App Service and SQL Database"
 - "Implement zone-redundant deployment for existing application"
 
-**Usage**: Always start with `@plan` for multi-step infrastructure projects.
+**Usage**: Always start with `Project Planner` for multi-step infrastructure projects.
 The plan ensures all requirements are considered before any code changes.
 
 ### Step 2: Azure Principal Architect (`azure-principal-architect`)
@@ -213,7 +213,7 @@ The plan ensures all requirements are considered before any code changes.
 
    | Stage | Agent                       | Duration  | Key Output                               |
    | ----- | --------------------------- | --------- | ---------------------------------------- |
-   | 0     | `@plan` (built-in)          | 5-10 min  | Implementation plan + `*.prompt.md` file |
+   | 0     | `Project Planner` (custom)          | 5-10 min  | Implementation plan + `*.prompt.md` file |
    | 1     | `azure-principal-architect` | 10-15 min | WAF assessment + cost estimates          |
    | 2     | `bicep-plan`                | 5-10 min  | Resource breakdown + Mermaid diagram     |
    | 3     | `bicep-implement`           | 10-15 min | Modular Bicep templates                  |
@@ -243,7 +243,7 @@ S03-agentic-workflow/
 │   └── templates/
 │       └── [Link to infra/bicep/contoso-patient-portal/]
 └── [Workflow Output: ../scenario-output/contoso-patient-portal/]
-    ├── 00-plan.md                      # @plan output
+    ├── 00-plan.md                      # Project Planner output
     ├── 01-azure-architect.md           # WAF assessment
     ├── 02-bicep-plan.md                # Implementation plan
     ├── 03-bicep-code-gen.md            # Bicep generation
@@ -254,7 +254,7 @@ S03-agentic-workflow/
 
 ### Part 0: Planning with VS Code Plan Agent (5-10 minutes)
 
-**Agent**: `@plan` (Built-in)
+**Agent**: `Project Planner` (Custom)
 
 1. Open Copilot Chat (`Ctrl+Alt+I`)
 2. Select **Plan** from the agents dropdown
@@ -284,7 +284,7 @@ The plan becomes a reusable `*.prompt.md` file.
 
 **Agent**: `azure-principal-architect`
 
-1. From Plan Agent handoff, or select Azure Principal Architect agent (`Ctrl+Shift+A`)
+1. From Plan Agent handoff, or select Azure Principal Architect agent (`Ctrl+Alt+I`)
 2. The plan context is automatically passed to the architect
 3. Review outputs:
    - WAF scores (Security: 9/10, Reliability: 7/10, etc.)
@@ -533,7 +533,7 @@ agents handle time-consuming documentation and code generation.
 Demo is successful when audience:
 
 - [ ] Understands the **7-step agentic workflow** concept (starting with VS Code's built-in Plan Agent)
-- [ ] Recognizes Plan Agent as a **built-in VS Code feature** (not a custom agent)
+- [ ] Recognizes Plan Agent as a **custom agent** (not a custom agent)
 - [ ] Understands how **`*.prompt.md` files** preserve and share implementation plans
 - [ ] Sees value in automatic context handoffs via UI controls
 - [ ] Recognizes time savings (96% reduction, 18 hours → 45 minutes)
@@ -569,7 +569,7 @@ Before starting, gauge your audience:
 
 | Phase                    | Issue                         | How to Help                                    |
 | ------------------------ | ----------------------------- | ---------------------------------------------- |
-| Step 1 (@plan)           | "Where's the Plan Agent?"     | Show `Ctrl+Shift+A` agent picker               |
+| Step 1 (Project Planner)           | "Where's the Plan Agent?"     | Show `Ctrl+Alt+I` agent picker               |
 | Step 2 (Architect)       | "Why no code?"                | Emphasize WAF guidance vs implementation       |
 | Step 4 (bicep-plan)      | "Too much output"             | Use collapsible sections, focus on key modules |
 | Step 5 (bicep-implement) | "Validation errors"           | Expected! Show iterative refinement            |

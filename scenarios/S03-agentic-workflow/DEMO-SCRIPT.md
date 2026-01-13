@@ -22,7 +22,7 @@ By the end of this demo, the audience will:
 - [ ] Open `scenarios/S03-agentic-workflow/` directory
 - [ ] GitHub Copilot Chat visible (`Ctrl+Alt+I`)
 - [ ] Verify **Plan** agent available in dropdown (built-in, no setup required)
-- [ ] Test custom agent selection (`Ctrl+Shift+A`) - verify all 4 custom agents available
+- [ ] Test custom agent selection (`Ctrl+Alt+I`) - verify all 4 custom agents available
 - [ ] Have `prompts/workflow-prompts.md` ready in second window
 - [ ] Azure Portal open (optional - for showing deployment validation)
 
@@ -132,7 +132,7 @@ Please help me:
 
 ### Stage 1: Architecture Design (10:00 - 18:00)
 
-**[Select `azure-principal-architect` from Custom Agents dropdown - `Ctrl+Shift+A`]**
+**[Select `azure-principal-architect` from Custom Agents dropdown - `Ctrl+Alt+I`]**
 
 "Now I'm switching to our **Azure Principal Architect** custom agent. The plan context carries forward automatically."
 
@@ -508,7 +508,7 @@ If short on time, use this condensed version:
 
 - **Plan Agent not showing in dropdown**: Ensure VS Code and GitHub Copilot extension are up to date (Plan is built-in since late 2024)
 - **Custom agent not available**: Verify GitHub Copilot subscription and custom agent configuration in `.github/agents/`
-- **Handoff button missing**: Manually copy context and switch agents via `Ctrl+Shift+A`
+- **Handoff button missing**: Manually copy context and switch agents via `Ctrl+Alt+I`
 - **Plan file not saving**: Check workspace write permissions
 - **Bicep validation fails**: Use pre-generated templates from `solution/outputs/` directory
 - **Sorry, the response hit the length limit. Please rephrase your prompt error**: Update the prompt to stay within the allowed limits, or break it into smaller requests, or consider switching to a different model.
