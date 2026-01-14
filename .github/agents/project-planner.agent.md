@@ -1,5 +1,6 @@
 ---
 name: Project Planner
+model: "Claude Opus 4.5"
 description: Researches and captures Azure infrastructure project requirements
 argument-hint: Describe the Azure workload or project you want to plan
 tools:

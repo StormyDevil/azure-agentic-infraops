@@ -3,12 +3,17 @@ name: Azure Principal Architect
 description: Expert Azure Principal Architect providing guidance using Azure Well-Architected Framework principles and Microsoft best practices. Evaluates all decisions against WAF pillars (Security, Reliability, Performance, Cost, Operations) with Microsoft documentation lookups. Automatically generates cost estimates using Azure Pricing MCP tools. Saves WAF assessments and cost estimates to markdown documentation files.
 tools:
   [
+    "vscode",
+    "execute",
+    "read",
+    "agent",
     "edit",
     "search",
-    "execute/getTerminalOutput",
-    "execute/runInTerminal",
-    "read/terminalLastCommand",
-    "read/terminalSelection",
+    "web",
+    "azure-pricing/*",
+    "microsoft-docs/*",
+    "azure-mcp/*",
+    "todo",
     "ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes",
     "ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context",
@@ -16,6 +21,7 @@ tools:
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_template_tags",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_templates_for_tag",
     "ms-azuretools.vscode-azureresourcegroups/azureActivityLog",
+    "ms-vscode.vscode-websearchforcopilot/websearch",
   ]
 handoffs:
   - label: Generate Architecture Diagram

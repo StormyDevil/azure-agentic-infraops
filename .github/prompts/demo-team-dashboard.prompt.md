@@ -1,9 +1,10 @@
 ---
-description: 'Demo scenario: Internal team dashboard with Azure Static Web Apps'
-agent: 'project-planner'
+description: "Demo scenario: Internal team dashboard with Azure Static Web Apps"
+agent: "Project Planner"
+model: "Claude Opus 4.5"
 tools:
-  - createFile
-  - editFiles
+  - edit/createFile
+  - edit/editFiles
 ---
 
 # Demo: Team Dashboard Requirements
@@ -25,12 +26,12 @@ daily standups and project health.
 
 ### Stakeholders
 
-| Role           | Name/Team       | Responsibility         |
-| -------------- | --------------- | ---------------------- |
-| Business Owner | Engineering VP  | Approves requirements  |
-| Technical Lead | Platform Team   | Architecture decisions |
-| Operations     | DevOps Team     | Day-2 support          |
-| Security       | InfoSec         | Compliance sign-off    |
+| Role           | Name/Team      | Responsibility         |
+| -------------- | -------------- | ---------------------- |
+| Business Owner | Engineering VP | Approves requirements  |
+| Technical Lead | Platform Team  | Architecture decisions |
+| Operations     | DevOps Team    | Day-2 support          |
+| Security       | InfoSec        | Compliance sign-off    |
 
 ---
 
@@ -45,10 +46,10 @@ daily standups and project health.
 
 ### User Types & Load
 
-| User Type   | Expected Count | Peak Concurrent | Geographic Region |
-| ----------- | -------------- | --------------- | ----------------- |
-| Engineers   | 50             | 30              | Europe            |
-| Managers    | 10             | 5               | Europe            |
+| User Type | Expected Count | Peak Concurrent | Geographic Region |
+| --------- | -------------- | --------------- | ----------------- |
+| Engineers | 50             | 30              | Europe            |
+| Managers  | 10             | 5               | Europe            |
 
 ### Integration Requirements
 
@@ -59,11 +60,11 @@ daily standups and project health.
 
 ### Data Requirements
 
-| Data Type       | Volume | Retention | Sensitivity |
-| --------------- | ------ | --------- | ----------- |
-| User profiles   | 1 MB   | Ongoing   | Internal    |
-| Sprint metrics  | 10 MB  | 90 days   | Internal    |
-| Availability    | 1 MB   | 7 days    | Internal    |
+| Data Type      | Volume | Retention | Sensitivity |
+| -------------- | ------ | --------- | ----------- |
+| User profiles  | 1 MB   | Ongoing   | Internal    |
+| Sprint metrics | 10 MB  | 90 days   | Internal    |
+| Availability   | 1 MB   | 7 days    | Internal    |
 
 ---
 
@@ -71,26 +72,26 @@ daily standups and project health.
 
 ### Availability & Reliability
 
-| Requirement        | Target   | Notes                    |
-| ------------------ | -------- | ------------------------ |
-| **SLA**            | 99.9%    | Business hours critical  |
-| **RTO**            | 4 hours  | Acceptable for internal  |
-| **RPO**            | 24 hours | Daily backup sufficient  |
-| **Maintenance**    | Weekends | Preferred update window  |
+| Requirement     | Target   | Notes                   |
+| --------------- | -------- | ----------------------- |
+| **SLA**         | 99.9%    | Business hours critical |
+| **RTO**         | 4 hours  | Acceptable for internal |
+| **RPO**         | 24 hours | Daily backup sufficient |
+| **Maintenance** | Weekends | Preferred update window |
 
 ### Performance
 
-| Metric               | Target  | Notes              |
-| -------------------- | ------- | ------------------ |
-| **Response Time**    | < 500ms | Dashboard load     |
-| **Concurrent Users** | 30      | Peak during standup|
+| Metric               | Target  | Notes               |
+| -------------------- | ------- | ------------------- |
+| **Response Time**    | < 500ms | Dashboard load      |
+| **Concurrent Users** | 30      | Peak during standup |
 
 ### Scalability
 
-| Dimension    | Current | 12-Month | Notes            |
-| ------------ | ------- | -------- | ---------------- |
-| Users        | 60      | 100      | Team growth      |
-| Data Volume  | 12 MB   | 50 MB    | More metrics     |
+| Dimension   | Current | 12-Month | Notes        |
+| ----------- | ------- | -------- | ------------ |
+| Users       | 60      | 100      | Team growth  |
+| Data Volume | 12 MB   | 50 MB    | More metrics |
 
 ---
 
@@ -102,19 +103,19 @@ daily standups and project health.
 
 ### Data Residency
 
-| Requirement          | Details        |
-| -------------------- | -------------- |
-| **Primary Region**   | swedencentral  |
-| **Data Sovereignty** | EU only        |
+| Requirement          | Details       |
+| -------------------- | ------------- |
+| **Primary Region**   | swedencentral |
+| **Data Sovereignty** | EU only       |
 
 ### Security Requirements
 
-| Control              | Requirement              |
-| -------------------- | ------------------------ |
-| **Authentication**   | Azure AD (SSO)           |
-| **Authorization**    | Azure AD groups          |
-| **Encryption**       | Platform-managed         |
-| **Network**          | Public (internal users)  |
+| Control            | Requirement             |
+| ------------------ | ----------------------- |
+| **Authentication** | Azure AD (SSO)          |
+| **Authorization**  | Azure AD groups         |
+| **Encryption**     | Platform-managed        |
+| **Network**        | Public (internal users) |
 
 ---
 
@@ -122,17 +123,17 @@ daily standups and project health.
 
 ### Budget
 
-| Period        | Budget | Currency |
-| ------------- | ------ | -------- |
-| **Monthly**   | $50    | USD      |
-| **Annual**    | $600   | USD      |
+| Period      | Budget | Currency |
+| ----------- | ------ | -------- |
+| **Monthly** | $50    | USD      |
+| **Annual**  | $600   | USD      |
 
 ### Cost Optimization Priorities
 
-| Priority                 | Rank |
-| ------------------------ | ---- |
-| Minimize monthly spend   | 1    |
-| Reduce operational cost  | 2    |
+| Priority                | Rank |
+| ----------------------- | ---- |
+| Minimize monthly spend  | 1    |
+| Reduce operational cost | 2    |
 
 ---
 
@@ -140,11 +141,11 @@ daily standups and project health.
 
 ### Monitoring & Observability
 
-| Capability     | Requirement       |
-| -------------- | ----------------- |
-| **Logging**    | Application Logs  |
-| **Metrics**    | Platform metrics  |
-| **Alerting**   | Email on errors   |
+| Capability   | Requirement      |
+| ------------ | ---------------- |
+| **Logging**  | Application Logs |
+| **Metrics**  | Platform metrics |
+| **Alerting** | Email on errors  |
 
 ### Support Model
 
@@ -232,6 +233,18 @@ Simple, cost-effective solution:
 - **Application Insights** - Monitoring
 
 Estimated cost: ~$5-15/month
+
+---
+
+## Validation & Success Criteria
+
+- [ ] All 7 agent outputs generated successfully
+- [ ] Bicep templates pass `bicep build` and `bicep lint`
+- [ ] Architecture diagram renders correctly
+- [ ] Deployment completes without Azure Policy violations
+- [ ] Total demo execution time < 30 minutes
+- [ ] Cost estimate aligns with $50/month budget constraint
+- [ ] All required Azure resources created in `swedencentral`
 
 ---
 

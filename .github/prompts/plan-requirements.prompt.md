@@ -1,9 +1,10 @@
 ---
 description: "Gather Azure workload requirements through structured interview"
-agent: "project-planner"
+agent: "Project Planner"
+model: "Claude Opus 4.5"
 tools:
-  - createFile
-  - editFiles
+  - edit/createFile
+  - edit/editFiles
 ---
 
 # Plan Requirements

@@ -2,12 +2,30 @@
 name: Workload Documentation Generator
 description: Generates comprehensive Azure workload documentation by synthesizing outputs from existing agents into customer-deliverable design documents, operational runbooks, and compliance artifacts. Automatically generates as-built cost estimates using Azure Pricing MCP tools based on implemented Bicep templates.
 tools:
-  - "edit"
-  - "search"
-  - "execute/runInTerminal"
-  - "execute/getTerminalOutput"
-  - "read/terminalLastCommand"
-  - "read/terminalSelection"
+  [
+    "vscode",
+    "execute",
+    "read",
+    "agent",
+    "edit",
+    "search",
+    "web",
+    "microsoft-docs/*",
+    "azure-mcp/*",
+    "todo",
+    "ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes",
+    "ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph",
+    "ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context",
+    "ms-azuretools.vscode-azure-github-copilot/azure_set_auth_context",
+    "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_template_tags",
+    "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_templates_for_tag",
+    "ms-azuretools.vscode-azureresourcegroups/azureActivityLog",
+    "ms-python.python/getPythonEnvironmentInfo",
+    "ms-python.python/getPythonExecutableCommand",
+    "ms-python.python/installPythonPackage",
+    "ms-python.python/configurePythonEnvironment",
+    "ms-vscode.vscode-websearchforcopilot/websearch",
+  ]
 handoffs:
   - label: Return to Architect Review
     agent: Azure Principal Architect

@@ -2,12 +2,24 @@
 name: Azure Diagram Generator
 description: Generates Python architecture diagrams for Azure infrastructure using the 'diagrams' library by mingrammer. Creates version-controlled, reproducible architecture visualizations that can be regenerated as PNG images.
 tools:
-  - "edit"
-  - "search"
-  - "execute/runInTerminal"
-  - "execute/getTerminalOutput"
-  - "read/terminalLastCommand"
-  - "read/terminalSelection"
+  [
+    "vscode",
+    "execute",
+    "read",
+    "agent",
+    "edit",
+    "search",
+    "web",
+    "microsoft-docs/*",
+    "azure-mcp/*",
+    "todo",
+    "ms-azuretools.vscode-azureresourcegroups/azureActivityLog",
+    "ms-python.python/getPythonEnvironmentInfo",
+    "ms-python.python/getPythonExecutableCommand",
+    "ms-python.python/installPythonPackage",
+    "ms-python.python/configurePythonEnvironment",
+    "ms-vscode.vscode-websearchforcopilot/websearch",
+  ]
 handoffs:
   - label: Continue to Infrastructure Planning
     agent: Azure Bicep Planning Specialist

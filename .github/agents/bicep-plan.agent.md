@@ -1,14 +1,21 @@
 ---
 name: Azure Bicep Planning Specialist
+model: "Claude Opus 4.5"
 description: Expert Azure Bicep Infrastructure as Code planner that creates comprehensive, machine-readable implementation plans. Consults Microsoft documentation, evaluates Azure Verified Modules, and designs complete infrastructure solutions with architecture diagrams.
 tools:
   [
+    "vscode",
+    "execute",
+    "read",
+    "agent",
     "edit",
     "search",
-    "execute/runInTerminal",
-    "execute/getTerminalOutput",
-    "read/terminalLastCommand",
-    "read/terminalSelection",
+    "web",
+    "azure-pricing/*",
+    "microsoft-docs/*",
+    "azure-mcp/*",
+    "bicep-(experimental)/*",
+    "todo",
     "ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes",
     "ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context",

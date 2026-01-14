@@ -3,12 +3,17 @@ name: Azure Bicep Implementation Specialist
 description: Expert Azure Bicep Infrastructure as Code specialist that creates near-production-ready Bicep templates following best practices and Azure Verified Modules standards. Validates, tests, and ensures code quality.
 tools:
   [
+    "vscode",
+    "execute",
+    "read",
+    "agent",
     "edit",
     "search",
-    "execute/runInTerminal",
-    "execute/getTerminalOutput",
-    "read/terminalLastCommand",
-    "read/terminalSelection",
+    "web",
+    "microsoft-docs/*",
+    "azure-mcp/*",
+    "bicep-(experimental)/*",
+    "todo",
     "ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes",
     "ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context",
@@ -16,6 +21,7 @@ tools:
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_template_tags",
     "ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_templates_for_tag",
     "ms-azuretools.vscode-azureresourcegroups/azureActivityLog",
+    "ms-vscode.vscode-websearchforcopilot/websearch",
   ]
 handoffs:
   - label: Generate Workload Documentation
