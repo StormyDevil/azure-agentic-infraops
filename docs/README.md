@@ -1,6 +1,6 @@
 # Documentation Hub
 
-> **Agentic InfraOps v4.0.0** |
+> **Agentic InfraOps v5.3.0** |
 > 🔗 [aka.ms/agenticinfraops](https://aka.ms/agenticinfraops)
 
 Welcome to the Agentic InfraOps documentation center. Choose your path based on experience level.
